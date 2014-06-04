@@ -17,7 +17,7 @@
 
         <script>
 
-            var root = '{$WebSiteUrl}';           
+            var root = '{$WebSiteUrl}';
         </script>
         {literal} 
 
@@ -25,77 +25,79 @@
             <script language='JavaScript' type="text/javascript">
 
 
-            
 
 
-            function isIE(){
-                if (window.navigator.userAgent.toLowerCase().indexOf("msie")>=1)
-                    return true;
-                else
-                    return false;
-            }
 
-            function tupian(idt){
-                var nametu="xiaotu"+idt;
-                var tp = document.getElementById(nametu);
-                tp.src=root+"/images/ico05.gif";
-
-                for(var i=0;i<2000;i++)
-                {
-
-                    var nametu2="xiaotu"+i;
-                    if(i!=idt*1)
-                    {
-                        var tp2=document.getElementById('xiaotu'+i);
-                        if(tp2!=undefined)
-                        {tp2.src=root+"/images/ico06.gif";}
-                    }
+                function isIE() {
+                    if (window.navigator.userAgent.toLowerCase().indexOf("msie") >= 1)
+                        return true;
+                    else
+                        return false;
                 }
-            }
 
-            function list(idstr){
-                var name1="subtree"+idstr;
-                var name2="img"+idstr;
-                var objectobj=document.all(name1);
-                var imgobj=document.all(name2);
-                var tableObj = 'table' + idstr;
+                function tupian(idt) {
+                    var nametu = "xiaotu" + idt;
+                    var tp = document.getElementById(nametu);
+                    tp.src = root + "/images/ico05.gif";
 
+                    for (var i = 0; i < 2000; i++)
+                    {
 
-                
-
-
-                if(objectobj.style.display=="none"){
-                    for(i=1;i<2000;i++){
-                        var name3="img"+i;
-                        var name="subtree"+i;
-                        var o=document.all(name);
-                        if(o!=undefined){
-                            o.style.display="none";
-                            var image=document.all(name3);
-                            //alert(image);
-                            image.src=root+"/images/ico04.png";
+                        var nametu2 = "xiaotu" + i;
+                        if (i != idt * 1)
+                        {
+                            var tp2 = document.getElementById('xiaotu' + i);
+                            if (tp2 != undefined)
+                            {
+                                tp2.src = root + "/images/ico06.gif";
+                            }
                         }
                     }
-                    objectobj.style.display="block";
-                    imgobj.src=root+"/images/ico03.png";
-
-
-                    $('.tableDefault').css('display','none');
-                    $('#'+name1).show();
-                }
-                else{
-                    objectobj.style.display="none";
-                    imgobj.src=root+"/images/ico04.png";
-
-                    $('.tableDefault').css('display','none');
-                    $('#'+name1).hide();
                 }
 
+                function list(idstr) {
+                    var name1 = "subtree" + idstr;
+                    var name2 = "img" + idstr;
+                    var objectobj = document.all(name1);
+                    var imgobj = document.all(name2);
+                    var tableObj = 'table' + idstr;
 
-                
 
 
-            }
+
+
+                    if (objectobj.style.display == "none") {
+                        for (i = 1; i < 2000; i++) {
+                            var name3 = "img" + i;
+                            var name = "subtree" + i;
+                            var o = document.all(name);
+                            if (o != undefined) {
+                                o.style.display = "none";
+                                var image = document.all(name3);
+                                //alert(image);
+                                image.src = root + "/images/ico04.png";
+                            }
+                        }
+                        objectobj.style.display = "block";
+                        imgobj.src = root + "/images/ico03.png";
+
+
+                        $('.tableDefault').css('display', 'none');
+                        $('#' + name1).show();
+                    }
+                    else {
+                        objectobj.style.display = "none";
+                        imgobj.src = root + "/images/ico04.png";
+
+                        $('.tableDefault').css('display', 'none');
+                        $('#' + name1).hide();
+                    }
+
+
+
+
+
+                }
             </script>{/literal}
             <div class="left_background" style='border-radius: 10px 10px 0 0;'>
 
@@ -192,6 +194,10 @@
                                             </td>
                                         </tr>
                                     {/if}
+                                    
+                                   
+                                    
+                                   
                                 </table>
                             {/if}
 
@@ -380,13 +386,13 @@
                                             </td>
 
 
-                                    {/if}
+                                        {/if}
 
 
 
-                                        </tr>
+                                    </tr>
 
-                                  
+
 
                                 </table>
 
@@ -559,6 +565,39 @@
 
                                         </tr>
 
+                                    {/if}
+                                    
+                                     {if $auth_result[42]==1}
+                                        <tr>
+
+                                            <td width="85%">
+
+
+
+                                                <div class='left-a' >
+
+                                                    <a  style='color: #3394c4' href="{$WebSiteUrl}/pageredirst.php?action=web&functionname=stylistIntroduction" target="mainFrame" class="left-fontSmall" >发型师列表</a>
+
+                                                </div>
+
+                                            </td>
+                                        </tr>
+                                    {/if}
+                                       {if $auth_result[43]==1}
+                                        <tr>
+
+                                            <td width="85%">
+
+
+
+                                                <div class='left-a' >
+
+                                                    <a  style='color: #3394c4' href="{$WebSiteUrl}/pageredirst.php?action=web&functionname=addstylist" target="mainFrame" class="left-fontSmall" >添加发型师</a>
+
+                                                </div>
+
+                                            </td>
+                                        </tr>
                                     {/if}
 
 

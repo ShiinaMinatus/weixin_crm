@@ -25,13 +25,13 @@ class view {
 
         if (!empty($this->smarty_dir)) {
 
-            $this->smarty->template_dir = ROOTPATH . '/templates/'.$_SESSION['weixin_crm_source']. '/'. $this->smarty_dir . '/';
+            $this->smarty->template_dir = ROOTPATH . '/templates/' . $_SESSION['weixin_crm_source'] . '/' . $this->smarty_dir . '/';
         } else {
 
-            $this->smarty->template_dir = ROOTPATH . '/templates/'.$_SESSION['weixin_crm_source'].'/';
+            $this->smarty->template_dir = ROOTPATH . '/templates/' . $_SESSION['weixin_crm_source'] . '/';
         }
-
-    
+        
+      
     }
 
     public function display($page = '') {
@@ -58,11 +58,11 @@ class view {
         }
 
 
-       
-       
+
+
         $this->smarty->assign('uname', $_SESSION['weixin_crm_user_name']);
 
-        $this->smarty->assign('account',$_SESSION['weixin_user_account']);
+        $this->smarty->assign('account', $_SESSION['weixin_user_account']);
 
         $this->smarty->assign('ROOTPATH', ROOTPATH);
 
@@ -72,7 +72,7 @@ class view {
 
         $this->smarty->assign('URLCONTROLLER', URLCONTROLLER);
 
-        $this->smarty->assign('source',$_SESSION['weixin_crm_source']);
+        $this->smarty->assign('source', $_SESSION['weixin_crm_source']);
 
         $this->smarty->display($displayPage . '.tpl');
     }

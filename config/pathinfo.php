@@ -2,7 +2,7 @@
 
 session_start();
 
-$array = array('company','inhouse','jiantang');
+$array = array('company', 'inhouse', 'jiantang');
 
 if (!empty($_SERVER['PATH_INFO'])) {
 
@@ -10,12 +10,12 @@ if (!empty($_SERVER['PATH_INFO'])) {
 
     $source = strtolower($pathInfo[0]);
 
-     if(empty($_SESSION['weixin_crm_source'])){
+    if (empty($_SESSION['weixin_crm_source'])) {
 
-         if(!empty($pathInfo) && is_array($pathInfo)){
+        if (!empty($pathInfo) && is_array($pathInfo)) {
 
             $_SESSION['weixin_crm_source'] = $source;
-         } else{
+        } else {
 
             echo '来源不能为空';
 
@@ -24,23 +24,20 @@ if (!empty($_SERVER['PATH_INFO'])) {
     }
 
 
-    if(in_array($source, $array)){
+    if (in_array($source, $array)) {
 
-        if($_SESSION['weixin_crm_source'] != $source){
+        if ($_SESSION['weixin_crm_source'] != $source) {
 
             session_unset();
 
             $_SESSION['weixin_crm_source'] = $source;
-           
         }
     }
-} else{
+} else {
 
 
-   echo '请输入来源';
+    echo '请输入来源';
 
     die;
-
 }
-
 ?>

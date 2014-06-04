@@ -40,6 +40,9 @@ defined('FOOTCONTROLLER') or define('FOOTCONTROLLER',  ROOTPATH . 'publicControl
 
 defined('URLADDRESS') or define('URLADDRESS', WebSiteUrl.'/'.$_SESSION['weixin_crm_source']);
 
+
+
+
 if ($handle = opendir(FOOTCONTROLLER)) {
     /* to include all files that in the class folder what a way to include classes!!! */
     while (false !== ($file = readdir($handle))) {
