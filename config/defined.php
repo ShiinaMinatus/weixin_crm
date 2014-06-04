@@ -38,6 +38,6 @@ include_once 'core.php';
 
 include_once 'extends.php';
 
-include_once 'config/handlerAuto.php';
+include_once 'handlerAuto.php';
 
 ?>
