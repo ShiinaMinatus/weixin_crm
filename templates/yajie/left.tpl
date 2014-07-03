@@ -131,7 +131,7 @@
 
                                                 <div class='left-a' >
 
-                                                    <a  style='color: #3394c4' href="{$WebSiteUrl}/pageredirst.php?action=user&functionname=userList" target="mainFrame" class="left-fontSmall" >公司信息</a>
+                                                    <a  style='color: #3394c4' href="{$WebSiteUrl}/pageredirst.php?action=company&functionname=companyEdit" target="mainFrame" class="left-fontSmall" >公司信息</a>
 
                                                 </div>
 
