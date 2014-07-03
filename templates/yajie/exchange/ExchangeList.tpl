@@ -8,76 +8,70 @@
 <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/css/bootstrap.min.css">
 <link href="{$WebSiteUrl}/css/crm_table_style.css" rel="stylesheet">
 <style>
-    body{
-        overflow-x: hidden;
-    }
-    .userMangerTitle{
-        color: rgb(91,91,91);
-        font-size: 2.5em;
-        margin-top: 15px;
-        text-align: center;
-    }
-
-    .sortBar{
-        width: auto;
-        margin-left: 25px;
-        height: 25px;
-        line-height: 0px;
-        margin-right: 45px;
-        /*        margin: 0 auto;*/
+    .dataArea{
+        text-align: left;
+        min-width: 500px;
+        margin: 0 auto;
+        height: 515px;
     }
     table tr>th{
         text-align: center;
-        background-color: #eee;
     }
     table tr>td{
         text-align: center;
         vertical-align:middle !important;
-        border-bottom-color: #D5E3E7 !important;
     }
-    table tr:nth-of-type(even){
-        background-color: #F9FCFD;
+    .userMangerTitle{
+        color: rgb(91,91,91);
+        font-size: 25px;
+        margin-top: 15px;
+        text-align: center;
     }
-    .selectText{
-        height: 32px;
-        border-radius:0px; 
-        border: #c5c5c5 solid 1px;
-        box-shadow: 0px 2px 2px #888 inset; 
-        padding-left: 10px;
-        width: 224px;
+    .deleteButton{
+        color:red;
     }
-    .selectBar{
-        padding-left: 25px;
+    .deleteButton:hover{
+        color: red;
+        text-decoration: none;
     }
 </style>
 <div class="navBarStyle">
-    当前位置：系统管理 > 发型师列表
+    当前位置：兑换管理 > 礼品列表
 </div>
-
-<div style='height: 10px;'>&nbsp;</div>
-<div class="dataArea" style='height: auto;'>
-
-
+<div style="height: 50px;"></div>
+<div class="dataArea">
     <table class="table table-bordered crmTable" >
-        <tr><th>照片</th>
-            <!--            <th>礼品名称</th><th>礼品类型</th>-->
-            <th style=' width: 80px;'>名称</th>
-            <th style="width: 120px;">简介</th><th>特长</th>
-
-            <th style="display: none">id</th><th style=' width: 40px;'>编辑</th><th style=' width: 40px;'>删除</th></tr>
-            {foreach from=$userInfo item=Info key=key}
+        <tr><th>礼品图片</th>
+                        <th style="width: 120px;">礼品名称</th><th style="width: 120px;">礼品类型</th>
+            <th style="width: 120px;">兑换积分</th><th>物品简介</th>
+            <th style="width:140px;">添加时间</th>
+            <th style="display: none">id</th><th style="width:40px;">编辑</th><th style="width:40px;">删除</th></tr>
+            {foreach from=$exchangeList item=exchangeIteam key=key}
             <tr>
-                <td><img src="{$WebSiteUrl}/images/inhouse/{$Info.stylist_image}" width="80" height="80"></td>
-                <td>{$Info.stylist_name}</td>
-                <td style="text-align: left;width: 50%">{$Info.stylist_info}</td>
-                <td>{$Info.specialty}</td>
-                <td  style="display: none">{$Info.stylist_id}</td>
-                <td><a href="{$WebSiteUrl}/pageredirst.php?action=web&functionname=editStylistItem&ItemId={$Info.stylist_id}">编辑</a></td>
+                <td><img src="{$WebSiteUrl}/giftImages/{$exchangeIteam.exchange_image}" width="80" height="80"></td>
+                <td>{$exchangeIteam.exchange_name}</td>
+                <td>
+                {if $exchangeIteam.exchange_type eq 0}
+                    虚拟
+                {else}
+                    实物
+                {/if} 
+            </td>
+                <td>{$exchangeIteam.exchange_integration}</td>
+                <td style="text-align: left;width: 30%">{$exchangeIteam.exchange_summary}</td>
+                {if $exchangeIteam.create_time eq ""}
+                    <td style="text-align: center;">暂无</td>
+                {else}
+                    <td style="text-align: center;">{$exchangeIteam.create_time|date_format:"%Y-%m-%d %H:%M"}</td>
+                {/if}
+                <td  style="display: none">{$exchangeIteam.exchange_id}</td>
+                <td><a href="{$WebSiteUrl}/pageredirst.php?action=exchange&functionname=editExchangeItem&ItemId={$exchangeIteam.exchange_id}">编辑</a></td>
                 <td><a href="#"  data-toggle="modal" data-target="#myModal" class="deleteButton ">删除</a></td>
 
             </tr>
         {/foreach}
     </table>
+
     <!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -91,14 +85,13 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
                     <a id="checkButton" href=""><button type="button" class="btn btn-primary">确认</button></a>
-                    <input type="hidden" id="deleteUrl" value="{$WebSiteUrl}/pageredirst.php?action=web&functionname=stylistItemDelete&ItemId="  />
+                    <input type="hidden" id="deleteUrl" value="{$WebSiteUrl}/pageredirst.php?action=exchange&functionname=exchangeItemDelete&ItemId="  />
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
 </div>
 <div style="text-align: center">{$pages}</div> 
-<script src="{$WebSiteUrl}/js/jquery-1.9.1.js"></script>
 <script>
     $(".deleteButton").click(function (){
     var alertTitle=new Array();
@@ -118,7 +111,7 @@ WarringStr+="<div class='form-group'><label  class=' control-label labelWidth'>"
 +"</div>";
 }
 var deleteUrl=$("#deleteUrl").val();
-$("#checkButton").attr("href", deleteUrl+alertText[4]);                
+$("#checkButton").attr("href", deleteUrl+alertText[6]);                
 $(".modal-body").html(WarringStr);
 })
 </script>
