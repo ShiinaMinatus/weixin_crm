@@ -1,6 +1,8 @@
 <?php
 
 
+var_dump($_SESSION);
+
 
 if ($handle = opendir(FOOTBASIC)) {
     /* to include all files that in the class folder what a way to include classes!!! */

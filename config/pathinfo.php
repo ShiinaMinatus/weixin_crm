@@ -2,11 +2,14 @@
 
 session_start();
 
-$array = array('company', 'inhouse', 'jiantang');
+
+$array = array('yajie', 'inhouse', 'jiantang');
 
 if (!empty($_SERVER['PATH_INFO'])) {
 
     $pathInfo = explode('/', trim($_SERVER['PATH_INFO'], '/'));
+
+
 
     $source = strtolower($pathInfo[0]);
 
@@ -24,14 +27,16 @@ if (!empty($_SERVER['PATH_INFO'])) {
     }
 
 
+    
     if (in_array($source, $array)) {
 
-        if ($_SESSION['weixin_crm_source'] != $source) {
+         $_SESSION['weixin_crm_source'] = $source;
 
-            session_unset();
+        
+       
+    } else{
 
-            $_SESSION['weixin_crm_source'] = $source;
-        }
+        echo '2';
     }
 } else {
 
