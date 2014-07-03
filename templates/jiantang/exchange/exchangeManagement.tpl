@@ -126,6 +126,7 @@
 <script>
 
     $(".sendButton").click(function(){
+   
     $("#myModalLabel").html("你要确认已经发货么？");
     var alertTitle=new Array();
     var alertText=new Array();
@@ -147,7 +148,8 @@ WarringStr+="<div class='form-group'><label  class=' control-label labelWidth'>"
 +"</div>";
 }
 var deleteUrl=$("#deleteUrl").val();
-$("#checkButton").attr("href", deleteUrl+alertText[5]+"&actionType=send");                
+alert(alertText);
+$("#checkButton").attr("href", deleteUrl+alertText[6]+"&actionType=send");                
 $(".modal-body").html(WarringStr);
 
 });
@@ -156,7 +158,7 @@ $(".resultsButton").click(function(){
 var alertTitle=new Array();
 var alertText=new Array();
 var WarringStr ="";
-    
+
 var textObject=$(this).parent().parent().find("td");
 
 $(textObject).each(function(index){
@@ -173,6 +175,7 @@ WarringStr+="<div class='form-group'><label  class=' control-label labelWidth'>"
 +"</div>";
 }
 var deleteUrl=$("#deleteUrl").val();
+
 $("#checkButton").attr("href", deleteUrl+alertText[6]+"&actionType=results");                
 $(".modal-body").html(WarringStr);
 
