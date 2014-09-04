@@ -1,0 +1,11 @@
+{
+    "common": {
+        "App.Name.Text": "HelloWorld应用",
+        "App.Headline.Text": "HelloWorld应用"
+    },
+    "labels": {
+        "main": {
+            "Label.Text.firstPage": "这是我的第一个页面。"
+        }
+    }
+}

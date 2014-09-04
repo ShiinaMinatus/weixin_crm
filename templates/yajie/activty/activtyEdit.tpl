@@ -12,7 +12,7 @@
 
         <link href="{$WebSiteUrl}/css/bootstrap-datetimepicker.css" rel="stylesheet" media="screen">
 
-        <link href="{$WebSiteUrl}/css/crm_table_style.css" rel="stylesheet">
+        <link href="{$WebSiteUrl}/css/crm_table_style_{$source}.css" rel="stylesheet">
 
         <script>
            

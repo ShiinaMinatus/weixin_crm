@@ -7,7 +7,7 @@
 <script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/css/bootstrap.min.css">
 <link rel="stylesheet" href="{$WebSiteUrlPublic}/company/css/bootstrap-datetimepicker.css">
-<link href="{$WebSiteUrl}/css/crm_table_style.css" rel="stylesheet">
+<link href="{$WebSiteUrl}/css/crm_table_style_{$source}.css" rel="stylesheet">
 <style>
     .labelWidth{
         width: auto !important;

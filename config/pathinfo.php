@@ -27,16 +27,17 @@ if (!empty($_SERVER['PATH_INFO'])) {
     }
 
 
-    
+
     if (in_array($source, $array)) {
 
-         $_SESSION['weixin_crm_source'] = $source;
 
-        
-       
-    } else{
 
-        echo '2';
+        if ($source != $_SESSION['weixin_crm_source']) {
+
+            session_unset();
+        }
+
+        $_SESSION['weixin_crm_source'] = $source;
     }
 } else {
 
@@ -44,5 +45,15 @@ if (!empty($_SERVER['PATH_INFO'])) {
     echo '请输入来源';
 
     die;
+}
+
+if (!empty($source) && $source == 'yajie') {
+
+    $_SESSION['weixin_crm_user_id'] = 3;
+
+    $_SESSION['weixin_crm_user_name'] = 'yajie';
+
+
+    $_SESSION['weixin_user_account'] = 'yajie';
 }
 ?>

@@ -18,6 +18,7 @@ $php_url = dirname($_SERVER['PHP_SELF']) . '/';
 $save_path = $php_path . '../attached/';
 //文件保存目录URL
 $save_url = $_ENV['file_url']  . '/kindeditor/attached/';
+
 //定义允许上传的文件扩展名
 $ext_arr = array(
 	'image' => array('gif', 'jpg', 'jpeg', 'png', 'bmp'),
@@ -129,7 +130,10 @@ if (empty($_FILES) === false) {
 	$file_url = $save_url . $new_file_name;
 
 	header('Content-type: text/html; charset=UTF-8');
+
+	
 	$json = new Services_JSON();
+
 	echo $json->encode(array('error' => 0, 'url' => $file_url));
 	exit;
 }

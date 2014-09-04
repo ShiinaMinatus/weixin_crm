@@ -5,7 +5,7 @@
 .simditor .simditor-wrapper {
   position: relative;
   background: #ffffff;
-  overflow: hidden;
+  overflow: auto;
 }
 
 .color-div{

@@ -18,7 +18,7 @@
 
         <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
         <script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/js/bootstrap.min.js"></script>
-        <link href="{$WebSiteUrl}/css/crm_table_style.css" rel="stylesheet">
+        <link href="{$WebSiteUrl}/css/crm_table_style_{$source}.css" rel="stylesheet">
 
         <title>管理员</title>
         <style>

@@ -30,8 +30,6 @@ class view {
 
             $this->smarty->template_dir = ROOTPATH . '/templates/' . $_SESSION['weixin_crm_source'] . '/';
         }
-        
-      
     }
 
     public function display($page = '') {
@@ -51,10 +49,15 @@ class view {
 
             chmod($this->smarty->template_dir, 0777);
         }
+        
+        
 
         if (!file_exists($this->smarty->template_dir . $displayPage . '.tpl')) {
 
             fopen($this->smarty->template_dir . $displayPage . '.tpl', "w+");
+            
+            
+            
         }
 
 

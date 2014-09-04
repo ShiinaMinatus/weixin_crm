@@ -1,0 +1,72 @@
+.divPack{
+
+
+	background-color: #FFFFFF;
+border: 1px solid #DDDDDD;
+border-radius: 4px 4px 4px 4px;
+margin: 15px 0;
+padding: 39px 19px 24px;
+position: relative;
+}
+
+.contentDiv{
+
+	background-color: #F5F5F5;
+border: 1px solid #DDDDDD;
+border-radius: 4px 0 4px 0;
+color: #9DA0A4;
+content: "Row";
+font-size: 12px;
+font-weight: bold;
+left: -1px;
+line-height: 2;
+padding: 3px 7px;
+position: absolute;
+top: -1px;
+}
+
+.fatherContentDiv{
+
+	background-color: #F5F5F5;
+
+	box-sizing: border-box;
+
+	box-shadow: inset 0 1px 13px rgba(0, 0, 0, 0.1);
+
+
+	border: 1px solid #DDDDDD;
+
+	border-radius: 4px 4px 4px 4px;
+
+	margin: 15px 0;
+
+	position: relative;
+
+
+	padding: 25px 14px 0;
+}
+
+
+.titleClass{
+
+	width: 870px; height: 50px; line-height: 44px;margin: 0 auto; margin-top: 12px; background-color: white;background-color: #FFFFFF;
+border: 1px solid #DDDDDD;
+border-radius: 4px 4px 4px 4px;
+margin: 15px 0;
+position: relative;
+}
+
+.word{
+
+
+	background-color: #F5F5F5;border: 1px solid #DDDDDD;border-radius: 4px 0 4px 0;
+color: #9DA0A4;
+content: "Row";
+font-size: 12px;
+font-weight: bold;
+left: -1px;
+line-height: 2;
+padding: 3px 7px;
+position: absolute;
+top: -1px;
+}

@@ -12,7 +12,7 @@
 
         <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/css/bootstrap.min.css"> 
 
-            <link href="{$WebSiteUrl}/css/crm_table_style.css" rel="stylesheet">
+            <link href="{$WebSiteUrl}/css/crm_table_style_{$source}.css" rel="stylesheet">
 
                 <link href="{$WebSiteUrl}/css/bootstrap-datetimepicker.css" rel="stylesheet" media="screen">
 
@@ -22,7 +22,7 @@
 
 
 
-                    })
+                        })
 
                     </script>
 
@@ -49,11 +49,11 @@
 
                     </head>
                     <body>
-                        <div class="navBarStyle">
-                            当前位置：公司管理 > 公司信息
-                        </div>
+                     
+                        
+
                         {if $scuesss eq "1"}
-                        <div id="Message" class="alert alert-danger errorMessage" style="display: block">恭喜你添加成功</div>
+                            <div id="Message" class="alert alert-danger errorMessage" style="display: block">恭喜你添加成功</div>
                         {/if}
                         <div id="errorMessage" class="alert alert-danger errorMessage">恭喜你添加成功</div>
                         <div style="margin-left:15px;margin-top:15px;">
@@ -86,10 +86,12 @@
                     <script src="{$WebSiteUrl}/js/bootstrap-datetimepicker.js"></script>
 
                     <script>
-                     editor = new Simditor({
-                    textarea: $('#activity_html'),
-                    pasteImage: true,
-                    toolbar: [
+                        editor = new Simditor({
+                            textarea: $('#activity_html'),
+
+                             upload: true,
+                            pasteImage: true,
+                            toolbar: [
                         'title',
                         'bold',
                         'italic',
@@ -105,46 +107,46 @@
                         'hr',
                         'indent',
                         'outdent',
-                    ]
-                });
-                $('#activity_end_time').datetimepicker({
-                language: 'fr',
-                weekStart: 1,
-                todayBtn: 1,
-                autoclose: 1,
-                todayHighlight: 1,
-                startView: 2,
-                minView: 2,
-                forceParse: 0
-            });
+                    ],
+                        });
+                        $('#activity_end_time').datetimepicker({
+                            language: 'fr',
+                            weekStart: 1,
+                            todayBtn: 1,
+                            autoclose: 1,
+                            todayHighlight: 1,
+                            startView: 2,
+                            minView: 2,
+                            forceParse: 0
+                        });
 
-            $("#addButton").click(function() {
-            $("#errorMessage").hide();
-            $("#Message").hide();
-            $("#errorMessage").html();
+                        $("#addButton").click(function() {
+                            $("#errorMessage").hide();
+                            $("#Message").hide();
+                            $("#errorMessage").html();
 
-            var errorMessage = "";
+                            var errorMessage = "";
 
-            var alertFlag = false;
-            editor.sync();
+                            var alertFlag = false;
+                            editor.sync();
 
-            html = document.getElementById('activity_html').value; // 原生API
+                            html = document.getElementById('activity_html').value; // 原生API
 
-            if (html == "") {
-            errorMessage += "活动内容不能为空 <br>";
+                            if (html == "") {
+                                errorMessage += "活动内容不能为空 <br>";
 
-            alertFlag = true;
-        }
+                                alertFlag = true;
+                            }
 
-        if (alertFlag) {
+                            if (alertFlag) {
 
-        $("#errorMessage").show();
+                                $("#errorMessage").show();
 
-        $("#errorMessage").html(errorMessage);
+                                $("#errorMessage").html(errorMessage);
 
-        return false;
-    }
+                                return false;
+                            }
 
 
-});
+                        });
                     </script>

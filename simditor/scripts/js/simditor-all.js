@@ -738,7 +738,7 @@
     Formatter.prototype._allowedTags = ['br', 'a', 'img', 'b', 'strong', 'i', 'u', 'p', 'ul', 'ol', 'li', 'blockquote', 'pre', 'h1', 'h2', 'h3', 'h4', 'hr'];
 
     Formatter.prototype._allowedAttributes = {
-      img: ['src', 'alt', 'width', 'height', 'data-image-src', 'data-image-size', 'data-image-name', 'data-non-image'],
+      img: ['src', 'alt', 'width', 'height', 'data-image-src', 'data-image-size', 'data-image-name', 'data-non-image','style'],
       a: ['href', 'target'],
       pre: ['data-lang', 'class'],
       p: ['data-indent'],
@@ -3908,10 +3908,9 @@
         }
         $img.attr({
           src: src,
-          width: width,
-          height: height,
           'data-image-size': img.width + ',' + img.height
         });
+
         if ($img.hasClass('uploading')) {
           $mask.css({
             width: width,
@@ -5335,7 +5334,7 @@
     Formatter.prototype._allowedTags = ['br', 'a', 'img', 'b', 'strong', 'i', 'u', 'p', 'ul', 'ol', 'li', 'blockquote', 'pre', 'h1', 'h2', 'h3', 'h4', 'hr'];
 
     Formatter.prototype._allowedAttributes = {
-      img: ['src', 'alt', 'width', 'height', 'data-image-src', 'data-image-size', 'data-image-name', 'data-non-image'],
+      img: ['src', 'alt', 'width', 'height', 'data-image-src', 'data-image-size', 'data-image-name', 'data-non-image','style'],
       a: ['href', 'target'],
       pre: ['data-lang', 'class'],
       p: ['data-indent'],
@@ -8505,10 +8504,18 @@
         }
         $img.attr({
           src: src,
-          width: width,
-          height: height,
           'data-image-size': img.width + ',' + img.height
         });
+
+        $img.css('width','80%');
+
+        $img.css('height','80%');
+        
+        $img.css('display','inherit');
+        
+          $img.css('margin','0 auto');
+        
+        
         if ($img.hasClass('uploading')) {
           $mask.css({
             width: width,
@@ -8518,6 +8525,8 @@
           $mask.remove();
           $img.removeData('mask');
         }
+        
+     
         return callback(img);
       };
       img.onerror = function() {
@@ -8536,6 +8545,8 @@
       range = this.editor.selection.getRange();
       range.deleteContents();
       $img = $('<img/>').attr('alt', name);
+      
+      
       range.insertNode($img[0]);
       return $img;
     };

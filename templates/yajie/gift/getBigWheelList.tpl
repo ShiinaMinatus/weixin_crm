@@ -20,7 +20,7 @@
         <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
         <script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/js/bootstrap.min.js"></script>
 
-        <link href="{$WebSiteUrl}/css/crm_table_style.css" rel="stylesheet">
+        <link href="{$WebSiteUrl}/css/crm_table_style_{$source}.css" rel="stylesheet">
 
 
         <title>大转盘游戏配置信息</title>
@@ -72,10 +72,11 @@
 
     <boby>
 
-        <div class="navBarStyle">
-    当前位置：微游戏管理 > 大转盘游戏配置信息
-</div>
 
+        
+         <div class="page-header">
+                <h1> <small>大转盘游戏配置信息</small></h1>
+            </div>
 
         <div class="bigWheelWarp">
            

@@ -12,7 +12,7 @@
 
         <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/css/bootstrap.min.css"> 
 
-            <link href="{$WebSiteUrl}/css/crm_table_style.css" rel="stylesheet">
+            <link href="{$WebSiteUrl}/css/crm_table_style_{$source}.css" rel="stylesheet">
 
                 <link href="{$WebSiteUrl}/css/bootstrap-datetimepicker.css" rel="stylesheet" media="screen">
 
@@ -20,7 +20,7 @@
 
                         $(function() {
 
-                            var editor = new Simditor({
+                            editor = new Simditor({
                                 textarea: $('#activity_html'),
                                 pasteImage: true,
                                 toolbar: [
@@ -142,13 +142,6 @@
 
                             var alertFlag = false;
 
-                            var html = document.getElementById('activity_html').value; // 原生API
-
-                            html = editor.html();
-
-                            editor.sync();
-
-                            html = document.getElementById('activity_html').value; // 原生API
 
                             if ($("#activity_name").val() == "") {
                                 errorMessage += "活动名称不能为空 <br>";

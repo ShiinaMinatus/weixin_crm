@@ -1,7 +1,6 @@
 <?php
 
 
-var_dump($_SESSION);
 
 
 if ($handle = opendir(FOOTBASIC)) {
