@@ -58,7 +58,7 @@
     <div class="sortBar"></div>
     {if $errorMessage neq ""}
         <div class="sortBar alert alert-warning"><label for="inputPassword3" class="control-label">{$errorMessage}</label></div>
-        {/if}
+    {/if}
 
 </form>
 

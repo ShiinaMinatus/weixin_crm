@@ -183,7 +183,7 @@ function sendWeixinCustom($money, $toopen_id,$user_id) {
         /**
          * 将{$money}替换成金额  并发送到微信客户端
          */
-        $content_ = str_replace('{$money}', $money, $content);
+        $content_ = str_replace('$money', $money, $content);
 
         $company = new companyModel($admin->vars['compang_id']);
 

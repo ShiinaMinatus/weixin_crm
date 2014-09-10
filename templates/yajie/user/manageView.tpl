@@ -60,6 +60,10 @@
 <div class="userMangerTitle">积分信息管理</div>
 
 <div style="text-align: center; padding-top: 100px;">
+    {if $printMessage neq ""}
+        <div class="sortBar alert alert-warning"><label for="inputPassword3" class="control-label">{$printMessage}</label></div>
+    {/if}
+    <div id="jsErrorMessage" style="display: none" class="sortBar alert alert-warning"><label id="jsError" class="control-label"></label></div>
     <div class="input-group groupInput">
         <input  type="text" class="form-control" style="" placeholder="请输入卡号" id="userCard" name="selectText">
 
@@ -76,38 +80,64 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                    <h4 class="modal-title">Modal title</h4>
+                    <h4 class="modal-title">确认扣除金额</h4>
                 </div>
                 <div class="modal-body">
-                    <p>One fine body&hellip;</p>
+                    <p>你确定要对卡号：<span id="cardId">123</span>  扣除<span id="moneyNumber">456</span>元吗？</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <a  id="checkTrue" href="{$WebSiteUrl}/pageredirst.php?action=user&functionname=deductMoneyAndPostMessage"><button type="button" class="btn btn-primary">确认</button></a>
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
 
-
+    <div style="height: 15px;"></div>
     <span class="input-group-btn">
-        <button class="btn btn-default"id="getUser" accesskey="Enter" type="button">确定</button>
-    </span>
-    
-    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-<script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
-<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-<script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/js/bootstrap.min.js"></script>
 
-    <script src="{$WebSiteUrl}/js/jquery-1.9.1.js"></script>
+        <button id="alertDialog" data-toggle="modal" data-target="#myModal" type="button"  accesskey="Enter" class="btn btn-default" style="width: auto;" >确定</button>
+    </span>
+
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/js/bootstrap.min.js"></script>
     <script src="{$WebSiteUrl}/js/rexexTest.js"></script>
     <script src="{$WebSiteUrl}/js/timeClass.js"></script>
     <script>
 
         $(function() {
-                
-                $('#myModal').modal();
-        })
+        $("#userMoney").on("input",function(){
+        if(!getIntRegex($(this).val())){
+        var cutString=$(this).val().substr(0, ($(this).val().length)-1);
+             
+        $("#userMoney").val(cutString);
+    }
+        
+}); 
+$("#alertDialog").click(function(){
+var cardId=$("#userCard").val();
+var moneyNumber=$("#userMoney").val();
+if(cardId==""||moneyNumber==""){
+$("#jsError").html("卡号与金额都不能为空");
+$("#jsErrorMessage").css("display","block");    
+return false;
+}
+else if(!getIntRegex($("#userMoney").val())){
+$("#jsError").html("金额必须为数字");
+$("#jsErrorMessage").css("display","block");   
+return false;
+}   
+else{
+$("#cardId").html(cardId);
+$("#moneyNumber").html(moneyNumber);
+var checkLink= $("#checkTrue").attr("href");
+checkLink+="&cardId="+cardId+"&moneyNumber="+moneyNumber;
+$("#checkTrue").attr("href",checkLink);
+}
+});
+});
 
 
 

@@ -1,16 +1,16 @@
-<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-10 14:51:28
+<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-10 15:24:24
          compiled from "/web/www/weixin_crm//templates/yajie/weixin/weixincustom.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:1042914498540ff4f0aa6a01-30318877%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:168577717540ffca8cbd132-99646870%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '2bf9dcf6faab2135d87f652bb44b0750564911e2' => 
     array (
       0 => '/web/www/weixin_crm//templates/yajie/weixin/weixincustom.tpl',
-      1 => 1410331886,
+      1 => 1410333861,
     ),
   ),
-  'nocache_hash' => '1042914498540ff4f0aa6a01-30318877',
+  'nocache_hash' => '168577717540ffca8cbd132-99646870',
   'function' => 
   array (
   ),
@@ -48,8 +48,7 @@ $_smarty_tpl->decodeProperties(array (
 </label></div>
     <?php }?>
    
-   注: '<?php echo $_smarty_tpl->getVariable('money')->value;?>
-'代表金额
+   注: $moeny代表金额
 <div id="errorMessage" class="alert alert-danger errorMessage"></div>
 <div style="margin-left:15px;margin-top:15px;">
     <div style="width: 370px; ">

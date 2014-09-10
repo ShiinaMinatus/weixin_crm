@@ -437,6 +437,7 @@ class userController implements User {
                 $user_pointer_record = new userPointerRecordModel();
 
                 $user_pointer_record->addRecord($user_id, 1, (int) $integration, 'crm');
+
             }
         }
     }
@@ -474,7 +475,7 @@ class userController implements User {
      * 减少用户积分
      * user_id  int  用户id  intergration  int 用户积分 
      */
-    public function reductionPointer($user_id, $integration) {
+    public function reductionPointer($user_id, $integration, $type = "crm") {
 
         if (!empty($user_id) && $user_id > 0 && $integration > 0) {
 
@@ -495,19 +496,19 @@ class userController implements User {
                 $user->updateVars();
                 $user_pointer_record = new userPointerRecordModel();
                 $misIntegration = -1 * $integration;
-                $user_pointer_record->addRecord($user_id, 1, $misIntegration, 'crm');
+                $user_pointer_record->addRecord($user_id, 1, $misIntegration, $type);
             }
         }
     }
 
     /**
      * 减少用户金额
-     * user_id  int  用户id  money  int 用户积分 
+     * user_id  int  用户流水号id非卡号  money  int 用户金额
      */
     public function reductionMoney($user_id, $money) {
 
         if (!empty($user_id) && $user_id > 0 && $money > 0) {
-
+            $isMinesNumber = false;
             $user = new userModel();
 
             $user->initialize('user_id = ' . $user_id);
@@ -519,6 +520,7 @@ class userController implements User {
                 if ($userMoney < 0) {
 
                     $userMoney = 0;
+                    $isMinesNumber = true;
                 }
 
                 $user->vars['user_money'] = $userMoney;
@@ -527,6 +529,7 @@ class userController implements User {
                 $user_pointer_record = new userPointerRecordModel();
                 $misMoney = $money * -1;
                 $user_pointer_record->addRecord($user_id, 2, $misMoney, 'crm');
+                return $isMinesNumber;
             }
         }
     }
@@ -638,6 +641,38 @@ class userController implements User {
             $_ENV['smarty']->assign('weixinUserData', $weixinUserData);
             $_ENV['smarty']->display('weixinuser');
         }
+    }
+
+    //扣款并且发送消息
+    function deductMoneyAndPostMessage() {
+        $printMessage = "";
+        if (isset($_GET["moneyNumber"]) && isset($_GET["cardId"])) {
+            $moneyNum = $_GET["moneyNumber"];
+            $cardId = $_GET["cardId"];
+            $user = new userModel();
+            $user->initialize('user_code = "' . $cardId . '"');
+            if ($user->vars_number == 1) {
+                $userMessage = $user->vars;
+                $userId = $userMessage["user_id"];
+                $userOpenId = $userMessage["user_open_id"]; //open id
+                if (is_numeric($moneyNum)) {
+                    $reductionReturn = $this->reductionMoney($userId, $moneyNum,"消费扣款");
+                    if (!$reductionReturn) {
+                        //再次添加发送微信消息
+                        $printMessage = "扣款成功";
+                    } else {
+                        $printMessage = "用户余额不足";
+                    }
+                } else {
+                    $printMessage = "输入金额有误请重试";
+                }
+            } else {
+                $printMessage = "该卡号不存在请确认后再试";
+            }
+        }
+        $_ENV['smarty']->setDirTemplates('user');
+        $_ENV['smarty']->assign('printMessage', $printMessage);
+        $_ENV['smarty']->display('manageView');
     }
 
 }
