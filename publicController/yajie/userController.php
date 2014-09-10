@@ -9,16 +9,22 @@ class userController implements User {
     public function userList() {
         $pageSize = $this->pageSize;
         $userModel = new userModel();
-        $userModel->addOrderBy("create_time desc");
+
         $userModel->initialize();
         $userNumber = $userModel->vars_number;
         $userModel->addOffset(0, $pageSize);
+
         $userModel->initialize();
         $result = $userModel->vars_all;
-        foreach ($result as $k => $v) {
-            $v["birthday"] = date("Y", time()) - date("Y", $v["birthday"]);
-            $result[$k]["birthday"] = $v["birthday"];
+
+        if (count($result) > 0) {
+
+            foreach ($result as $k => $v) {
+
+                $result[$k]['user_code'] = strtoupper($v['user_code']);
+            }
         }
+
         $_ENV['smarty']->setDirTemplates('user');
         $_ENV['smarty']->assign('userInfo', $result);
         $url = WebSiteUrl . "/pageredirst.php?action=user&functionname=userListPage";
@@ -33,33 +39,24 @@ class userController implements User {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $errorFlag = true;
             if (!empty($_POST['selectText'])) {
-                $phone = trim($_POST['selectText']);
-                if (!ctype_digit($phone)) {
-                    $phoneCache = explode("-", $phone);
-                    foreach ($phoneCache as $phoneNumber) {
-                        $intPhone.=$phoneNumber;
-                    }
-                    $phone = $intPhone;
-                }
-                if (!ctype_digit($phone)) {
-                    $this->errorMessage = "手机号码格式不正确，请以13955555555或 139-555-55555形式查询";
-                } else {
-                    $userModel = new userModel();
-                    $userModel->initialize("user_phone = '" . $phone . "'");
-                    if ($userModel->vars_number == 1) {
-                        $reVal = $userModel->vars_all;
+                $card = trim($_POST['selectText']);
+
+
+                $userModel = new userModel();
+                $userModel->initialize("user_card  like '" . $card . "'");
+                if ($userModel->vars_number == 1) {
+                    $reVal = $userModel->vars_all;
 //                        $_GET['userId'] = $reVal[0]["user_id"];
-                        foreach ($reVal as $k => $v) {
-                            $v["birthday"] = date("Y", time()) - date("Y", $v["birthday"]);
-                            $reVal[$k]["birthday"] = $v["birthday"];
-                        }
-                        $errorFlag = false;
-                    } else {
-                        $this->errorMessage = "未找到对应的手机号码请确认后重新输入";
+                    foreach ($reVal as $k => $v) {
+
+                        $reVal[$k]["user_code"] = strtoupper($v['user_code']);
                     }
+                    $errorFlag = false;
+                } else {
+                    $this->errorMessage = "未找到对应的卡号请确认后重新输入";
                 }
             } else {
-                $this->errorMessage = "手机号码不能为空，请确认后重新输入";
+                $this->errorMessage = "卡号不能为空，请确认后重新输入";
             }
         }
         if ($errorFlag) {
@@ -104,21 +101,11 @@ class userController implements User {
     public function pointAndMoneyManage() {
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $phone = trim($_POST['userPhone']);
-            if (!ctype_digit($phone)) {
-                $phoneCache = explode("-", $phone);
-                foreach ($phoneCache as $phoneNumber) {
-                    $intPhone.=$phoneNumber;
-                }
-                $phone = $intPhone;
-            }
-            if (!ctype_digit($phone)) {
-                echo "2";
-                die;
-//                $this->errorMessage = "手机号码格式不正确，请以13955555555或 139-555-55555形式查询";
-            }
+
+            $card = trim($_POST['userCard']);
+
             $userModel = new userModel();
-            $userModel->initialize("user_phone = '" . $phone . "'");
+            $userModel->initialize("user_code like '" . $card . "'");
 
             $result = $userModel->vars;
             if ($userModel->vars_number <= 0) {
@@ -156,7 +143,17 @@ class userController implements User {
                 $conturlType = $_POST['conturlType'];
                 switch ($conturlType) {
                     case "addPoint":
-                        $this->addPointer($userId, $resourceNumber);
+                        $state = $this->addPointer($userId, $resourceNumber,1);
+                        
+                        
+                        if($state != 1){
+                            
+                            $result['state'] = $state;
+                            
+                            echo json_encode($result);
+                            
+                            die;
+                        }
                         break;
                     case "minPoint":
                         $this->reductionPointer($userId, $resourceNumber);
@@ -419,7 +416,7 @@ class userController implements User {
      *
      * pointer  int   需要增加的积分
      */
-    public function addPointer($user_id, $integration) {
+    public function addPointer($user_id, $integration, $result = 0) {
 
         if (!empty($user_id) && $user_id > 0 && $integration > 0) {
 
@@ -431,11 +428,61 @@ class userController implements User {
 
                 $user->vars['user_integration']+=$integration;
 
+                
                 $user->updateVars();
 
                 $user_pointer_record = new userPointerRecordModel();
 
                 $user_pointer_record->addRecord($user_id, 1, (int) $integration, 'crm');
+                
+                
+                if ($result == 1) {
+
+                    $toopen_id = $user->vars['user_open_id'];
+
+                    $admin = new adminModel($_SESSION['weixin_crm_user_id']);
+
+                    $company = new companyModel($admin->vars['compang_id']);
+
+                    if ($company->vars_number > 0) {
+
+                        $appid = $company->vars['appid'];
+
+                        $secret = $company->vars['app_secret'];
+
+                        $companyToken = new companyTokenModel();
+
+                        $token = $companyToken->getToken($admin->vars['compang_id'], $appid, $secret);
+
+                        $result = sendCustom($toopen_id, $token, '系统为后台充值' . $integration . '积分,请注意查收');
+                        
+                     
+
+                        if ($result['errcode'] == 45015) {
+
+                            $state = 2;
+
+                            $msg = '用户未和公众平台 发送消息 ,无法发送给用户 ';
+                        } elseif ($result['errorcode'] == 0) {
+
+                            $state = 1;
+
+                            $msg = '发送成功';
+                        } else{
+                            
+                            $state =2;
+                        }
+                        
+                        return $state;
+                    }
+                }
+                
+                
+
+              
+                
+                
+               
             }
         }
     }
@@ -454,6 +501,9 @@ class userController implements User {
             $user->initialize('user_id = ' . $user_id);
 
             if ($user->vars_number > 0) {
+
+
+
 
                 $user->vars['user_money']+=$money;
 

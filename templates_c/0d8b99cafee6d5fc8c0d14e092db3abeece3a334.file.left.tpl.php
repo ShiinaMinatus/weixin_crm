@@ -1,16 +1,16 @@
-<?php /* Smarty version Smarty-3.0-RC2, created on 2014-08-01 16:28:15
+<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-10 11:11:23
          compiled from "/web/www/weixin_crm//templates/yajie/left.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:55827065853db4f9f218e59-72714338%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:792777290540fc15b329024-14815630%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '0d8b99cafee6d5fc8c0d14e092db3abeece3a334' => 
     array (
       0 => '/web/www/weixin_crm//templates/yajie/left.tpl',
-      1 => 1406600623,
+      1 => 1410318647,
     ),
   ),
-  'nocache_hash' => '55827065853db4f9f218e59-72714338',
+  'nocache_hash' => '792777290540fc15b329024-14815630',
   'function' => 
   array (
   ),
@@ -174,8 +174,8 @@ _css.css" rel="stylesheet" type="text/css">
 
                                                     <td width="85%">
 
-                                                        
-                                                        <span style=' display: inline-block; width: 18px;'>&nbsp;</span>
+                                                     
+                                                       
                                                         <a href="javascript:vold(0)" target="mainFrame" class="left-font03 left-font" >用户管理</a>
                                                     </td>
                                                 </tr>
@@ -211,7 +211,7 @@ _css.css" rel="stylesheet" type="text/css">
                                                 <div class='left-a' >
 
                                                     <a  style='' href="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
-/pageredirst.php?action=user&functionname=pointAndMoneyManage" target="mainFrame" class="left-fontSmall" >积分消费管理</a>
+/pageredirst.php?action=user&functionname=pointAndMoneyManage" target="mainFrame" class="left-fontSmall" >会员消费</a>
 
                                                 </div>
 
@@ -904,7 +904,67 @@ _css.css" rel="stylesheet" type="text/css">
                                     </tr>
                                 </table>
                                 <table id="subtree120" style="DISPLAY: none" width="100%" border="0" align="center" cellpadding="0" ellspacing="0" class="left-table03 tableDefault">
-                                  
+                                    
+                                     <tr>
+
+                                        <td width="100%">
+
+                                            <div class='left-a' >
+
+                                                <a  style='' href="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
+/pageredirst.php?action=company&functionname=wifiEdit" target="mainFrame" class="left-fontSmall" >wifi设置</a>
+
+                                            </div>
+
+                                        </td>
+                                    </tr>
+                                    
+                                    
+                                    <tr>
+
+                                        <td width="100%">
+
+                                            <div class='left-a' >
+
+                                                <a  style='' href="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
+/pageredirst.php?action=company&functionname=official&id=8" target="mainFrame" class="left-fontSmall" >会员卡说明</a>
+
+                                            </div>
+
+                                        </td>
+                                    </tr>
+
+
+                                       <tr>
+
+                                        <td width="100%">
+
+                                            <div class='left-a' >
+
+                                                <a  style='' href="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
+/pageredirst.php?action=company&functionname=official&id=9" target="mainFrame" class="left-fontSmall" >适用门店以及地址</a>
+
+                                            </div>
+
+                                        </td>
+                                    </tr>
+
+                                      <tr>
+
+                                        <td width="100%">
+
+                                            <div class='left-a' >
+
+                                                <a  style='' href="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
+/pageredirst.php?action=company&functionname=official&id=10" target="mainFrame" class="left-fontSmall" >报手机号就能用卡啦！</a>
+
+                                            </div>
+
+                                        </td>
+                                    </tr>
+                                    
+                                    
+                                    
                                         <tr>
 
                                             <td width="100%">

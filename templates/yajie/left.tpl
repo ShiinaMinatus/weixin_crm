@@ -156,8 +156,8 @@
 
                                                     <td width="85%">
 
-                                                        {*                                                        <img name="img1" id="img1" src="{$WebSiteUrl}/images/ico04.png" width="12" height="12">*}
-                                                        <span style=' display: inline-block; width: 18px;'>&nbsp;</span>
+                                                     
+                                                       
                                                         <a href="javascript:vold(0)" target="mainFrame" class="left-font03 left-font" >用户管理</a>
                                                     </td>
                                                 </tr>
@@ -191,7 +191,7 @@
 
                                                 <div class='left-a' >
 
-                                                    <a  style='' href="{$WebSiteUrl}/pageredirst.php?action=user&functionname=pointAndMoneyManage" target="mainFrame" class="left-fontSmall" >积分消费管理</a>
+                                                    <a  style='' href="{$WebSiteUrl}/pageredirst.php?action=user&functionname=pointAndMoneyManage" target="mainFrame" class="left-fontSmall" >会员消费</a>
 
                                                 </div>
 

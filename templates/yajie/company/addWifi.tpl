@@ -60,13 +60,28 @@
                             <div style="width: 1000px; margin: 0 auto;">
                                 <form class="form-horizontal" action="{$WebSiteUrl}/pageredirst.php?action=company&functionname=wifiEdit" method="post">
                                     <div class="form-group"> 
-                                        <label class="col-sm-2 control-label labelWidth">wifi</label>
+                                        <label class="col-sm-2 control-label labelWidth">wifi账号</label>
 
                                         <div class="col-sm-2" style='width:800px;'>
-                                            {if $text neq ""}
-                                                <input type='text' id="activity_html" name="activity_html" style="" value='{$text}'>
+                                            {if $info neq ""}
+                                                <input type='text' id="wifiName" name="wifiName" style="" value='{$info.wifiName}'>
                                             {else}
-                                                <input  type='text' id="activity_html" name="activity_html" style="">
+                                                <input  type='text' id="wifiName" name="wifiName" style="">
+                                            {/if}
+                                        </div>
+                                       
+                                    </div>
+
+                                    <div class="form-group">
+
+
+                                   <label class="col-sm-2 control-label labelWidth">wifi密码</label>
+
+                                        <div class="col-sm-2" style='width:800px;'>
+                                            {if $info neq ""}
+                                                <input type='text' id="wifiPassword" name="wifiPassword" style="" value='{$info.wifiPassword}'>
+                                            {else}
+                                                <input  type='text' id="wifiPassword" name="wifiPassword" style="">
                                             {/if}
                                         </div>
 

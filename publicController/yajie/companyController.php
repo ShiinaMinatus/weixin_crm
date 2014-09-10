@@ -26,22 +26,24 @@ class companyController {
         $companyInfo->initialize();
         $number = $companyInfo->vars_number;
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $data["wifiText"] = $_POST['activity_html'];
+            $data["wifiName"] = $_POST['wifiName'];
+
+            $data['wifiPassword'] = $_POST['wifiPassword'];
             if ($number > 0)
                 $companyInfo->update($data);
             else
                 $companyInfo->insert($data);
             $_SERVER["REQUEST_METHOD"] = "GET";
             $_ENV['smarty']->assign('scuesss', "1");
-            $_ENV['smarty']->assign('text',$data["wifiText"]);
+            $_ENV['smarty']->assign('info',$data);
             $_ENV['smarty']->display('addWifi');
         } else {
             $text = "";
             if ($number > 0) {
                 $textCache = $companyInfo->vars;
-                $text = $textCache["wifiText"];
+                //$text = $textCache["wifiText"];
             }
-            $_ENV['smarty']->assign('text', $text);
+            $_ENV['smarty']->assign('info', $textCache);
 
             $_ENV['smarty']->display('addWifi');
         }
@@ -67,7 +69,7 @@ class companyController {
             $text = "";
             if ($number > 0) {
                 $textCache = $companyInfo->vars;
-                $text = $textCache["companyText"];
+                $text = stripslashes($textCache["companyText"]);
             }
             $_ENV['smarty']->assign('text', $text);
 

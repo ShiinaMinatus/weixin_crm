@@ -11,37 +11,35 @@ function setDatebase($database) {
     $_ENV['PASSWORD'] = $database['PASSWORD'];
 }
 
+function getWeixinToken($appid, $secret) {
 
-function getWeixinToken($appid,$secret){
 
+    $url = 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&' . 'appid=' . $appid . '&secret=' . $secret;
 
-	$url = 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&'.'appid='.$appid.'&secret='.$secret;
+    $token_info = transferData($url, 'get');
 
-    $token_info = transferData($url,'get');
-
-    $token = json_decode($token_info,true);
+    $token = json_decode($token_info, true);
 
     $company = new companyModel();
 
-    $company->addCondition('appid like "'.$appid.'"', 1);
+    $company->addCondition('appid like "' . $appid . '"', 1);
 
     $company->initialize();
 
-    if($company->vars_number > 0){
+    if ($company->vars_number > 0) {
 
         $id = $company->vars['company_id'];
 
         $companyToken = new companyTokenModel($id);
 
-        if($companyToken->vars_number > 0 ){
+        if ($companyToken->vars_number > 0) {
 
             $companyToken->vars['token'] = $token['access_token'];
 
             $companyToken->vars['application_time'] = time();
 
             $companyToken->updateVars();
-
-        } else{
+        } else {
 
             $insert['company_id'] = $id;
 
@@ -56,32 +54,30 @@ function getWeixinToken($appid,$secret){
     }
 
     return $token['access_token'];
-
 }
 
-function sendCustom($open_id,$token,$content){
+function sendCustom($open_id, $token, $content) {
 
-	$url = 'https://api.weixin.qq.com/cgi-bin/message/custom/send?access_token='.$token;
-    
-    $params = array("");  
+    $url = 'https://api.weixin.qq.com/cgi-bin/message/custom/send?access_token=' . $token;
 
-    $params["touser"]=trim($open_id);  
+    $params = array("");
 
-    $params["msgtype"]="text";  
+    $params["touser"] = trim($open_id);
 
-    $params["text"]["content"]=urlencode($content);      
-    
+    $params["msgtype"] = "text";
+
+    $params["text"]["content"] = urlencode($content);
+
 
     $ret = json_encode($params);
 
     $jsonArray = urldecode($ret);
 
 
-    $result = transferData($url,'post',$jsonArray);
+    $result = transferData($url, 'post', $jsonArray);
 
-    return json_decode($result,true);
+    return json_decode($result, true);
 }
-
 
 /**
  * 传递数据 
@@ -111,15 +107,15 @@ function transferData($url, $method, $data) {
 
 function curlPost($url, $post = null, $options = array()) {
 
-     $ch = curl_init();
-        curl_setopt($ch,CURLOPT_URL,$url);
-        curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
-        curl_setopt($ch,CURLOPT_POST,1);
-        curl_setopt($ch,CURLOPT_POSTFIELDS,$post);
-      $result =   curl_exec($ch);
-        curl_close($ch);
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_POST, 1);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+    $result = curl_exec($ch);
+    curl_close($ch);
 
-        return $result;
+    return $result;
 }
 
 function curlGet($url) {
@@ -146,20 +142,16 @@ function curlGet($url) {
     return $result;
 }
 
-function getWeek($unixTime='')
-
-{
+function getWeek($unixTime = '') {
 
 
-     $unixTime=is_numeric($unixTime)?$unixTime:time();
+    $unixTime = is_numeric($unixTime) ? $unixTime : time();
 
 
-     $weekarray=array('日','一','二','三','四','五','六');
+    $weekarray = array('日', '一', '二', '三', '四', '五', '六');
 
 
-     return '星期'.$weekarray[date('w',$unixTime)];
-
-
- }
+    return '星期' . $weekarray[date('w', $unixTime)];
+}
 
 ?>

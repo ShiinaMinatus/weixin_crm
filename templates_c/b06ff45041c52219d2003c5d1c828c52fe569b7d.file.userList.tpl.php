@@ -1,16 +1,16 @@
-<?php /* Smarty version Smarty-3.0-RC2, created on 2014-07-02 15:06:08
+<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-09 17:10:49
          compiled from "/web/www/weixin_crm//templates/yajie/user/userList.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:49684399353b3af60339d24-37253281%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:2055024786540ec419c26c59-36692836%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'b06ff45041c52219d2003c5d1c828c52fe569b7d' => 
     array (
       0 => '/web/www/weixin_crm//templates/yajie/user/userList.tpl',
-      1 => 1401854721,
+      1 => 1410253786,
     ),
   ),
-  'nocache_hash' => '49684399353b3af60339d24-37253281',
+  'nocache_hash' => '2055024786540ec419c26c59-36692836',
   'function' => 
   array (
   ),
@@ -66,9 +66,6 @@ $_smarty_tpl->decodeProperties(array (
         padding-left: 25px;
     }
 </style>
-<div class="navBarStyle">
-    当前位置：用户管理 > 客户信息
-</div>
 <div style="height: 51px;"></div>
 <form action="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
 /pageredirst.php?action=user&functionname=seachUsers" method="post">
@@ -76,7 +73,7 @@ $_smarty_tpl->decodeProperties(array (
     <div style="">
 
         <div class="selectBar">
-            <input type="text" class="selectText"  placeholder="请输入手机号查询" id="selectText" name="selectText"><button class="btn" style="background:url('<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
+            <input type="text" class="selectText"  placeholder="请输入卡号查询" id="selectText" name="selectText"><button class="btn" style="background:url('<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
 /images/bottomBg.png');color:white;border-radius:0px;height: 32px; width: 61px;margin-top: -3px;" type="submit">查询</button>
             <!--            <label for="inputPassword3" style="margin-left: 26px;" class="">筛选排序：</label><input type="radio" name="sortType" checked id="point" value="point">&nbsp;<label for="point" style="margin-right: 17px;"  class="control-label">积分</label><input  type="radio" name="sortType" id="money" value="money">&nbsp;<label for="money" class="control-label">余额</label>-->
         </div>
@@ -91,7 +88,7 @@ $_smarty_tpl->decodeProperties(array (
 
 <div class="dataArea">
     <table class="table table-bordered ">
-        <tr><th style="width: 51px;"></th><th  style="width: 121px;">姓名</th><th style="width: 185px;">电话</th><th style="width: 150px;">年龄</th><th style="width: 154px;">积分</th><th>绑定时间</th>
+        <tr><th style="width: 51px;"></th><th  style="width: 121px;">卡号</th><th style="width: 154px;">积分</th>
             <!--<th style="width: 206px;">关联微信数据</th>-->
         </tr>
         <?php  $_smarty_tpl->tpl_vars['userInfo1'] = new Smarty_Variable;
@@ -104,18 +101,15 @@ if (count($_from) > 0){
             <tr>
                 <td><?php echo $_smarty_tpl->tpl_vars['key']->value+1;?>
 </td>
-                <td><?php echo $_smarty_tpl->tpl_vars['userInfo1']->value['user_name'];?>
+                <td><?php echo $_smarty_tpl->tpl_vars['userInfo1']->value['user_code'];?>
 </td>
-                <td class="userPhone"><?php echo $_smarty_tpl->tpl_vars['userInfo1']->value['user_phone'];?>
-</td>
+                
 <!--                <td><?php echo smarty_modifier_date_format($_smarty_tpl->tpl_vars['userInfo1']->value['birthday'],"%Y-%m-%d");?>
 </td>-->
-                <td><?php echo $_smarty_tpl->tpl_vars['userInfo1']->value['birthday'];?>
-</td>
+
                 <td><?php echo $_smarty_tpl->tpl_vars['userInfo1']->value['user_integration'];?>
 </td>
-                <td><?php echo smarty_modifier_date_format($_smarty_tpl->tpl_vars['userInfo1']->value['create_time'],"%Y-%m-%d %H:%M");?>
-</td>
+               
                 <!--<td><a href="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
 /pageredirst.php?action=user&functionname=gotoWeixinMessage&open_Id=<?php echo $_smarty_tpl->tpl_vars['userInfo1']->value['user_open_id'];?>
 ">关联</a></td>-->
@@ -133,61 +127,3 @@ if (count($_from) > 0){
 /js/rexexTest.js"></script>
 <script src="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
 /js/icheck.min.js"></script>
-<script>
-    $('input').iCheck({
-        checkboxClass: 'icheckbox_flat-blue',
-        radioClass: 'iradio_flat-blue',
-        increaseArea: '5%' // optional
-    });
-//$("#selectText").on("input",function(){
-//if(!getIntRegex($(this).val())){
-//var cutString=$(this).val().substr(0, ($(this).val().length)-1);
-//
-//$("#selectText").val(cutString);
-//}
-//});
-
-    $("#selectText").on("keyup", function(event) {
-        
-        var val = $(this).val();
-        
-        var lastString = val.substr(-1);
-        
-        if (event.ctrlKey && event.keyCode == 86) {
-            if (!getPhoneRegex($(this).val()) && !getMobilPhoneRegex($(this).val())) {
-                $(this).val("");
-            }
-        }
-        else if (event.keyCode != 17 && event.keyCode != 8 && event.keyCode!=224 && event.keyCode!=86) {
-            if (!getIntRegex($(this).val())) {
-                var cutString = $(this).val().substr(0, ($(this).val().length) - 1);
-
-                $("#selectText").val(cutString);
-            }
-        } else if(lastString == 'v'){
-            
-            if (!getIntRegex($(this).val())) {
-                var cutString = $(this).val().substr(0, ($(this).val().length) - 1);
-
-                $("#selectText").val(cutString);
-            }
-        }
-
-    });
-//$("#selectText").on("keydown",function(event){
-//if(event.keyCode==8){
-//if(getPhoneRegex($(this).val())){
-//return false;
-////}
-//}
-//    
-//});
-
-    $(".userPhone").each(function() {
-        var phoneNumber = $(this).html();
-        var changeValue = "";
-        changeValue = phoneNumber.substr(0, 3) + "-" + phoneNumber.substr(3, 3) + "-" + phoneNumber.substr(6);
-        $(this).html(changeValue);
-
-    });
-</script>
