@@ -154,4 +154,67 @@ function getWeek($unixTime = '') {
     return '星期' . $weekarray[date('w', $unixTime)];
 }
 
+function sendWeixinCustom($money, $toopen_id,$user_id) {
+
+    $admin = new adminModel($_SESSION['weixin_crm_user_id']);
+
+    $company_id = $admin->vars['compang_id'];
+
+    $weixin = new weixinModel();
+
+    $weixin->initialize('company_id = ' . $company_id);
+
+    if ($weixin->vars_number > 0) {
+
+        $integral = $weixin->vars['integral'];
+
+        $content = $weixin->vars['weixin_content'];
+        
+        
+        /**
+         * 添加用户积分 给当前用户
+         */
+        
+        $userController = new userController();
+        
+        $userController->addPointer($user_id, $integral);
+        
+
+        /**
+         * 将{$money}替换成金额  并发送到微信客户端
+         */
+        $content_ = str_replace('{$money}', $money, $content);
+
+        $company = new companyModel($admin->vars['compang_id']);
+
+        if ($company->vars_number > 0) {
+
+            $appid = $company->vars['appid'];
+
+            $secret = $company->vars['app_secret'];
+
+            $companyToken = new companyTokenModel();
+
+            $token = $companyToken->getToken($admin->vars['compang_id'], $appid, $secret);
+
+            $result = sendCustom($toopen_id, $token, $content_);
+
+            if ($result['errcode'] == 45015) {
+
+                $state = 2;
+
+                $msg = '用户未和公众平台 发送消息 ,无法发送给用户 ';
+            } elseif ($result['errorcode'] == 0) {
+
+                $state = 1;
+
+                $msg = '发送成功';
+            } else {
+
+                $state = 0;
+            }
+        }
+    }
+}
+
 ?>

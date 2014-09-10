@@ -31,6 +31,9 @@ class userController implements User {
         $page = $_ENV['smarty']->getPages($url, 1, $userNumber, $pageSize);
         $_ENV['smarty']->assign('pages', $page);
         $_ENV['smarty']->assign('errorMessage', $this->errorMessage);
+
+        
+
         $_ENV['smarty']->display('userList');
     }
 
@@ -143,15 +146,15 @@ class userController implements User {
                 $conturlType = $_POST['conturlType'];
                 switch ($conturlType) {
                     case "addPoint":
-                        $state = $this->addPointer($userId, $resourceNumber,1);
-                        
-                        
-                        if($state != 1){
-                            
+                        $state = $this->addPointer($userId, $resourceNumber, 1);
+
+
+                        if ($state != 1) {
+
                             $result['state'] = $state;
-                            
+
                             echo json_encode($result);
-                            
+
                             die;
                         }
                         break;
@@ -416,7 +419,7 @@ class userController implements User {
      *
      * pointer  int   需要增加的积分
      */
-    public function addPointer($user_id, $integration, $result = 0) {
+    public function addPointer($user_id, $integration) {
 
         if (!empty($user_id) && $user_id > 0 && $integration > 0) {
 
@@ -428,61 +431,12 @@ class userController implements User {
 
                 $user->vars['user_integration']+=$integration;
 
-                
+
                 $user->updateVars();
 
                 $user_pointer_record = new userPointerRecordModel();
 
                 $user_pointer_record->addRecord($user_id, 1, (int) $integration, 'crm');
-                
-                
-                if ($result == 1) {
-
-                    $toopen_id = $user->vars['user_open_id'];
-
-                    $admin = new adminModel($_SESSION['weixin_crm_user_id']);
-
-                    $company = new companyModel($admin->vars['compang_id']);
-
-                    if ($company->vars_number > 0) {
-
-                        $appid = $company->vars['appid'];
-
-                        $secret = $company->vars['app_secret'];
-
-                        $companyToken = new companyTokenModel();
-
-                        $token = $companyToken->getToken($admin->vars['compang_id'], $appid, $secret);
-
-                        $result = sendCustom($toopen_id, $token, '系统为后台充值' . $integration . '积分,请注意查收');
-                        
-                     
-
-                        if ($result['errcode'] == 45015) {
-
-                            $state = 2;
-
-                            $msg = '用户未和公众平台 发送消息 ,无法发送给用户 ';
-                        } elseif ($result['errorcode'] == 0) {
-
-                            $state = 1;
-
-                            $msg = '发送成功';
-                        } else{
-                            
-                            $state =2;
-                        }
-                        
-                        return $state;
-                    }
-                }
-                
-                
-
-              
-                
-                
-               
             }
         }
     }

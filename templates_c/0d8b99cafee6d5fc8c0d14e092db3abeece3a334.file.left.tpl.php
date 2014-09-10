@@ -1,16 +1,16 @@
-<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-10 11:11:23
+<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-10 11:54:36
          compiled from "/web/www/weixin_crm//templates/yajie/left.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:792777290540fc15b329024-14815630%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:1904699818540fcb7c5a2561-58284006%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '0d8b99cafee6d5fc8c0d14e092db3abeece3a334' => 
     array (
       0 => '/web/www/weixin_crm//templates/yajie/left.tpl',
-      1 => 1410318647,
+      1 => 1410321266,
     ),
   ),
-  'nocache_hash' => '792777290540fc15b329024-14815630',
+  'nocache_hash' => '1904699818540fcb7c5a2561-58284006',
   'function' => 
   array (
   ),
@@ -591,6 +591,23 @@ _css.css" rel="stylesheet" type="text/css">
                                                 <div class='left-a' >
                                                     <a style='' href="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
 /pageredirst.php?action=weixinuser&functionname=weixinuser" target="mainFrame" class="left-fontSmall" >微信数据</a>
+
+                                                </div>
+                                            </td>
+
+                                        </tr>
+
+                                    <?php }?>
+                                    
+                                    
+                                     <?php if ($_smarty_tpl->getVariable('auth_result')->value[1000]==1){?>
+                                        <tr>
+
+                                            <td width="100%">
+
+                                                <div class='left-a' >
+                                                    <a style='' href="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
+/pageredirst.php?action=weixin&functionname=weixincustom" target="mainFrame" class="left-fontSmall" >微信内容配置</a>
 
                                                 </div>
                                             </td>

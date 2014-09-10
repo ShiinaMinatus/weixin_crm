@@ -564,6 +564,22 @@
                                         </tr>
 
                                     {/if}
+                                    
+                                    
+                                     {if $auth_result[1000]==1}
+                                        <tr>
+
+                                            <td width="100%">
+
+                                                <div class='left-a' >
+                                                    <a style='' href="{$WebSiteUrl}/pageredirst.php?action=weixin&functionname=weixincustom" target="mainFrame" class="left-fontSmall" >微信内容配置</a>
+
+                                                </div>
+                                            </td>
+
+                                        </tr>
+
+                                    {/if}
 
                                     {if $auth_result[22]==1}
 
