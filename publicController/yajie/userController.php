@@ -659,6 +659,9 @@ class userController implements User {
                     $reductionReturn = $this->reductionMoney($userId, $moneyNum,"消费扣款");
                     if (!$reductionReturn) {
                         //再次添加发送微信消息
+
+                        sendWeixinCustom($moneyNum,$userOpenId,$userId);
+
                         $printMessage = "扣款成功";
                     } else {
                         $printMessage = "用户余额不足";
