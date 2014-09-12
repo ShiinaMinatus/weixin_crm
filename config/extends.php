@@ -18,6 +18,8 @@ function getWeixinToken($appid, $secret) {
 
     $token_info = transferData($url, 'get');
 
+
+
     $token = json_decode($token_info, true);
 
     $company = new companyModel();
@@ -85,7 +87,7 @@ function sendCustom($open_id, $token, $content) {
  *  $method  为传递的方式  POST  GER
  *  $data   当method 为post时  传值为array
  */
-function transferData($url, $method, $data) {
+function transferData($url, $method, $data ='') {
 
     switch ($method) {
 
@@ -156,13 +158,21 @@ function getWeek($unixTime = '') {
 
 function sendWeixinCustom($money, $toopen_id,$user_id) {
 
+
+
+
     $admin = new adminModel($_SESSION['weixin_crm_user_id']);
 
     $company_id = $admin->vars['compang_id'];
 
+
+
+
     $weixin = new weixinModel();
 
     $weixin->initialize('company_id = ' . $company_id);
+
+
 
     if ($weixin->vars_number > 0) {
 
@@ -183,9 +193,11 @@ function sendWeixinCustom($money, $toopen_id,$user_id) {
         /**
          * 将{$money}替换成金额  并发送到微信客户端
          */
-        $content_ = str_replace('$money', $money, $content);
+        $content_ = str_replace('<money>', $money, $content);
 
         $company = new companyModel($admin->vars['compang_id']);
+
+
 
         if ($company->vars_number > 0) {
 
@@ -197,7 +209,10 @@ function sendWeixinCustom($money, $toopen_id,$user_id) {
 
             $token = $companyToken->getToken($admin->vars['compang_id'], $appid, $secret);
 
+
+  
             $result = sendCustom($toopen_id, $token, $content_);
+
 
             if ($result['errcode'] == 45015) {
 

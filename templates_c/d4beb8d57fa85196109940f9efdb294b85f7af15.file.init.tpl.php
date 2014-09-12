@@ -1,16 +1,16 @@
-<?php /* Smarty version Smarty-3.0-RC2, created on 2014-07-25 11:42:24
+<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-12 15:29:09
          compiled from "/web/www/weixin_crm//templates/yajie/stencil/init.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:173749999653d1d22069e7b5-25398876%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:7321603725412a0c5e05fc0-42301209%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'd4beb8d57fa85196109940f9efdb294b85f7af15' => 
     array (
       0 => '/web/www/weixin_crm//templates/yajie/stencil/init.tpl',
-      1 => 1406258935,
+      1 => 1410506710,
     ),
   ),
-  'nocache_hash' => '173749999653d1d22069e7b5-25398876',
+  'nocache_hash' => '7321603725412a0c5e05fc0-42301209',
   'function' => 
   array (
   ),
@@ -161,6 +161,8 @@ _css.css" rel="stylesheet" type="text/css"></link>
                 <div class="draglist draggable" title="图片" draggable="true" id='BigimagePackage'>大图</div>
 
                 <button  id='previewButton' class='btn btn-default'>预览</button>
+
+                <button  id='saveButton' class='btn btn-default'>保存</button>
             </div>
             <div style="float: left; min-height: 1200px;  height: 1200px; width: 900px;">
 
@@ -233,6 +235,14 @@ _css.css" rel="stylesheet" type="text/css"></link>
 
     websiteUrl = '<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
 ';
+
+
+    $('#saveButton').click(function(event) {
+        /* Act on the event */
+
+        
+
+    });
     $('#previewButton').click(function() {
 
         $("#Preview").modal();
@@ -253,7 +263,7 @@ _css.css" rel="stylesheet" type="text/css"></link>
                
          $('.modal-body').find("[contenteditable = 'true']").attr('contenteditable','false');
             
-            $('.modal-body .upload').remove();
+         $('.modal-body .upload').remove();
         
 
        

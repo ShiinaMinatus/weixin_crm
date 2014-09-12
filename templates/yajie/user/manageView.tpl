@@ -80,10 +80,10 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                    <h4 class="modal-title">确认扣除金额</h4>
+                    <h4 class="modal-title">提示</h4>
                 </div>
                 <div class="modal-body">
-                    <p>你确定要对卡号：<span id="cardId">123</span>  扣除<span id="moneyNumber">456</span>元吗？</p>
+                    <p>卡号：<span id="cardId">123</span>  消费<span id="moneyNumber">456</span>元,并发送到 微信消息</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
@@ -117,7 +117,7 @@
         
 }); 
 $("#alertDialog").click(function(){
-var cardId=$("#userCard").val();
+var cardId=$("#userCard").val().toUpperCase();
 var moneyNumber=$("#userMoney").val();
 if(cardId==""||moneyNumber==""){
 $("#jsError").html("卡号与金额都不能为空");

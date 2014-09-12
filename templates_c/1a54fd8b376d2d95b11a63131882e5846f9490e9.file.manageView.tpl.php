@@ -1,16 +1,16 @@
-<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-10 15:28:29
+<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-12 15:48:57
          compiled from "/web/www/weixin_crm//templates/yajie/user/manageView.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:1482528943540ffd9d6ec553-22234132%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:5004260665412a5694c9335-50228323%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '1a54fd8b376d2d95b11a63131882e5846f9490e9' => 
     array (
       0 => '/web/www/weixin_crm//templates/yajie/user/manageView.tpl',
-      1 => 1410333933,
+      1 => 1410508135,
     ),
   ),
-  'nocache_hash' => '1482528943540ffd9d6ec553-22234132',
+  'nocache_hash' => '5004260665412a5694c9335-50228323',
   'function' => 
   array (
   ),
@@ -99,10 +99,10 @@ $_smarty_tpl->decodeProperties(array (
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                    <h4 class="modal-title">确认扣除金额</h4>
+                    <h4 class="modal-title">提示</h4>
                 </div>
                 <div class="modal-body">
-                    <p>你确定要对卡号：<span id="cardId">123</span>  扣除<span id="moneyNumber">456</span>元吗？</p>
+                    <p>卡号：<span id="cardId">123</span>  消费<span id="moneyNumber">456</span>元,并发送到 微信消息</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
@@ -139,7 +139,7 @@ $_smarty_tpl->decodeProperties(array (
         
 }); 
 $("#alertDialog").click(function(){
-var cardId=$("#userCard").val();
+var cardId=$("#userCard").val().toUpperCase();
 var moneyNumber=$("#userMoney").val();
 if(cardId==""||moneyNumber==""){
 $("#jsError").html("卡号与金额都不能为空");

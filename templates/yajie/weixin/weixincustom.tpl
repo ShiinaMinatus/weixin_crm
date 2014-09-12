@@ -28,8 +28,7 @@
    {if $printMessage neq ""}
         <div class="sortBar alert alert-warning"><label for="inputPassword3" class="control-label">{$printMessage}</label></div>
     {/if}
-   
-   注: $moeny代表金额
+  
 <div id="errorMessage" class="alert alert-danger errorMessage"></div>
 <div style="margin-left:15px;margin-top:15px;">
     <div style="width: 370px; ">

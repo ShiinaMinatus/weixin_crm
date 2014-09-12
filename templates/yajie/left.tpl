@@ -78,6 +78,54 @@
                             </div>*}
 
 
+
+                             
+                                <!--                    公司模块开始-->
+                                <table width="100%" border="0" cellpadding="0" cellspacing="0" class=" zhucaidan " id="table120">
+                                    <tr>
+                                        <td height="29" onclick="list('120')">
+                                            <table width="85%" border="0" align="center" cellpadding="0" cellspacing="0">
+                                                <tr>
+
+                                                    <td width="85%">
+
+                                                        {*                                                        <img name="img1" id="img1" src="{$WebSiteUrl}/images/ico04.png" width="12" height="12">*}
+                                                        {*                                                        <span style=' display: inline-block; width: 18px;'>&nbsp;</span>*}
+                                                        <a href="javascript:vold(0)" target="mainFrame" class="left-font03 left-font" >消费管理</a>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <table id="subtree120" style="DISPLAY: none" width="100%" border="0" align="center" cellpadding="0" ellspacing="0" class="left-table03 tableDefault">
+                                  
+                                   
+                                    {if $auth_result[4]==1}
+                                        <tr>
+
+                                            <td width="100%">
+
+
+
+                                                <div class='left-a' >
+
+                                                    <a  style='' href="{$WebSiteUrl}/pageredirst.php?action=user&functionname=pointAndMoneyManage" target="mainFrame" class="left-fontSmall" >消费积分管理</a>
+
+                                                </div>
+
+                                            </td>
+                                        </tr>
+                                    {/if}
+                                    
+
+                                </table>
+                            
+
+
+
+
+
                             {if $auth_result[120]==1}
                                 <!--                    公司模块开始-->
                                 <table width="100%" border="0" cellpadding="0" cellspacing="0" class=" zhucaidan " id="table120">
@@ -98,23 +146,7 @@
                                     </tr>
                                 </table>
                                 <table id="subtree120" style="DISPLAY: none" width="100%" border="0" align="center" cellpadding="0" ellspacing="0" class="left-table03 tableDefault">
-                                    {if $auth_result[121]==1}
-                                        <tr>
-
-                                            <td width="100%">
-
-                                                <div class='left-a' >
-
-                                                    <a  style='' href="{$WebSiteUrl}/pageredirst.php?action=company&functionname=companyEdit" target="mainFrame" class="left-fontSmall" >公司信息</a>
-
-                                                </div>
-
-                                            </td>
-                                        </tr>
-
-                                    {/if}
-
-
+                                  
                                     <tr>
 
                                         <td width="100%">
@@ -146,76 +178,7 @@
 
 
 
-                            {if $auth_result[2]==1}
-                                <!--                    用户开始-->
-                                <table width="100%" border="0" cellpadding="0" cellspacing="0" class="zhucaidan " id="table1">
-                                    <tr>
-                                        <td height="29" onclick="list('1')">
-                                            <table width="85%" border="0" align="center" cellpadding="0" cellspacing="0">
-                                                <tr>
-
-                                                    <td width="85%">
-
-                                                     
-                                                       
-                                                        <a href="javascript:vold(0)" target="mainFrame" class="left-font03 left-font" >用户管理</a>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </td>
-                                    </tr>
-                                </table>
-                                <table id="subtree1" style="DISPLAY: none" width="100%" border="0" align="center" cellpadding="0" ellspacing="0" class="left-table03 tableDefault">
-                                    {if $auth_result[3]==1}
-                                        <tr>
-
-                                            <td width="100%">
-
-                                                <div class='left-a' >
-
-                                                    <a  style='' href="{$WebSiteUrl}/pageredirst.php?action=user&functionname=userList" target="mainFrame" class="left-fontSmall" >客户信息</a>
-
-                                                </div>
-
-                                            </td>
-                                        </tr>
-
-                                    {/if}
-
-                                    {if $auth_result[4]==1}
-                                        <tr>
-
-                                            <td width="100%">
-
-
-
-                                                <div class='left-a' >
-
-                                                    <a  style='' href="{$WebSiteUrl}/pageredirst.php?action=user&functionname=pointAndMoneyManage" target="mainFrame" class="left-fontSmall" >会员消费</a>
-
-                                                </div>
-
-                                            </td>
-                                        </tr>
-                                    {/if}
-
-                                    {if $auth_result[5]==1}
-                                        <tr>
-
-                                            <td width="100%">
-
-
-
-                                                <div class='left-a' >
-
-                                                    <a style='' href="{$WebSiteUrl}/pageredirst.php?action=user&functionname=userManage" target="mainFrame" class="left-fontSmall">添加用户</a>
-
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    {/if}
-                                </table>
-                            {/if}
+                           
 
                             {if $auth_result[6]==1}
 
@@ -429,13 +392,9 @@
 
                             {/if}
 
-                            {if $auth_result[15]==1}
+                           
 
-
-
-
-                                <!--                   兑换开始-->
-                                <table width="100%" border="0" cellpadding="0" cellspacing="0" class="zhucaidan" id="table5">
+                             <table width="100%" border="0" cellpadding="0" cellspacing="0" class="zhucaidan" id="table5">
                                     <tr>
                                         <td height="29" onclick="list('5')">
                                             <table width="85%" border="0" align="center" cellpadding="0" cellspacing="0">
@@ -447,9 +406,10 @@
 
                                                         {*                                                        <span style=' display: inline-block; width: 18px;'>&nbsp;</span>*}
 
-                                                        <a href="javascript:vold(0)" target="mainFrame" class="left-font03 left-font" >任务管理</a>
+                                                        <a href="javascript:vold(0)" target="mainFrame" class="left-font03 left-font" >统计管理</a>
                                                     </td>
-                                                </tr>
+
+                                         </tr>
                                             </table> 
                                         </td>
                                     </tr>
@@ -471,41 +431,6 @@
 
                                     {/if}
 
-                                    {if $auth_result[17]==1}
-
-                                        <tr>
-
-                                            <td width="100%">
-
-                                                <div class='left-a' >
-                                                    <a style='' href="{$WebSiteUrl}/pageredirst.php?action=activty&functionname=activty" target="mainFrame" class="left-fontSmall" >活动</a>
-
-                                                </div>
-                                            </td>
-
-
-
-                                        </tr>
-
-                                    {/if}
-                                    {if $auth_result[18]==1}
-
-                                        <tr>
-
-                                            <td width="100%">
-
-                                                <div class='left-a' >
-                                                    <a style='' href="{$WebSiteUrl}/pageredirst.php?action=activty&functionname=addactivty" target="mainFrame" class="left-fontSmall" >添加活动</a>
-
-
-                                                </div>
-                                            </td>
-
-
-
-                                        </tr>
-
-                                    {/if}
 
                                     {if $auth_result[19]==1}
                                         <tr>
@@ -522,10 +447,29 @@
 
                                     {/if}
 
+
+                                     {if $auth_result[3]==1}
+                                        <tr>
+
+                                            <td width="100%">
+
+                                                <div class='left-a' >
+
+                                                    <a  style='' href="{$WebSiteUrl}/pageredirst.php?action=user&functionname=userList" target="mainFrame" class="left-fontSmall" >客户信息</a>
+
+                                                </div>
+
+                                            </td>
+                                        </tr>
+
+                                    {/if}
+
                                 </table>
 
 
-                            {/if}
+                           
+
+
 
                             {if $auth_result[20]==1}
 
@@ -541,7 +485,7 @@
                                                         {*                                                        <img name="img6" id="img6" src="{$WebSiteUrl}/images/ico04.png" width="12" height="12">*}
 
                                                         {*                                                        <span style=' display: inline-block; width: 18px;'>&nbsp;</span>*}
-                                                        <a href="javascript:vold(0)" target="mainFrame" class="left-font03 left-font" >系统管理</a>
+                                                        <a href="javascript:vold(0)" target="mainFrame" class="left-font03 left-font" >设置管理</a>
                                                     </td>
                                                 </tr>
                                             </table>
@@ -565,6 +509,41 @@
 
                                     {/if}
                                     
+
+
+                                    
+                                    {if $auth_result[17]==1}
+
+                                        <tr>
+
+                                            <td width="100%">
+
+                                                <div class='left-a' >
+                                                    <a style='' href="{$WebSiteUrl}/pageredirst.php?action=activty&functionname=activty" target="mainFrame" class="left-fontSmall" >活动</a>
+
+                                                </div>
+                                            </td>
+
+
+
+                                        </tr>
+
+                                    {/if}
+
+
+                                     <tr>
+
+                                        <td width="100%">
+
+                                            <div class='left-a' >
+
+                                                <a  style='' href="{$WebSiteUrl}/pageredirst.php?action=company&functionname=wifiEdit" target="mainFrame" class="left-fontSmall" >wifi设置</a>
+
+                                            </div>
+
+                                        </td>
+                                    </tr>
+
                                     
                                      {if $auth_result[1000]==1}
                                         <tr>
@@ -868,7 +847,7 @@
 
                                                         {*                                                        <img name="img1" id="img1" src="{$WebSiteUrl}/images/ico04.png" width="12" height="12">*}
                                                         {*                                                        <span style=' display: inline-block; width: 18px;'>&nbsp;</span>*}
-                                                        <a href="javascript:vold(0)" target="mainFrame" class="left-font03 left-font" >文案管理</a>
+                                                        <a href="javascript:vold(0)" target="mainFrame" class="left-font03 left-font" >系统管理</a>
                                                     </td>
                                                 </tr>
                                             </table>
@@ -876,20 +855,8 @@
                                     </tr>
                                 </table>
                                 <table id="subtree120" style="DISPLAY: none" width="100%" border="0" align="center" cellpadding="0" ellspacing="0" class="left-table03 tableDefault">
-                                    
-                                     <tr>
+                                   
 
-                                        <td width="100%">
-
-                                            <div class='left-a' >
-
-                                                <a  style='' href="{$WebSiteUrl}/pageredirst.php?action=company&functionname=wifiEdit" target="mainFrame" class="left-fontSmall" >wifi设置</a>
-
-                                            </div>
-
-                                        </td>
-                                    </tr>
-                                    
                                     
                                     <tr>
 
@@ -962,19 +929,7 @@
                                         </td>
                                     </tr>
 
-                                    <tr>
-
-                                        <td width="100%">
-
-                                            <div class='left-a' >
-
-                                                <a  style='' href="{$WebSiteUrl}/pageredirst.php?action=company&functionname=official&id=3" target="mainFrame" class="left-fontSmall" >定制产品</a>
-
-                                            </div>
-
-                                        </td>
-                                    </tr>
-
+                                 
                                       <tr>
 
                                         <td width="100%">
@@ -1001,18 +956,7 @@
                                         </td>
                                     </tr>
 
-                                     <tr>
-
-                                        <td width="100%">
-
-                                            <div class='left-a' >
-
-                                                <a  style='' href="{$WebSiteUrl}/pageredirst.php?action=company&functionname=official&id=6" target="mainFrame" class="left-fontSmall" >了解更多</a>
-
-                                            </div>
-
-                                        </td>
-                                    </tr>
+                                   
 
 
                                      <tr>

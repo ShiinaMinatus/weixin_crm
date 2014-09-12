@@ -1,16 +1,16 @@
-<?php /* Smarty version Smarty-3.0-RC2, created on 2014-07-04 14:46:04
+<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-12 17:15:34
          compiled from "/web/www/weixin_crm//templates/yajie/activty/activty.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:54895280053b64dace2e515-13739126%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:9735351115412b9b6eb9051-87310758%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '9f05ee4e78b1f18a43adee4ae236bbb188e2c9bb' => 
     array (
       0 => '/web/www/weixin_crm//templates/yajie/activty/activty.tpl',
-      1 => 1404443526,
+      1 => 1410513332,
     ),
   ),
-  'nocache_hash' => '54895280053b64dace2e515-13739126',
+  'nocache_hash' => '9735351115412b9b6eb9051-87310758',
   'function' => 
   array (
   ),
@@ -63,14 +63,18 @@ $_smarty_tpl->decodeProperties(array (
     }
 </style>
 
-<div class="navBarStyle">
-    当前位置：任务管理 > 活动列表
-</div>
 
 
 <div style="height: 50px;"></div>
 
 <div class="dataArea">
+
+    <button  class="btn btn-primary" style="color:white;border-radius:0px;height: 32px; width: 76px;margin-top: -3px;" type="button" onclick="window.location.href='<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
+/pageredirst.php?action=activty&functionname=addactivty'">添加活动</button>
+
+    <div style=' height: 10px;'>&nbsp;</div>
+
+
     <table class="table crmTable table-bordered">
         <tr><th>活动名称</th><th>结束时间</th><th>编辑</th><th>报名活动详情</th></tr>
         <?php  $_smarty_tpl->tpl_vars['activtyAlls'] = new Smarty_Variable;

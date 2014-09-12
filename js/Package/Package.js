@@ -194,8 +194,7 @@ function judgePageWhetherElement(obj) {
   
     if (parseInt(number) === 0) {
         
-       
-
+    
         $('#'+fatherDiv).remove();
     
     }

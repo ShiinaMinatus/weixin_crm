@@ -69,9 +69,7 @@ $Canvas.ondragover = function(ev) {
              
              $('#'+eleType).remove();
          }
-         
-       
- 
+        
 
 
     } else {
@@ -204,6 +202,8 @@ $Canvas.ondrop = function(ev) {
 
     $('.white').removeClass('white');
 
+    //当前鼠标所在位置的对象
+
     var $currentobject = getCurrentObject(ev);
 
 
@@ -213,10 +213,13 @@ $Canvas.ondrop = function(ev) {
 
     var $currentObjectBelong = $currentobject.getAttribute('belog');
 
+
+ 
+
     /*
-     *  鼠标的指向为小图  将小图 增加  虚线
+     *  鼠标的指向为小图  将小图 增加  虚线  并判断  所拖动的饿类型为小图类型时  
      */
-    if ($currentOjectClassName === 'smallImage' || $currentOjectClassName === 'smallImageUploads') {
+    if (($currentOjectClassName === 'smallImage' || $currentOjectClassName === 'smallImageUploads' ) && objectType === 1) {
 
 
 
@@ -257,15 +260,28 @@ $Canvas.ondrop = function(ev) {
 
     if (objectType === 1) {
 
-        $('.smallImageUploads').uploadify({
+        $('#file_upload_'+uploadImageIdFina).uploadify({
             'swf': websiteUrl + '/uploadify/uploadify.swf',
             'uploader': websiteUrl + '/uploadify/uploadify.php',
+
+            'formData':{
+                
+                 'objectid':'file_upload_'+uploadImageIdFina,
+            
+            },
+
+
             'onUploadSuccess': function(file, data, response) {
 
 
 
+              
+                var json = eval("(" + data + ")");
 
-                $('#file_upload_' + uploadImageIdFina).parent().prev().find('img').attr('src',data)
+                
+                $('#' + json['objectid']).parent().prev().find('img').attr('src',json['path'])
+
+
             }
         });
     }
@@ -273,13 +289,27 @@ $Canvas.ondrop = function(ev) {
 
     if (objectType === 2) {
 
-        $('.inputUploads').uploadify({
+
+       
+
+        $('#file_upload_'+uploadImageIdFina).uploadify({
             'swf': websiteUrl + '/uploadify/uploadify.swf',
             'uploader': websiteUrl + '/uploadify/uploadify.php',
+
+             'formData':{
+                
+                 'objectid':'file_upload_'+uploadImageIdFina,
+            
+            },
+
+
             'onUploadSuccess': function(file, data, response) {
+
+
+                var json = eval("(" + data + ")");
+
                 
-                
-                $('#file_upload_' + uploadImageIdFina).parent().prev().find('img').attr('src',data)
+                $('#' + json['objectid']).parent().prev().find('img').attr('src',json['path'])
 
 
               

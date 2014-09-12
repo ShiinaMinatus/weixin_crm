@@ -41,14 +41,17 @@
     }
 </style>
 
-<div class="navBarStyle">
-    当前位置：任务管理 > 活动列表
-</div>
 
 
 <div style="height: 50px;"></div>
 
 <div class="dataArea">
+
+    <button  class="btn btn-primary" style="color:white;border-radius:0px;height: 32px; width: 76px;margin-top: -3px;" type="button" onclick="window.location.href='{$WebSiteUrl}/pageredirst.php?action=activty&functionname=addactivty'">添加活动</button>
+
+    <div style=' height: 10px;'>&nbsp;</div>
+
+
     <table class="table crmTable table-bordered">
         <tr><th>活动名称</th><th>结束时间</th><th>编辑</th><th>报名活动详情</th></tr>
         {foreach from=$activtyAll item=activtyAlls key=key}

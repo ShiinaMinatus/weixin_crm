@@ -139,6 +139,8 @@
                 <div class="draglist draggable" title="图片" draggable="true" id='BigimagePackage'>大图</div>
 
                 <button  id='previewButton' class='btn btn-default'>预览</button>
+
+                <button  id='saveButton' class='btn btn-default'>保存</button>
             </div>
             <div style="float: left; min-height: 1200px;  height: 1200px; width: 900px;">
 
@@ -210,6 +212,14 @@
 
 
     websiteUrl = '{$WebSiteUrl}';
+
+
+    $('#saveButton').click(function(event) {
+        /* Act on the event */
+
+        
+
+    });
     $('#previewButton').click(function() {
 
         $("#Preview").modal();
@@ -230,7 +240,7 @@
                
          $('.modal-body').find("[contenteditable = 'true']").attr('contenteditable','false');
             
-            $('.modal-body .upload').remove();
+         $('.modal-body .upload').remove();
         
 
        

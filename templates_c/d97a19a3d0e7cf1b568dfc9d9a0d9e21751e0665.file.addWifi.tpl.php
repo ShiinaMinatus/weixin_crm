@@ -1,16 +1,16 @@
-<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-11 09:57:30
-         compiled from "/web/www/weixin_crm//templates/yajie/company/official.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:3013181865411018a343294-12553278%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-11 09:57:25
+         compiled from "/web/www/weixin_crm//templates/yajie/company/addWifi.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:536605642541101858926d9-07743189%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
-    'a29fb7015372fa2803e822e81ec04dde02ed01f7' => 
+    'd97a19a3d0e7cf1b568dfc9d9a0d9e21751e0665' => 
     array (
-      0 => '/web/www/weixin_crm//templates/yajie/company/official.tpl',
-      1 => 1406530570,
+      0 => '/web/www/weixin_crm//templates/yajie/company/addWifi.tpl',
+      1 => 1409822525,
     ),
   ),
-  'nocache_hash' => '3013181865411018a343294-12553278',
+  'nocache_hash' => '536605642541101858926d9-07743189',
   'function' => 
   array (
   ),
@@ -20,29 +20,16 @@ $_smarty_tpl->decodeProperties(array (
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title></title>
-<!-- 
+
 
         <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
 /simditor/styles/font-awesome.css" />
         <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
 /simditor/styles/simditor.css" />
 
-      
+        <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
         <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
 /simditor/scripts/js/simditor-all.js"></script>
- -->
-
-
-   <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
-
-          <script charset="utf-8" src="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
-/kindeditor/kindeditor.js"></script>
-
-
-
-        <script charset="utf-8" src="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
-/kindeditor/lang/zh_CN.js"></script> 
-
 
         <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/css/bootstrap.min.css"> 
 
@@ -53,12 +40,15 @@ $_smarty_tpl->decodeProperties(array (
                 <link href="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
 /css/bootstrap-datetimepicker.css" rel="stylesheet" media="screen">
 
-        <script>
-            var editor;
-            KindEditor.ready(function(K) {
-                editor = K.create('#activity_html');
-            });
-        </script>
+                    <script>
+
+                        $(function() {
+
+
+
+                        })
+
+                    </script>
 
                     <style>
                         .labelWidth{
@@ -93,19 +83,33 @@ $_smarty_tpl->decodeProperties(array (
                         <div style="margin-left:15px;margin-top:15px;">
                             <div style="width: 1000px; margin: 0 auto;">
                                 <form class="form-horizontal" action="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
-/pageredirst.php?action=company&functionname=officialEdit" method="post">
-
-                                    <input type='hidden' name='id' value='<?php echo $_smarty_tpl->getVariable('info')->value['official_id'];?>
-'>
+/pageredirst.php?action=company&functionname=wifiEdit" method="post">
                                     <div class="form-group"> 
-                                        <label class="col-sm-2 control-label labelWidth"><?php echo $_smarty_tpl->getVariable('info')->value['official_name'];?>
-</label>
+                                        <label class="col-sm-2 control-label labelWidth">wifi账号</label>
 
-                                        <div class="col-sm-2" style='width:800px;height:auto;min-height:300px'>
-                                           
-                                                     <textarea  class="form-control" id="activity_html" name="activity_html" style="width:700px;height:700px;"><?php echo $_smarty_tpl->getVariable('info')->value['official_text'];?>
-</textarea>
-                                         
+                                        <div class="col-sm-2" style='width:800px;'>
+                                            <?php if ($_smarty_tpl->getVariable('info')->value!=''){?>
+                                                <input type='text' id="wifiName" name="wifiName" style="" value='<?php echo $_smarty_tpl->getVariable('info')->value['wifiName'];?>
+'>
+                                            <?php }else{ ?>
+                                                <input  type='text' id="wifiName" name="wifiName" style="">
+                                            <?php }?>
+                                        </div>
+                                       
+                                    </div>
+
+                                    <div class="form-group">
+
+
+                                   <label class="col-sm-2 control-label labelWidth">wifi密码</label>
+
+                                        <div class="col-sm-2" style='width:800px;'>
+                                            <?php if ($_smarty_tpl->getVariable('info')->value!=''){?>
+                                                <input type='text' id="wifiPassword" name="wifiPassword" style="" value='<?php echo $_smarty_tpl->getVariable('info')->value['wifiPassword'];?>
+'>
+                                            <?php }else{ ?>
+                                                <input  type='text' id="wifiPassword" name="wifiPassword" style="">
+                                            <?php }?>
                                         </div>
 
                                     </div>
@@ -127,42 +131,4 @@ $_smarty_tpl->decodeProperties(array (
 
                     <script>
                        
-      
-                        $("#addButton").click(function() {
-                            $("#errorMessage").hide();
-                            $("#Message").hide();
-                            $("#errorMessage").html();
-
-                            var errorMessage = "";
-
-                            var alertFlag = false;
-
-
-
-                         
-                            var  html = document.getElementById('activity_html').value; // 原生API
-                          
-                            html = editor.html();
-
-                            editor.sync();
-
-                            html = document.getElementById('activity_html').value; // 原生API
-
-                            if (html == "") {
-                                errorMessage += "活动内容不能为空 <br>";
-
-                                alertFlag = true;
-                            }
-
-                            if (alertFlag) {
-
-                                $("#errorMessage").show();
-
-                                $("#errorMessage").html(errorMessage);
-
-                                return false;
-                            }
-
-
-                        });
                     </script>

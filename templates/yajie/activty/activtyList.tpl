@@ -45,9 +45,6 @@
         padding-left: 25px;
     }
 </style>
-<div class="navBarStyle">
-    当前位置：任务管理 > 活动报名详情
-</div>
 <div style="height: 51px;">
 
      <div style="position: relative;left: 23px; top: 4px;"><a href="{$WebSiteUrl}/pageredirst.php?action=activty&functionname=activty"><button class="btn btn-primary">返回</button></a></div>
