@@ -57,7 +57,7 @@
         height: auto;
     }
 </style>
-<div class="userMangerTitle">积分信息管理</div>
+<div class="userMangerTitle">消费积分管理</div>
 
 <div style="text-align: center; padding-top: 100px;">
     {if $printMessage neq ""}
@@ -96,7 +96,7 @@
     <div style="height: 15px;"></div>
     <span class="input-group-btn">
 
-        <button id="alertDialog" data-toggle="modal" data-target="#myModal" type="button"  accesskey="Enter" class="btn btn-default" style="width: auto;" >确定</button>
+        <button id="alertDialog" data-toggle="modal" data-target="#myModal" type="button"  accesskey="Enter" class="btn btn-primary" style="width: auto;" >确定</button>
     </span>
 
     <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
