@@ -1,16 +1,16 @@
-<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-15 14:31:10
+<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-15 16:49:01
          compiled from "/web/www/weixin_crm//templates/yajie/left.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:1566934586541687ae1c1427-56934829%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:2463387535416a7fdb89723-43064873%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '0d8b99cafee6d5fc8c0d14e092db3abeece3a334' => 
     array (
       0 => '/web/www/weixin_crm//templates/yajie/left.tpl',
-      1 => 1410762646,
+      1 => 1410770936,
     ),
   ),
-  'nocache_hash' => '1566934586541687ae1c1427-56934829',
+  'nocache_hash' => '2463387535416a7fdb89723-43064873',
   'function' => 
   array (
   ),
@@ -163,16 +163,16 @@ _css.css" rel="stylesheet" type="text/css">
                                 </table>
                                 <table id="subtree120" style="DISPLAY: none" width="100%" border="0" align="center" cellpadding="0" ellspacing="0" class="left-table03 tableDefault">
 
-                                  
-                                  
+
                                     
-                                     <tr>
+
+                                    <tr>
 
                                         <td width="100%">
 
                                             <div class='left-a' >
 
-                                              <a  style='' href="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
+                                                <a  style='' href="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
 /pageredirst.php?action=company&functionname=companyEdit" target="mainFrame" class="left-fontSmall" >公司信息</a>
 
                                             </div>
@@ -180,7 +180,7 @@ _css.css" rel="stylesheet" type="text/css">
                                         </td>
                                     </tr>
 
-                                   
+                                    
 
                                 </table>
                             <?php }?>
@@ -581,8 +581,21 @@ _css.css" rel="stylesheet" type="text/css">
 
                                         </td>
                                     </tr>
+                                    <tr>
 
-                                    
+                                        <td width="100%">
+
+                                            <div class='left-a' >
+
+                                                <a  style='' href="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
+/pageredirst.php?action=company&functionname=groupMessage" target="mainFrame" class="left-fontSmall" >消息群发</a>
+
+                                            </div>
+
+                                        </td>
+                                    </tr>
+
+
 
 
                                     <?php if ($_smarty_tpl->getVariable('auth_result')->value[1000]==1){?>

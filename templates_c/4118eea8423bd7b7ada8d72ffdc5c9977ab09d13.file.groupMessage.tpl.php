@@ -1,18 +1,40 @@
+<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-15 17:05:29
+         compiled from "/web/www/weixin_crm//templates/yajie/company/groupMessage.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:8967143255416abd9a4ee33-04025602%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    '4118eea8423bd7b7ada8d72ffdc5c9977ab09d13' => 
+    array (
+      0 => '/web/www/weixin_crm//templates/yajie/company/groupMessage.tpl',
+      1 => 1410771923,
+    ),
+  ),
+  'nocache_hash' => '8967143255416abd9a4ee33-04025602',
+  'function' => 
+  array (
+  ),
+  'has_nocache_code' => false,
+)); /*/%%SmartyHeaderCode%%*/?>
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
             <title></title>
             <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js" type="text/javascript">
             </script>
-            <link href="{$WebSiteUrl}/css/minimal/green.css" rel="stylesheet" type="text/css">
-                <script src="{$WebSiteUrl}/js/icheck.min.js" type="text/javascript">
+            <link href="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
+/css/minimal/green.css" rel="stylesheet" type="text/css">
+                <script src="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
+/js/icheck.min.js" type="text/javascript">
                 </script>
 
                 <script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/js/bootstrap.min.js" type="text/javascript">
                 </script>
                 <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/css/bootstrap.min.css" type="text/css">
 
-                    <link href="{$WebSiteUrl}/css/crm_table_style_{$source}.css" rel="stylesheet">
+                    <link href="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
+/css/crm_table_style_<?php echo $_smarty_tpl->getVariable('source')->value;?>
+.css" rel="stylesheet">
                         <script type="text/javascript">
 
                             $(document).ready(function() {
@@ -93,7 +115,8 @@
                                 text-decoration: none;
                             }
                             .icon20_common.add_gray {
-                                background: url('{$WebSiteUrl}/images/yajie/base_z20273e.png') no-repeat scroll 0px -2761px transparent;
+                                background: url('<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
+/images/yajie/base_z20273e.png') no-repeat scroll 0px -2761px transparent;
                             }
                             .icon20_common {
                                 width: 20px;
@@ -175,18 +198,18 @@
                             </div>
 
 
-                            {if $scuesss eq "1"}
+                            <?php if ($_smarty_tpl->getVariable('scuesss')->value=="1"){?>
 
                                 <div id="Message" class="alert alert-danger errorMessage" style="display: block">
                                     恭喜你添加成功
                                 </div>
 
-                            {/if}
+                            <?php }?>
 
                             <div>
-                                <input type="radio" id='1' name="iCheck" value='0' {if $info.companyType == 0}  checked {/if}>智能模版&nbsp;&nbsp;
+                                <input type="radio" id='1' name="iCheck" value='0' <?php if ($_smarty_tpl->getVariable('info')->value['companyType']==0){?>  checked <?php }?>>智能模版&nbsp;&nbsp;
 
-                                    <input type="radio" id='2' name="iCheck" value='1' {if $info.companyType == 1}  checked {/if}>自定义模版
+                                    <input type="radio" id='2' name="iCheck" value='1' <?php if ($_smarty_tpl->getVariable('info')->value['companyType']==1){?>  checked <?php }?>>自定义模版
 
                                         <button   id='saveButton' class='btn  btn-info' type='button'>保存</button>
 
@@ -220,7 +243,8 @@
                                         </div>
                                         <div style="width:550px;float: left;margin-left: 25px;margin-top: 20px;">
                                             <div >
-                                                <form class="form-horizontal" action="{$WebSiteUrl}/pageredirst.php?action=company&amp;functionname=companyEdit" method="post" id='form1' name='form1'>
+                                                <form class="form-horizontal" action="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
+/pageredirst.php?action=company&amp;functionname=companyEdit" method="post" id='form1' name='form1'>
                                                     <div id="messageEditArea">
                                                         <div id="editArea1" class="editArea">
                                                             <div class="appmsg_edit_item">
@@ -242,9 +266,9 @@
                                                                 <label for="" class="frm_label">正文</label>
                                                                 <div>
                                                                     <div>
-                                                                        <input type="radio" id='1' name="iCheck" value='0' {if $info.companyType == 0}  checked {/if}>智能模版&nbsp;&nbsp;
+                                                                        <input type="radio" id='1' name="iCheck" value='0' <?php if ($_smarty_tpl->getVariable('info')->value['companyType']==0){?>  checked <?php }?>>智能模版&nbsp;&nbsp;
 
-                                                                            <input type="radio" id='2' name="iCheck" value='1' {if $info.companyType == 1}  checked {/if}>自定义模版
+                                                                            <input type="radio" id='2' name="iCheck" value='1' <?php if ($_smarty_tpl->getVariable('info')->value['companyType']==1){?>  checked <?php }?>>自定义模版
 
                                                                                 <button   id='saveButton' class='btn  btn-info' type='button'>保存</button>
 
@@ -252,28 +276,34 @@
                                                                                 <button    id='previewButton' class='btn btn-info' type='button'>预览</button>
                                                                                 </div>
                                                                                 <div>
-                                                                                    <input type='hidden' name='activity_html' id='activity_html' value='{$info.companyContent}'>
+                                                                                    <input type='hidden' name='activity_html' id='activity_html' value='<?php echo $_smarty_tpl->getVariable('info')->value['companyContent'];?>
+'>
 
-                                                                                        <input type='hidden' name='activity_html_' id='activity_html_' value='{$info.companyTextOriginal}'>
+                                                                                        <input type='hidden' name='activity_html_' id='activity_html_' value='<?php echo $_smarty_tpl->getVariable('info')->value['companyTextOriginal'];?>
+'>
 
 
 
-                                                                                            <input type='hidden' name='activity_title' id='activity_title' value='{$info.companyTitle}'>
+                                                                                            <input type='hidden' name='activity_title' id='activity_title' value='<?php echo $_smarty_tpl->getVariable('info')->value['companyTitle'];?>
+'>
 
-                                                                                                <input type='hidden' name='type' id='type' value='{$info.companyType}'>
+                                                                                                <input type='hidden' name='type' id='type' value='<?php echo $_smarty_tpl->getVariable('info')->value['companyType'];?>
+'>
 
 
 
                                                                                                     <div id='init_id' style='display:none' class='public'>
 
-                                                                                                        {include file='../_init.tpl'}
+                                                                                                        <?php $_template = new Smarty_Internal_Template('../_init.tpl', $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
+ echo $_template->getRenderedTemplate();?><?php $_template->updateParentVariables(0);?><?php unset($_template);?>
                                                                                                     </div>
 
 
                                                                                                     <div id='visual_id' style='display:none' class='public'>
 
 
-                                                                                                        {include file='../_visual_layout.tpl'}
+                                                                                                        <?php $_template = new Smarty_Internal_Template('../_visual_layout.tpl', $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
+ echo $_template->getRenderedTemplate();?><?php $_template->updateParentVariables(0);?><?php unset($_template);?>
 
                                                                                                     </div>
                                                                                                     </div>
@@ -305,7 +335,8 @@
                                                                                                         </div><!-- /.modal-dialog -->
                                                                                                     </div><!-- /.modal -->
 
-                                                                                                    <script src="{$WebSiteUrl}/js/rexexTest.js" type="text/javascript"></script>
+                                                                                                    <script src="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
+/js/rexexTest.js" type="text/javascript"></script>
 
                                                                                                     <script>
                                                                                                                         var companyContent = $('#activity_html').val();
