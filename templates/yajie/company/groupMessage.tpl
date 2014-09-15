@@ -106,7 +106,7 @@
                             .editArea{
                                 background-color: #F4F5F9;
                                 border: 1px solid #E7E7EB;
-                                height: 550px;
+                                height: 850px;
                             }
                             .appmsg_edit_item {
                                 padding-bottom: 1em;
@@ -154,6 +154,9 @@
                                 background-color: transparent;
                                 border: 0px none;
                                 outline: 0px none;
+                            }
+                            .init_class{
+                                width: 400px;  height: 500px;
                             }
                         </style>
                         </head>
@@ -245,287 +248,289 @@
 
                                                                                 <button    id='previewButton' class='btn btn-info' type='button'>预览</button>
                                                                                 </div>
-                                                                            <input type='hidden' name='activity_html' id='activity_html' value='{$info.companyContent}'>
+                                                                                <div>
+                                                                                    <input type='hidden' name='activity_html' id='activity_html' value='{$info.companyContent}'>
 
-                                                        <input type='hidden' name='activity_html_' id='activity_html_' value='{$info.companyTextOriginal}'>
-
-
-
-                                                            <input type='hidden' name='activity_title' id='activity_title' value='{$info.companyTitle}'>
-
-                                                                <input type='hidden' name='type' id='type' value='{$info.companyType}'>
+                                                                                        <input type='hidden' name='activity_html_' id='activity_html_' value='{$info.companyTextOriginal}'>
 
 
 
-                                                                    <div id='init_id' style='display:none' class='public'>
+                                                                                            <input type='hidden' name='activity_title' id='activity_title' value='{$info.companyTitle}'>
 
-                                                                        {include file='../_init.tpl'}
-                                                                    </div>
-
-
-                                                                    <div id='visual_id' style='display:none' class='public'>
-
-
-                                                                        {include file='../_visual_layout.tpl'}
-
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                                                </div>
-                                                                                </div>    
-
-
-                                                                                </form>
-                                                                                </div>
-                                                                                </div>
-                                                                                <!-- Modal -->
-                                                                                <div class="modal fade Preview" id="s" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                                                                    <div class="modal-dialog" style='width: 320px; height: 480px;'>
-                                                                                        <div class="modal-content" >
-                                                                                            <div class="modal-header">
-                                                                                                <!--  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> -->
-                                                                                                <h4 class="modal-title" id="myModalLabel">预览界面为iphone4s</h4>
-                                                                                            </div>
-                                                                                            <div class="modal-body" style='width: 320px; min-height: 480px; padding:0;margin: 0 auto;'>
-
-                                                                                            </div>
-                                                                                            <div class="modal-footer">
-                                                                                                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="preview()">关闭</button>
-
-                                                                                            </div>
-                                                                                        </div><!-- /.modal-content -->
-                                                                                    </div><!-- /.modal-dialog -->
-                                                                                </div><!-- /.modal -->
-
-                                                                                <script src="{$WebSiteUrl}/js/rexexTest.js" type="text/javascript"></script>
-
-                                                                                <script>
-                                                                            var companyContent = $('#activity_html').val();
-
-                                                                            var companyTitle = $('#activity_title').val();
-
-                                                                            var companyContent_ = $('#activity_html_').val();
-
-                                                                            $(function(){
-
-                                                                            var type = $('#type').val();
+                                                                                                <input type='hidden' name='type' id='type' value='{$info.companyType}'>
 
 
 
-                                                                            if(type == 0){
+                                                                                                    <div id='init_id' style='display:none' class='public'>
 
-                                                                            if(companyContent_ !=''){
-
-                                                                            $('#divPack').html(companyContent_);
-
-                                                                            $('#titleArea').html(companyTitle);
-
-                                                                            $('.uploadify').each(function(obj){
-
-                                                                            var ids = $(this).attr('id');
-
-                                                                            $('.uploadify-queue').remove();
-
-                                                                            $('#'+ids).html('');
+                                                                                                        {include file='../_init.tpl'}
+                                                                                                    </div>
 
 
-                                                                            $('#'+ids).uploadify({
-                                                                            'swf': websiteUrl + '/uploadify/uploadify.swf',
-                                                                            'uploader': websiteUrl + '/uploadify/uploadify.php',
+                                                                                                    <div id='visual_id' style='display:none' class='public'>
 
-                                                                            'formData':{
+
+                                                                                                        {include file='../_visual_layout.tpl'}
+
+                                                                                                    </div>
+                                                                                                    </div>
+                                                                                                    </div>
+                                                                                                    </div>
+                                                                                                    </div>
+                                                                                                    </div>    
+
+
+                                                                                                    </form>
+                                                                                                    </div>
+                                                                                                    </div>
+                                                                                                    <!-- Modal -->
+                                                                                                    <div class="modal fade Preview" id="s" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                                                                                        <div class="modal-dialog" style='width: 320px; height: 480px;'>
+                                                                                                            <div class="modal-content" >
+                                                                                                                <div class="modal-header">
+                                                                                                                    <!--  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> -->
+                                                                                                                    <h4 class="modal-title" id="myModalLabel">预览界面为iphone4s</h4>
+                                                                                                                </div>
+                                                                                                                <div class="modal-body" style='width: 320px; min-height: 480px; padding:0;margin: 0 auto;'>
+
+                                                                                                                </div>
+                                                                                                                <div class="modal-footer">
+                                                                                                                    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="preview()">关闭</button>
+
+                                                                                                                </div>
+                                                                                                            </div><!-- /.modal-content -->
+                                                                                                        </div><!-- /.modal-dialog -->
+                                                                                                    </div><!-- /.modal -->
+
+                                                                                                    <script src="{$WebSiteUrl}/js/rexexTest.js" type="text/javascript"></script>
+
+                                                                                                    <script>
+                                                                                                var companyContent = $('#activity_html').val();
+
+                                                                                                var companyTitle = $('#activity_title').val();
+
+                                                                                                var companyContent_ = $('#activity_html_').val();
+
+                                                                                                $(function(){
+
+                                                                                                var type = $('#type').val();
+
+
+
+                                                                                                if(type == 0){
+
+                                                                                                if(companyContent_ !=''){
+
+                                                                                                $('#divPack').html(companyContent_);
+
+                                                                                                $('#titleArea').html(companyTitle);
+
+                                                                                                $('.uploadify').each(function(obj){
+
+                                                                                                var ids = $(this).attr('id');
+
+                                                                                                $('.uploadify-queue').remove();
+
+                                                                                                $('#'+ids).html('');
+
+
+                                                                                                $('#'+ids).uploadify({
+                                                                                                'swf': websiteUrl + '/uploadify/uploadify.swf',
+                                                                                                'uploader': websiteUrl + '/uploadify/uploadify.php',
+
+                                                                                                'formData':{
                 
-                                                                                'objectid':ids,
+                                                                                                    'objectid':ids,
             
-                                                                        },
+                                                                                            },
 
 
-                                                                        'onUploadSuccess': function(file, data, response) {
+                                                                                            'onUploadSuccess': function(file, data, response) {
 
-                                                                        var json = eval("(" + data + ")");
+                                                                                            var json = eval("(" + data + ")");
 
                 
-                                                                        $('#' + json['objectid']).parent().prev().find('img').attr('src',json['path'])
+                                                                                            $('#' + json['objectid']).parent().prev().find('img').attr('src',json['path'])
 
 
               
-                                                                    }
-                                                                });
+                                                                                        }
+                                                                                    });
 
-                                                            })
+                                                                                })
+
+                                                                            }
+
+                                                                            $('#init_id').show();
+
+                                                                        } else{
+
+
+                                                                        $('#visual_id').show();
+
+                                                                        if(companyContent_ !=''){
+
+                                                                        $('#edit').html(companyContent);
+
+                                                                        $('#titleArea1').html(companyTitle)
+
+                                                                    }
+                                                                }
+
+
+                                                                $('input').on('ifChecked', function(){
+
+
+                                                                var  type =  $(this).val();
+
+                                                                $('.public').css('display','none');
+
+
+
+                                                                $('#type').val(type);
+
+
+                                                                if(type == 0){
+
+                                                                $('#init_id').show();
+
+
+                                                            } else{
+
+                                                            $('#visual_id').show();
+
 
                                                         }
 
-                                                        $('#init_id').show();
-
-                                                    } else{
-
-
-                                                    $('#visual_id').show();
-
-                                                    if(companyContent_ !=''){
-
-                                                    $('#edit').html(companyContent);
-
-                                                    $('#titleArea1').html(companyTitle)
-
-                                                }
-                                            }
-
-
-                                            $('input').on('ifChecked', function(){
-
-
-                                            var  type =  $(this).val();
-
-                                            $('.public').css('display','none');
-
-
-
-                                            $('#type').val(type);
-
-
-                                            if(type == 0){
-
-                                            $('#init_id').show();
-
-
-                                        } else{
-
-                                        $('#visual_id').show();
-
-
-                                    }
-
                    
-                                });
+                                                    });
 
 
-                                $('#saveButton').click(function(event) {
-                                /* Act on the event */
+                                                    $('#saveButton').click(function(event) {
+                                                    /* Act on the event */
 
 
-                                $('.modal-body').html('');
+                                                    $('.modal-body').html('');
 
-                                previewBoby();
-
-
-                                $('#form1').submit();
+                                                    previewBoby();
 
 
+                                                    $('#form1').submit();
 
-                            });
+
+
+                                                });
 
                  
 
-                            $('#previewButton').click(function() {
+                                                $('#previewButton').click(function() {
 
 
                           
 
-                            $(".Preview").modal();
+                                                $(".Preview").modal();
                             
 
-                            previewBoby();
+                                                previewBoby();
                             
 
                            
-                        })
+                                            })
 
 
-                    })
+                                        })
 
 
-                    function previewBoby(){
+                                        function previewBoby(){
 
-                    var type = $('#type').val();
+                                        var type = $('#type').val();
 
                            
                             
 
-                    if(type == 0){
+                                        if(type == 0){
 
 
-                    var titleContent = $('#titleArea').html();
+                                        var titleContent = $('#titleArea').html();
                             
-                    var packContent = $('#divPack').html();
+                                        var packContent = $('#divPack').html();
 
-                } else{
+                                    } else{
 
-                var titleContent = $('#titleArea1').html();
+                                    var titleContent = $('#titleArea1').html();
 
-                var  html = document.getElementById('edit').value; // 原生API
+                                    var  html = document.getElementById('edit').value; // 原生API
                           
-                html = editor.html();
+                                    html = editor.html();
 
-                editor.sync();
+                                    editor.sync();
 
-                html = document.getElementById('edit').value; // 原生API
+                                    html = document.getElementById('edit').value; // 原生API
                             
-                var packContent = html;
+                                    var packContent = html;
 
-            }
+                                }
                             
                           
                             
-            var bobyPreview = titleContent + packContent;
+                                var bobyPreview = titleContent + packContent;
                             
-            //编辑器原本内容    
+                                //编辑器原本内容    
 
-            $('#activity_html_').val(packContent);
+                                $('#activity_html_').val(packContent);
 
-            //标题
+                                //标题
 
-            $('#activity_title').val(titleContent);
+                                $('#activity_title').val(titleContent);
 
-            //将预览内容放入
+                                //将预览内容放入
                             
-            $('.modal-body').html(bobyPreview);
+                                $('.modal-body').html(bobyPreview);
                              
-            $('.modal-body').find('.closeSpan').remove();
+                                $('.modal-body').find('.closeSpan').remove();
                                    
-            $('.modal-body').find("[contenteditable = 'true']").attr('contenteditable','false');
+                                $('.modal-body').find("[contenteditable = 'true']").attr('contenteditable','false');
                                 
-            $('.modal-body .upload').remove();
+                                $('.modal-body .upload').remove();
 
-            //将预览内容(标题和内容)放入
+                                //将预览内容(标题和内容)放入
 
-            $('#activity_html').val($('.modal-body').html());
+                                $('#activity_html').val($('.modal-body').html());
+                            }
+                            $("#addBox").click(function(){
+                            addBoxItem()
+                        });
+                        //删除jsbox的方法
+                        $("body").on('click','.js_del',
+                        function(){
+
+                        var number=$(this).attr("data-id");
+                        var delObj=$(this).parent().parent().parent().find("#msgItem"+number).remove();
+                    }
+                );
+                    //添加box的JS方法
+                    var maxBoxNumber=$(".msgBoxStyle").length;
+                    function addBoxItem(){
+                    var messsageBox=$(".msgBoxStyle");
+                    var boxCount=messsageBox.length;
+                    var newItemId=maxBoxNumber=maxBoxNumber+1;
+                    var messageText=$("#jsMessageText");
+                    var appendVal='<div id="msgItem'+newItemId+'" data-fileid="" data-id="'+newItemId+'" class="msgBoxStyle ">'+
+                        '<img class="js_appmsg_thumb appmsg_thumb" src="">'+
+                        '<i class=" appthumb appmsg_thumb default " style="margin-bottom: 14px;">缩略图</i>'+
+                        '<h4 class="appmsg_title"><a onclick="return false;" href="javascript:void(0);" target="_blank">标题</a></h4>'+
+                        '<div class="appmsg_edit_mask">'+
+                        '<a class="icon18_common edit_gray js_edit" data-id="'+newItemId+'" onclick="return false;" href="javascript:void(0);">编辑</a> '+
+                        '<a class="icon18_common del_gray js_del" data-id="'+newItemId+'" onclick="return false;" href="javascript:void(0);">删除</a>'+
+                        '</div></div>';
+                    if(boxCount>=8){
+                    alert("最多只可添加八个项目");
+                }else{
+                messageText.append(appendVal);
+            }
+            //alert(boxCount);
         }
-        $("#addBox").click(function(){
-        addBoxItem()
-    });
-    //删除jsbox的方法
-    $("body").on('click','.js_del',
-    function(){
 
-    var number=$(this).attr("data-id");
-    var delObj=$(this).parent().parent().parent().find("#msgItem"+number).remove();
-}
-);
-//添加box的JS方法
-var maxBoxNumber=$(".msgBoxStyle").length;
-function addBoxItem(){
-var messsageBox=$(".msgBoxStyle");
-var boxCount=messsageBox.length;
-var newItemId=maxBoxNumber=maxBoxNumber+1;
-var messageText=$("#jsMessageText");
-var appendVal='<div id="msgItem'+newItemId+'" data-fileid="" data-id="'+newItemId+'" class="msgBoxStyle ">'+
-    '<img class="js_appmsg_thumb appmsg_thumb" src="">'+
-    '<i class=" appthumb appmsg_thumb default " style="margin-bottom: 14px;">缩略图</i>'+
-    '<h4 class="appmsg_title"><a onclick="return false;" href="javascript:void(0);" target="_blank">标题</a></h4>'+
-    '<div class="appmsg_edit_mask">'+
-    '<a class="icon18_common edit_gray js_edit" data-id="'+newItemId+'" onclick="return false;" href="javascript:void(0);">编辑</a> '+
-    '<a class="icon18_common del_gray js_del" data-id="'+newItemId+'" onclick="return false;" href="javascript:void(0);">删除</a>'+
-    '</div></div>';
-if(boxCount>=8){
-alert("最多只可添加八个项目");
-}else{
-messageText.append(appendVal);
-}
-//alert(boxCount);
-}
-
-                                                                                </script>
-                                                                                </body>
-                                                                                </html>
+                                                                                                    </script>
+                                                                                                    </body>
+                                                                                                    </html>
