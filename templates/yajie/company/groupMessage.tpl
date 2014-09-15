@@ -225,7 +225,7 @@
                                                         <div id="editArea1" class="editArea">
                                                             <div class="appmsg_edit_item">
                                                                 <label for="" class="frm_label">标题</label>
-                                                                <span class="frm_input_box"><input class="frm_input js_title" type="text"></span>
+                                                                <span class="frm_input_box"><input id="title1" data-id="1" class="frm_input js_title" type="text"></span>
                                                             </div>
                                                             <div class="appmsg_edit_item">
                                                                 <label for="" class="frm_label">作者</label>
