@@ -1,16 +1,16 @@
-<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-15 11:47:29
+<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-15 14:31:10
          compiled from "/web/www/weixin_crm//templates/yajie/left.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:15044443675416615129bf23-13927683%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:1566934586541687ae1c1427-56934829%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '0d8b99cafee6d5fc8c0d14e092db3abeece3a334' => 
     array (
       0 => '/web/www/weixin_crm//templates/yajie/left.tpl',
-      1 => 1410749243,
+      1 => 1410762646,
     ),
   ),
-  'nocache_hash' => '15044443675416615129bf23-13927683',
+  'nocache_hash' => '1566934586541687ae1c1427-56934829',
   'function' => 
   array (
   ),
@@ -575,7 +575,7 @@ _css.css" rel="stylesheet" type="text/css">
                                             <div class='left-a' >
 
                                                 <a  style='' href="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
-/pageredirst.php?action=company&functionname=wifiEdit" target="mainFrame" class="left-fontSmall" >联系客服</a>
+/pageredirst.php?action=company&functionname=phoneEdit" target="mainFrame" class="left-fontSmall" >联系客服</a>
 
                                             </div>
 

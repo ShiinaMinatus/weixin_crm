@@ -231,37 +231,118 @@ function sendWeixinCustom($money, $toopen_id, $user_id) {
     }
 }
 
-/**
- *   上传图片素材到微信公众平台
- */
 
-function https_upload_pic_request($filePath,$access_token) {
+/**
+ *   上传图片素材到微信公众平台 获取另外id   微信公众平台
+ */
+function https_upload_pic_request($filePath, $access_token) {
 
 
     //上传图片
     $type = "image";
 
-    //$filepath = dirname(__FILE__) . "\winter.jpg";
-
-    $filedata = array("file1" => "@" . $filePath);
+    $filedata = array("media" => "@" . $filePath);
 
     $url = "http://file.api.weixin.qq.com/cgi-bin/media/upload?access_token=$access_token&type=$type";
-    
-    return curlPost($url,$filedata);
-   
+
+    return https_request($url, $filedata);
 }
 
 
-/**
- * 高级群发接口 将图片的meida id 发送到微信公众平台 
- */
+function https_request($url, $data = null)
+{
+     $ch = curl_init($url) ;
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS,$data);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $result = curl_exec($ch) ;
+        if (curl_errno($ch)) {
+         return curl_error($ch);
+        }
+        curl_close($ch);
+        return $result;
+}
 
-function group_send_image($ACCESS_TOKEN){
+/**
+ * 高级群发接口 将图片的meida id 发送到微信公众平台   $array 为后台用户所填写的内容
+ * $array
+ * [
+ *   'thumb_media_id' => 图文消息缩略图的media_id
+ *   'author' => 图文消息的作者  可以不传递
+ *   'title' => '图文消息的标题'
+ *   'content_source_url'=>'在图文消息页面点击“阅读原文”后的页面'  可以不传递
+ *    'content' => '图文消息页面的内容，支持HTML标签'
+ *    'digest'=>'图文消息的描述'  可以不传递
+ * ] 
+ *
+ */
+function group_send_image($ACCESS_TOKEN, $array) {
 
     $url = "https://api.weixin.qq.com/cgi-bin/media/uploadnews?access_token=$ACCESS_TOKEN";
 
-    
+    $result['Articles'] = $array;
 
+    return curlPost($url, $result);
 }
+
+/**
+ * 根据群组来进行群发  id 为 调用群发接口的 上传素材接口 返回的id
+ */
+function mass_send_group($id, $token, $meida_id) {
+
+    $url = "https://api.weixin.qq.com/cgi-bin/message/mass/sendall?access_token=$token";
+
+    $data['filter'] = array('group_id' => $id);
+
+    $data['mpnews'] = array('media_id' => $meida_id);
+
+    $data['msgtype'] = 'mpnews';
+
+    return curlPost($url, $data);
+}
+
+/**
+ *  获取access token   微信公众平台
+ */
+function getAccessToken() {
+
+    $admin = new adminModel($_SESSION['weixin_crm_user_id']);
+
+    $company = new companyModel($admin->vars['compang_id']);
+
+    if ($company->vars_number > 0) {
+
+        $appid = $company->vars['appid'];
+
+        $secret = $company->vars['app_secret'];
+
+        $companyToken = new companyTokenModel();
+
+        $token = $companyToken->getToken($admin->vars['compang_id'], $appid, $secret);
+
+        return $token;
+    }
+}
+
+/**
+ * 获取所有的分组  微信公众平台
+ */
+function getGroup($ACCESS_TOKEN) {
+
+
+    $url = "https://api.weixin.qq.com/cgi-bin/groups/get?access_token=$ACCESS_TOKEN";
+
+
+    $result = json_decode(curlGet($url), true);
+
+    return $result;
+}
+
+function uploadMedia($url){
+        
+       
+    }
 
 ?>

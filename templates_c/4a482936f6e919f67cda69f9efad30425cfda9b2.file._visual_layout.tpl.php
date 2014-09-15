@@ -1,16 +1,16 @@
-<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-15 14:30:16
+<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-15 14:53:22
          compiled from "/web/www/weixin_crm//templates/yajie/company/../_visual_layout.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:34383857954168778b36432-64263029%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:69661417654168ce2b86e67-68608558%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '4a482936f6e919f67cda69f9efad30425cfda9b2' => 
     array (
       0 => '/web/www/weixin_crm//templates/yajie/company/../_visual_layout.tpl',
-      1 => 1410762583,
+      1 => 1410762916,
     ),
   ),
-  'nocache_hash' => '34383857954168778b36432-64263029',
+  'nocache_hash' => '69661417654168ce2b86e67-68608558',
   'function' => 
   array (
   ),
@@ -83,7 +83,7 @@ $_smarty_tpl->decodeProperties(array (
         </div>
         <div class="registerWarp" class='init_class'>
 
-            <textarea id="edit" placeholder="这里输入内容" class='init_class'></textarea>
+            <textarea id="edit" placeholder="这里输入内容" style='width: 100%; height: 100%;' class='init_class'></textarea>
         </div>
 
 

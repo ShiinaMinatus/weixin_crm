@@ -1,16 +1,16 @@
-<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-11 09:57:25
+<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-15 16:47:19
          compiled from "/web/www/weixin_crm//templates/yajie/company/addWifi.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:536605642541101858926d9-07743189%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:5803382585416a79794ba70-81712284%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'd97a19a3d0e7cf1b568dfc9d9a0d9e21751e0665' => 
     array (
       0 => '/web/www/weixin_crm//templates/yajie/company/addWifi.tpl',
-      1 => 1409822525,
+      1 => 1410762646,
     ),
   ),
-  'nocache_hash' => '536605642541101858926d9-07743189',
+  'nocache_hash' => '5803382585416a79794ba70-81712284',
   'function' => 
   array (
   ),
@@ -46,7 +46,7 @@ $_smarty_tpl->decodeProperties(array (
 
 
 
-                        })
+                    })
 
                     </script>
 
@@ -73,8 +73,9 @@ $_smarty_tpl->decodeProperties(array (
 
                     </head>
                     <body>
-                     
-                        
+
+                        <div class="userMangerTitle">wifi设置</div>
+                        <div style="height: 50px;"></div>
 
                         <?php if ($_smarty_tpl->getVariable('scuesss')->value=="1"){?>
                             <div id="Message" class="alert alert-danger errorMessage" style="display: block">恭喜你添加成功</div>
@@ -91,44 +92,44 @@ $_smarty_tpl->decodeProperties(array (
                                             <?php if ($_smarty_tpl->getVariable('info')->value!=''){?>
                                                 <input type='text' id="wifiName" name="wifiName" style="" value='<?php echo $_smarty_tpl->getVariable('info')->value['wifiName'];?>
 '>
-                                            <?php }else{ ?>
-                                                <input  type='text' id="wifiName" name="wifiName" style="">
-                                            <?php }?>
-                                        </div>
-                                       
-                                    </div>
+                                                <?php }else{ ?>
+                                                    <input  type='text' id="wifiName" name="wifiName" style="">
+                                                    <?php }?>
+                                                    </div>
 
-                                    <div class="form-group">
+                                                    </div>
+
+                                                    <div class="form-group">
 
 
-                                   <label class="col-sm-2 control-label labelWidth">wifi密码</label>
+                                                        <label class="col-sm-2 control-label labelWidth">wifi密码</label>
 
-                                        <div class="col-sm-2" style='width:800px;'>
-                                            <?php if ($_smarty_tpl->getVariable('info')->value!=''){?>
-                                                <input type='text' id="wifiPassword" name="wifiPassword" style="" value='<?php echo $_smarty_tpl->getVariable('info')->value['wifiPassword'];?>
+                                                        <div class="col-sm-2" style='width:800px;'>
+                                                            <?php if ($_smarty_tpl->getVariable('info')->value!=''){?>
+                                                                <input type='text' id="wifiPassword" name="wifiPassword" style="" value='<?php echo $_smarty_tpl->getVariable('info')->value['wifiPassword'];?>
 '>
-                                            <?php }else{ ?>
-                                                <input  type='text' id="wifiPassword" name="wifiPassword" style="">
-                                            <?php }?>
-                                        </div>
+                                                                <?php }else{ ?>
+                                                                    <input  type='text' id="wifiPassword" name="wifiPassword" style="">
+                                                                    <?php }?>
+                                                                    </div>
 
-                                    </div>
+                                                                    </div>
 
-                                    <p style=" margin-left: 710px;"><button id="addButton" class="btn btn-info">确认添加</button></p>
-                                </form>
-                            </div>
-                        </div>
-                    </body>
-                    </html>
+                                                                    <p style=" margin-left: 85px;"><button id="addButton" class="btn btn-info">确认添加</button></p>
+                                                                    </form>
+                                                                    </div>
+                                                                    </div>
+                                                                    </body>
+                                                                    </html>
 
 
 
-                    <script src="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
+                                                                    <script src="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
 /js/rexexTest.js"></script>
 
-                    <script src="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
+                                                                    <script src="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
 /js/bootstrap-datetimepicker.js"></script>
 
-                    <script>
+                                                                    <script>
                        
-                    </script>
+                                                                    </script>

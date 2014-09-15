@@ -62,7 +62,7 @@
         </div>
         <div class="registerWarp" class='init_class'>
 
-            <textarea id="edit" placeholder="这里输入内容" class='init_class'></textarea>
+            <textarea id="edit" placeholder="这里输入内容" style='width: 100%; height: 100%;' class='init_class'></textarea>
         </div>
 
 
