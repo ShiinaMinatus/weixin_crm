@@ -241,6 +241,10 @@ class companyController {
         }
     }
 
+    public function groupMessage() {
+        $_ENV['smarty']->display('groupMessage');
+    }
+
 }
 
 ?>

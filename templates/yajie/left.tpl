@@ -147,45 +147,45 @@
                                 </table>
                                 <table id="subtree120" style="DISPLAY: none" width="100%" border="0" align="center" cellpadding="0" ellspacing="0" class="left-table03 tableDefault">
 
-                                  
-                                  {*  <tr>
 
+                                    {*  <tr>
+  
+  
+                                    <td width="100%">
 
-                                        <td width="100%">
+                                    <div class='left-a' >
 
-                                            <div class='left-a' >
+                                    <a  style='' href="{$WebSiteUrl}/pageredirst.php?action=stencil&functionname=init" target="mainFrame" class="left-fontSmall" >智能模版</a>
 
-                                                <a  style='' href="{$WebSiteUrl}/pageredirst.php?action=stencil&functionname=init" target="mainFrame" class="left-fontSmall" >智能模版</a>
+                                    </div>
 
-                                            </div>
-
-                                        </td>
+                                    </td>
                                     </tr>*}
-                                    
-                                     <tr>
+
+                                    <tr>
 
                                         <td width="100%">
 
                                             <div class='left-a' >
 
-                                              <a  style='' href="{$WebSiteUrl}/pageredirst.php?action=company&functionname=companyEdit" target="mainFrame" class="left-fontSmall" >公司信息</a>
+                                                <a  style='' href="{$WebSiteUrl}/pageredirst.php?action=company&functionname=companyEdit" target="mainFrame" class="left-fontSmall" >公司信息</a>
 
                                             </div>
 
                                         </td>
                                     </tr>
 
-                                   {* <tr>
+                                    {* <tr>
+ 
+                                    <td width="100%">
 
-                                        <td width="100%">
+                                    <div class='left-a' >
 
-                                            <div class='left-a' >
+                                    <a  style='' href="{$WebSiteUrl}/pageredirst.php?action=stencil&functionname=visualLayout" target="mainFrame" class="left-fontSmall" >自定义模版</a>
 
-                                                <a  style='' href="{$WebSiteUrl}/pageredirst.php?action=stencil&functionname=visualLayout" target="mainFrame" class="left-fontSmall" >自定义模版</a>
+                                    </div>
 
-                                            </div>
-
-                                        </td>
+                                    </td>
                                     </tr>*}
 
                                 </table>
@@ -572,8 +572,20 @@
 
                                         </td>
                                     </tr>
+                                    <tr>
 
-                                    
+                                        <td width="100%">
+
+                                            <div class='left-a' >
+
+                                                <a  style='' href="{$WebSiteUrl}/pageredirst.php?action=company&functionname=groupMessage" target="mainFrame" class="left-fontSmall" >消息群发</a>
+
+                                            </div>
+
+                                        </td>
+                                    </tr>
+
+
 
 
                                     {if $auth_result[1000]==1}
