@@ -60,9 +60,9 @@
         <div class="form-field">
             <textarea placeholder="文档标题" class="doc-title" name="doc_title" style="overflow: hidden; word-wrap: break-word; resize: none; height: 31px;" id='titleArea1'></textarea>
         </div>
-        <div class="registerWarp" style=' width: 1000px; height: 1000px;margin:0 auto;'>
+        <div class="registerWarp" class='init_class'>
 
-            <textarea id="edit" placeholder="这里输入内容" style=' width: 1000px; height: 1000px;margin:0 auto;'></textarea>
+            <textarea id="edit" placeholder="这里输入内容" class='init_class'></textarea>
         </div>
 
 

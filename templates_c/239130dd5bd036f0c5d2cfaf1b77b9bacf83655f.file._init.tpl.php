@@ -1,16 +1,16 @@
-<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-15 10:14:28
+<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-15 10:49:22
          compiled from "/web/www/weixin_crm//templates/yajie/company/../_init.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:93000620454164b84387055-08192502%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:1844565083541653b2e502c6-55483550%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '239130dd5bd036f0c5d2cfaf1b77b9bacf83655f' => 
     array (
       0 => '/web/www/weixin_crm//templates/yajie/company/../_init.tpl',
-      1 => 1410746883,
+      1 => 1410749331,
     ),
   ),
-  'nocache_hash' => '93000620454164b84387055-08192502',
+  'nocache_hash' => '1844565083541653b2e502c6-55483550',
   'function' => 
   array (
   ),
@@ -124,14 +124,14 @@ $_smarty_tpl->decodeProperties(array (
 
             
             </div>
-            <div style="float: left; min-height: 1200px;  height: 1200px; width: 900px;">
+            <div style="float: left;  " class='init_class'>
 
 
                 <p>容器</p>
 
-                <div id='testDiv' style=' width:900px;  height: 100%; background-color: #f5f5f5; '>
+                <div id='testDiv' style='height: 100%; background-color: #f5f5f5; '>
 
-                    <div accept='title' id='titleArea' style='width: 870px; height: 50px; '>&nbsp;</div>
+                    <div accept='title' id='titleArea' style=' height: 50px; '>&nbsp;</div>
 
 
                     <div style=' height: 900px;overflow: auto;' belog='divPack' id='divPack' class='divPack'></div>
