@@ -22,7 +22,7 @@
 
 
 
-                        })
+                    })
 
                     </script>
 
@@ -49,8 +49,9 @@
 
                     </head>
                     <body>
-                     
-                        
+
+                        <div class="userMangerTitle">wifi设置</div>
+                        <div style="height: 50px;"></div>
 
                         {if $scuesss eq "1"}
                             <div id="Message" class="alert alert-danger errorMessage" style="display: block">恭喜你添加成功</div>
@@ -65,41 +66,41 @@
                                         <div class="col-sm-2" style='width:800px;'>
                                             {if $info neq ""}
                                                 <input type='text' id="wifiName" name="wifiName" style="" value='{$info.wifiName}'>
-                                            {else}
-                                                <input  type='text' id="wifiName" name="wifiName" style="">
-                                            {/if}
-                                        </div>
-                                       
-                                    </div>
+                                                {else}
+                                                    <input  type='text' id="wifiName" name="wifiName" style="">
+                                                    {/if}
+                                                    </div>
 
-                                    <div class="form-group">
+                                                    </div>
 
-
-                                   <label class="col-sm-2 control-label labelWidth">wifi密码</label>
-
-                                        <div class="col-sm-2" style='width:800px;'>
-                                            {if $info neq ""}
-                                                <input type='text' id="wifiPassword" name="wifiPassword" style="" value='{$info.wifiPassword}'>
-                                            {else}
-                                                <input  type='text' id="wifiPassword" name="wifiPassword" style="">
-                                            {/if}
-                                        </div>
-
-                                    </div>
-
-                                    <p style=" margin-left: 710px;"><button id="addButton" class="btn btn-info">确认添加</button></p>
-                                </form>
-                            </div>
-                        </div>
-                    </body>
-                    </html>
+                                                    <div class="form-group">
 
 
+                                                        <label class="col-sm-2 control-label labelWidth">wifi密码</label>
 
-                    <script src="{$WebSiteUrl}/js/rexexTest.js"></script>
+                                                        <div class="col-sm-2" style='width:800px;'>
+                                                            {if $info neq ""}
+                                                                <input type='text' id="wifiPassword" name="wifiPassword" style="" value='{$info.wifiPassword}'>
+                                                                {else}
+                                                                    <input  type='text' id="wifiPassword" name="wifiPassword" style="">
+                                                                    {/if}
+                                                                    </div>
 
-                    <script src="{$WebSiteUrl}/js/bootstrap-datetimepicker.js"></script>
+                                                                    </div>
 
-                    <script>
+                                                                    <p style=" margin-left: 85px;"><button id="addButton" class="btn btn-info">确认添加</button></p>
+                                                                    </form>
+                                                                    </div>
+                                                                    </div>
+                                                                    </body>
+                                                                    </html>
+
+
+
+                                                                    <script src="{$WebSiteUrl}/js/rexexTest.js"></script>
+
+                                                                    <script src="{$WebSiteUrl}/js/bootstrap-datetimepicker.js"></script>
+
+                                                                    <script>
                        
-                    </script>
+                                                                    </script>

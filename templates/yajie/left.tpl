@@ -566,7 +566,7 @@
 
                                             <div class='left-a' >
 
-                                                <a  style='' href="{$WebSiteUrl}/pageredirst.php?action=company&functionname=wifiEdit" target="mainFrame" class="left-fontSmall" >联系客服</a>
+                                                <a  style='' href="{$WebSiteUrl}/pageredirst.php?action=company&functionname=phoneEdit" target="mainFrame" class="left-fontSmall" >联系客服</a>
 
                                             </div>
 
