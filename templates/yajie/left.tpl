@@ -147,7 +147,7 @@
                                 </table>
                                 <table id="subtree120" style="DISPLAY: none" width="100%" border="0" align="center" cellpadding="0" ellspacing="0" class="left-table03 tableDefault">
                                   
-                                    <tr>
+                                  {*  <tr>
 
                                         <td width="100%">
 
@@ -158,9 +158,22 @@
                                             </div>
 
                                         </td>
+                                    </tr>*}
+                                    
+                                     <tr>
+
+                                        <td width="100%">
+
+                                            <div class='left-a' >
+
+                                              <a  style='' href="{$WebSiteUrl}/pageredirst.php?action=company&functionname=companyEdit" target="mainFrame" class="left-fontSmall" >公司信息</a>
+
+                                            </div>
+
+                                        </td>
                                     </tr>
 
-                                    <tr>
+                                   {* <tr>
 
                                         <td width="100%">
 
@@ -171,7 +184,7 @@
                                             </div>
 
                                         </td>
-                                    </tr>
+                                    </tr>*}
 
                                 </table>
                             {/if}
@@ -538,6 +551,19 @@
                                             <div class='left-a' >
 
                                                 <a  style='' href="{$WebSiteUrl}/pageredirst.php?action=company&functionname=wifiEdit" target="mainFrame" class="left-fontSmall" >wifi设置</a>
+
+                                            </div>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+
+                                        <td width="100%">
+
+                                            <div class='left-a' >
+
+                                                <a  style='' href="{$WebSiteUrl}/pageredirst.php?action=company&functionname=wifiEdit" target="mainFrame" class="left-fontSmall" >联系客服</a>
 
                                             </div>
 

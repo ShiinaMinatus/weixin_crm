@@ -1,16 +1,16 @@
-<?php /* Smarty version Smarty-3.0-RC2, created on 2014-07-15 16:59:57
+<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-13 19:13:27
          compiled from "/web/www/weixin_crm//templates/yajie/company/addcompany.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:28291254753c4ed8dc48bd2-13406206%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:1214868371541426d74314e2-43435545%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'adbaca0286f4871400e3a7ac9286555c312a64ba' => 
     array (
       0 => '/web/www/weixin_crm//templates/yajie/company/addcompany.tpl',
-      1 => 1405414772,
+      1 => 1410606708,
     ),
   ),
-  'nocache_hash' => '28291254753c4ed8dc48bd2-13406206',
+  'nocache_hash' => '1214868371541426d74314e2-43435545',
   'function' => 
   array (
   ),
@@ -18,163 +18,334 @@ $_smarty_tpl->decodeProperties(array (
 )); /*/%%SmartyHeaderCode%%*/?>
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <title></title>
+        <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js" type="text/javascript">
+</script>
+        <link href="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
+/css/flat/blue.css" rel="stylesheet" type="text/css">
+        <script src="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
+/js/icheck.min.js" type="text/javascript">
+</script>
 
-
-        <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
-/simditor/styles/font-awesome.css" />
-        <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
-/simditor/styles/simditor.css" />
-
-        <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
-        <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
-/simditor/scripts/js/simditor-all.js"></script>
-
-        <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/css/bootstrap.min.css"> 
+        <script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/js/bootstrap.min.js" type="text/javascript">
+        </script>
+        <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/css/bootstrap.min.css" type="text/css">
 
             <link href="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
 /css/crm_table_style_<?php echo $_smarty_tpl->getVariable('source')->value;?>
 .css" rel="stylesheet">
+        <script type="text/javascript">
 
-                <link href="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
-/css/bootstrap-datetimepicker.css" rel="stylesheet" media="screen">
+                $(document).ready(function() {
+                    $('input').iCheck({
+        checkboxClass: 'icheckbox_flat-blue',
+        radioClass: 'iradio_flat-blue'
+        });
+                });
 
-                    <script>
+        </script>
 
-                        $(function() {
+       
+    </head>
+    <body>
 
+        <div style='height: 10px;'>&nbsp;</div>
+           
+        <div class="alert alert-info" role="alert" style='font-size: 14px;'>
 
-
-                        })
-
-                    </script>
-
-                    <style>
-                        .labelWidth{
-                            width: auto !important;
-                        }
-                        .inputWidth{
-                            width: 150px;
-                        }
-                        .userMangerTitle{
-                            color: rgb(91,91,91);
-                            font-size: 2.5em;
-                            margin-top: 15px;
-                            text-align: center;
-                        }
-                        .errorMessage{
-                            width: 300px;
-                            margin: 0 auto;
-                            display: none;
-                        }
-                    </style>
+              <div style='height: 30px;'>? 公司信息:用户可以自定义或者使用我们的模版来设计公司信息</div>
 
 
-                    </head>
-                    <body>
+            <div style='height: 30px;'>? 智能模版:用户使用</div>
+
+             <div>? 自定义模版:可以让用户快速的制作模版</div>
+        </div>
+
+
+        <?php if ($_smarty_tpl->getVariable('scuesss')->value=="1"){?>
+
+        <div id="Message" class="alert alert-danger errorMessage" style="display: block">
+            恭喜你添加成功
+        </div>
+
+        <?php }?>
+
+       
+        <input type="radio" id='1' name="iCheck" value='0' <?php if ($_smarty_tpl->getVariable('info')->value['companyType']==0){?>  checked <?php }?>>智能模版&nbsp;&nbsp;
+
+        <input type="radio" id='2' name="iCheck" value='1' <?php if ($_smarty_tpl->getVariable('info')->value['companyType']==1){?>  checked <?php }?>>自定义模版
+
+          <button   id='saveButton' class='btn  btn-info' type='button'>保存</button>
+
+                            
+         <button    id='previewButton' class='btn btn-info' type='button'>预览</button>
+
+                       
+      
+        <div style="">
+           
+            <div >
+                <form class="form-horizontal" action="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
+/pageredirst.php?action=company&amp;functionname=companyEdit" method="post" id='form1' name='form1'>
+
+                     <input type='hidden' name='activity_html' id='activity_html' value='<?php echo $_smarty_tpl->getVariable('info')->value['companyContent'];?>
+'>
+
+                     <input type='hidden' name='activity_html_' id='activity_html_' value='<?php echo $_smarty_tpl->getVariable('info')->value['companyTextOriginal'];?>
+'>
+
+
+
+                    <input type='hidden' name='activity_title' id='activity_title' value='<?php echo $_smarty_tpl->getVariable('info')->value['companyTitle'];?>
+'>
+
+                     <input type='hidden' name='type' id='type' value='<?php echo $_smarty_tpl->getVariable('info')->value['companyType'];?>
+'>
+
+
+
+                     <div id='init_id' style='display:none' class='public'>
+
+                         <?php $_template = new Smarty_Internal_Template('../_init.tpl', $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
+ echo $_template->getRenderedTemplate();?><?php $_template->updateParentVariables(0);?><?php unset($_template);?>
+                    </div>
+
+
+                     <div id='visual_id' style='display:none' class='public'>
+
+
+                         <?php $_template = new Smarty_Internal_Template('../_visual_layout.tpl', $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
+ echo $_template->getRenderedTemplate();?><?php $_template->updateParentVariables(0);?><?php unset($_template);?>
+
+                    </div>
+
                      
-                        
 
-                        <?php if ($_smarty_tpl->getVariable('scuesss')->value=="1"){?>
-                            <div id="Message" class="alert alert-danger errorMessage" style="display: block">恭喜你添加成功</div>
-                        <?php }?>
-                        <div id="errorMessage" class="alert alert-danger errorMessage">恭喜你添加成功</div>
-                        <div style="margin-left:15px;margin-top:15px;">
-                            <div style="width: 1000px; margin: 0 auto;">
-                                <form class="form-horizontal" action="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
-/pageredirst.php?action=company&functionname=companyEdit" method="post">
-                                    <div class="form-group"> 
-                                        <label class="col-sm-2 control-label labelWidth">公司简介</label>
+                </form>
+            </div>
+        </div>
+          <!-- Modal -->
+        <div class="modal fade Preview" id="s" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog" style='width: 320px; height: 480px;'>
+                <div class="modal-content" >
+                    <div class="modal-header">
+                        <!--  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> -->
+                        <h4 class="modal-title" id="myModalLabel">预览界面为iphone4s</h4>
+                    </div>
+                    <div class="modal-body" style='width: 320px; min-height: 480px; padding:0;margin: 0 auto;'>
 
-                                        <div class="col-sm-2" style='width:800px;height:auto;min-height:300px'>
-                                            <?php if ($_smarty_tpl->getVariable('text')->value!=''){?>
-                                                <textarea id="activity_html" name="activity_html" style=""><?php echo $_smarty_tpl->getVariable('text')->value;?>
-</textarea>
-                                            <?php }else{ ?>
-                                                <textarea id="activity_html" name="activity_html" style=""></textarea>
-                                            <?php }?>
-                                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" onclick="preview()">关闭</button>
 
-                                    </div>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
 
-                                    <p style=" margin-left: 710px;"><button id="addButton" class="btn btn-info">确认添加</button></p>
-                                </form>
-                            </div>
-                        </div>
-                    </body>
-                    </html>
+        <script src="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
+/js/rexexTest.js" type="text/javascript"></script>
+
+        <script>
 
 
+            var companyContent = $('#activity_html').val();
 
-                    <script src="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
-/js/rexexTest.js"></script>
+            var companyTitle = $('#activity_title').val();
 
-                    <script src="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
-/js/bootstrap-datetimepicker.js"></script>
+            var companyContent_ = $('#activity_html_').val();
 
-                    <script>
-                        editor = new Simditor({
-                            textarea: $('#activity_html'),
+            $(function(){
 
-                             upload: true,
-                            pasteImage: true,
-                            toolbar: [
-                        'title',
-                        'bold',
-                        'italic',
-                        'underline',
-                        'strikethrough',
-                        'ol',
-                        'ul',
-                        'blockquote',
-                        'code',
-                        'table',
-                        'link',
-                        'image',
-                        'hr',
-                        'indent',
-                        'outdent',
-                    ],
-                        });
-                        $('#activity_end_time').datetimepicker({
-                            language: 'fr',
-                            weekStart: 1,
-                            todayBtn: 1,
-                            autoclose: 1,
-                            todayHighlight: 1,
-                            startView: 2,
-                            minView: 2,
-                            forceParse: 0
-                        });
+                var type = $('#type').val();
 
-                        $("#addButton").click(function() {
-                            $("#errorMessage").hide();
-                            $("#Message").hide();
-                            $("#errorMessage").html();
 
-                            var errorMessage = "";
 
-                            var alertFlag = false;
-                            editor.sync();
+                if(type == 0){
 
-                            html = document.getElementById('activity_html').value; // 原生API
+                    if(companyContent_ !=''){
 
-                            if (html == "") {
-                                errorMessage += "活动内容不能为空 <br>";
+                        $('#divPack').html(companyContent_);
 
-                                alertFlag = true;
+                       $('#titleArea').html(companyTitle);
+
+                       $('.uploadify').each(function(obj){
+
+                            var ids = $(this).attr('id');
+
+                            $('.uploadify-queue').remove();
+
+                            $('#'+ids).html('');
+
+
+                             $('#'+ids).uploadify({
+            'swf': websiteUrl + '/uploadify/uploadify.swf',
+            'uploader': websiteUrl + '/uploadify/uploadify.php',
+
+             'formData':{
+                
+                 'objectid':ids,
+            
+            },
+
+
+            'onUploadSuccess': function(file, data, response) {
+
+                alert(file)
+
+
+                var json = eval("(" + data + ")");
+
+                
+                $('#' + json['objectid']).parent().prev().find('img').attr('src',json['path'])
+
+
+              
+            }
+        });
+
+                       })
+
+                    }
+
+                    $('#init_id').show();
+
+                } else{
+
+
+                    $('#visual_id').show();
+
+                    if(companyContent_ !=''){
+
+                    $('#edit').html(companyContent);
+
+                    $('#titleArea1').html(companyTitle)
+
+                    }
+                }
+
+
+                $('input').on('ifChecked', function(){
+
+
+                   var  type =  $(this).val();
+
+                   $('.public').css('display','none');
+
+
+
+                   $('#type').val(type);
+
+
+                   if(type == 0){
+
+                        $('#init_id').show();
+
+
+                   } else{
+
+                        $('#visual_id').show();
+
+
+                   }
+
+                   
+                });
+
+
+                $('#saveButton').click(function(event) {
+                    /* Act on the event */
+
+
+                     $('.modal-body').html('');
+
+                     previewBoby();
+
+
+                     $('#form1').submit();
+
+
+
+                });
+
+                 
+
+                  $('#previewButton').click(function() {
+
+
+                          
+
+                            $(".Preview").modal();
+                            
+
+                            previewBoby();
+                            
+
+                           
+                    })
+
+
+            })
+
+
+            function previewBoby(){
+
+                 var type = $('#type').val();
+
+                           
+                            
+
+                            if(type == 0){
+
+
+                                  var titleContent = $('#titleArea').html();
+                            
+                                  var packContent = $('#divPack').html();
+
+                            } else{
+
+                                 var titleContent = $('#titleArea1').html();
+
+                                var  html = document.getElementById('edit').value; // 原生API
+                          
+                                html = editor.html();
+
+                                editor.sync();
+
+                                html = document.getElementById('edit').value; // 原生API
+                            
+                                var packContent = html;
+
                             }
+                            
+                          
+                            
+                            var bobyPreview = titleContent + packContent;
+                            
+                            //编辑器原本内容    
 
-                            if (alertFlag) {
+                             $('#activity_html_').val(packContent);
 
-                                $("#errorMessage").show();
+                             //标题
 
-                                $("#errorMessage").html(errorMessage);
+                             $('#activity_title').val(titleContent);
 
-                                return false;
-                            }
+                             //将预览内容放入
+                            
+                             $('.modal-body').html(bobyPreview);
+                             
+                             $('.modal-body').find('.closeSpan').remove();
+                                   
+                             $('.modal-body').find("[contenteditable = 'true']").attr('contenteditable','false');
+                                
+                             $('.modal-body .upload').remove();
 
+                             //将预览内容(标题和内容)放入
 
-                        });
-                    </script>
+                             $('#activity_html').val($('.modal-body').html());
+            }
+
+        </script>
+    </body>
+</html>

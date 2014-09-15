@@ -379,7 +379,7 @@ $titleCanvas.ondrop = function(ev) {
 
     if (eleT == 'title') {
 
-        var textAreaHtml = '<div placeholder="文档标题"contenteditable="true"  class="doc-title" name="doc_title" style="overflow: hidden; word-wrap: break-word; resize: none; height: 48px;" id="aaaaa">文档标题</div>';
+        var textAreaHtml = '<div placeholder="文档标题"contenteditable="true"  class="doc-title" name="doc_title" style="width:320px;overflow: hidden; word-wrap: break-word; resize: none; height: 48px;margin:0 auto;" id="aaaaa">文档标题</div>';
 
         $titleCanvas.innerHTML = textAreaHtml;
 

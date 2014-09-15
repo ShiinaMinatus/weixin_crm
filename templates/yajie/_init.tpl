@@ -1,38 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <link href="{$WebSiteUrl}/css/{$source}_css.css" rel="stylesheet" type="text/css"></link>
-
-
-
-        <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js" type="text/javascript">
-        </script><!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-
-
-
-        <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css" />
-        <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
-        <script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
-
 
         <script src="{$WebSiteUrl}/uploadify/jquery.uploadify.min.js" type="text/javascript"></script>
         <link rel="stylesheet" type="text/css" href="{$WebSiteUrl}/uploadify/uploadify.css" />
 
-
-
-
-        <script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/js/bootstrap.min.js" type="text/javascript">
-        </script>
-        <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/css/bootstrap.min.css" type="text/css">
-
-
-
-
-            <title></title>
-
-
-            <style>
+ <style>
 
                 *{
                     font-family:"黑体","宋体",Serif;
@@ -115,22 +85,92 @@
 
             </style>
 
+ <div id='record'></div>
 
-    </head>
-
-    <body >
-
-
-       {include file='../_init.tpl'}
-
-    </body>
-
-
-</html>
+        <div>
 
 
 
+            <div style="" class='package'>
+
+
+                <p>组件</p>
+
+
+                <div class="draglist draggable"  title="标题" draggable="true" id='titlePackage'>标题</div>
+                <div class="draglist draggable" title="文本框" draggable="true"  id='textPackage'>文本框</div>
+                <div class="draglist draggable" title="图片" draggable="true" id='imagePackage'>小图</div>
+                <div class="draglist draggable" title="图片" draggable="true" id='BigimagePackage'>大图</div>
+
+            
+            </div>
+            <div style="float: left; min-height: 1200px;  height: 1200px; width: 900px;">
+
+
+                <p>容器</p>
+
+                <div id='testDiv' style=' width:900px;  height: 100%; background-color: #f5f5f5; '>
+
+                    <div accept='title' id='titleArea' style='width: 870px; height: 50px; '>&nbsp;</div>
+
+
+                    <div style=' height: 900px;overflow: auto;' belog='divPack' id='divPack' class='divPack'></div>
+
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+      
+
+
+        <!-- <script type="text/javascript" async="" src="http://www.google-analytics.com/ga.js"></script> -->
+<script>
+
+
+
+    eleType = null, eleT = null, packageList = null, packageListType = null, websiteUrl = null;
+
+    currentParameter = null;
+    currentDivHtml = null;
+    currentDivHtmlContent = null;
+    currentDivObject = null;
+    
+    objectType = null;
+    
+    uploadImageIdFina = null;
+
+
+    websiteUrl = '{$WebSiteUrl}';
 
 
 
 
+
+</script>
+
+<script src="{$WebSiteUrl}/js/Package/Package.js" type="text/javascript"></script>
+
+<script src="{$WebSiteUrl}/js/Package/Canvas.js" type="text/javascript"></script>
+
+<script>
+
+    var listArray = new Array('titlePackage', 'textPackage', 'imagePackage', 'BigimagePackage');
+
+    var listType = new Array('title', 'text', 'smallimage', 'bigimage');
+
+    var package = new packAgeList(listArray, listType);
+
+    package.init();
+    
+    
+    function preview(){
+        
+        
+    
+    }
+
+</script>

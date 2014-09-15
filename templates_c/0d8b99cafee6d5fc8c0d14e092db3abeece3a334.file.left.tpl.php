@@ -1,16 +1,16 @@
-<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-12 15:19:35
+<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-13 13:28:01
          compiled from "/web/www/weixin_crm//templates/yajie/left.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:138700838254129e872c1ff2-62672098%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:2274253865413d5e1dbbc98-91145329%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '0d8b99cafee6d5fc8c0d14e092db3abeece3a334' => 
     array (
       0 => '/web/www/weixin_crm//templates/yajie/left.tpl',
-      1 => 1410506170,
+      1 => 1410586079,
     ),
   ),
-  'nocache_hash' => '138700838254129e872c1ff2-62672098',
+  'nocache_hash' => '2274253865413d5e1dbbc98-91145329',
   'function' => 
   array (
   ),
@@ -163,33 +163,23 @@ _css.css" rel="stylesheet" type="text/css">
                                 </table>
                                 <table id="subtree120" style="DISPLAY: none" width="100%" border="0" align="center" cellpadding="0" ellspacing="0" class="left-table03 tableDefault">
                                   
-                                    <tr>
+                                  
+                                    
+                                     <tr>
 
                                         <td width="100%">
 
                                             <div class='left-a' >
 
-                                                <a  style='' href="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
-/pageredirst.php?action=stencil&functionname=init" target="mainFrame" class="left-fontSmall" >智能模版</a>
+                                              <a  style='' href="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
+/pageredirst.php?action=company&functionname=companyEdit" target="mainFrame" class="left-fontSmall" >公司信息</a>
 
                                             </div>
 
                                         </td>
                                     </tr>
 
-                                    <tr>
-
-                                        <td width="100%">
-
-                                            <div class='left-a' >
-
-                                                <a  style='' href="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
-/pageredirst.php?action=stencil&functionname=visualLayout" target="mainFrame" class="left-fontSmall" >自定义模版</a>
-
-                                            </div>
-
-                                        </td>
-                                    </tr>
+                                   
 
                                 </table>
                             <?php }?>
@@ -570,6 +560,20 @@ _css.css" rel="stylesheet" type="text/css">
 
                                                 <a  style='' href="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
 /pageredirst.php?action=company&functionname=wifiEdit" target="mainFrame" class="left-fontSmall" >wifi设置</a>
+
+                                            </div>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+
+                                        <td width="100%">
+
+                                            <div class='left-a' >
+
+                                                <a  style='' href="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
+/pageredirst.php?action=company&functionname=wifiEdit" target="mainFrame" class="left-fontSmall" >联系客服</a>
 
                                             </div>
 

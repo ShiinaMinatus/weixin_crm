@@ -1,46 +1,15 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>测试</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta content="initial-scale=1.0; maximum-scale=4.0; user-scalable=no;" name="viewport">
-        <meta name="viewport" content="width=device-width,user-scalable=yes" />
-
 
 
         <link rel="stylesheet" type="text/css" href="{$WebSiteUrl}/simditor/styles/font-awesome.css" />
         <link rel="stylesheet" type="text/css" href="{$WebSiteUrl}/simditor/styles/simditor.css" />
 
-        <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
         <script type="text/javascript" src="{$WebSiteUrl}/simditor/scripts/js/simditor-all.js"></script>
         <script>
-            $(function() {
-
-
-
-
-                editor = new Simditor({
-                    textarea: $('#editor'),
-                    pasteImage: true,
-                   
-                    upload: {
-                        url: 'upload.php',
-                        params: null,
-                        connectionCount: 3,
-                        leaveConfirm: '正在上传文件，如果离开上传会自动取消'
-                    }
-                });
-
-             
-
-            })
-
-
-
-
-
+            var editor;
+            KindEditor.ready(function(K) {
+                editor = K.create('#edit');
+            });
         </script>
-
 
         <style>
 

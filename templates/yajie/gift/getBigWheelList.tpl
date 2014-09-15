@@ -26,11 +26,11 @@
         <title>大转盘游戏配置信息</title>
     </head>
     <script>
-        $(function(){
-        $('#myTab a').click(function (e) {
-        e.preventDefault()
-        $(this).tab('show');
-    })
+        $(function() {
+            $('#myTab a').click(function(e) {
+                e.preventDefault()
+                $(this).tab('show');
+            })
     </script>
 
 
@@ -73,22 +73,25 @@
     <boby>
 
 
-        
-         <div class="page-header">
-                <h1> <small>大转盘游戏配置信息</small></h1>
-            </div>
+
+        <div class="page-header">
+            <h1> <small>大转盘礼品名称配置</small></h1>
+        </div>
+
+
+        <div class="alert alert-info" role="alert" style='font-size: 14px;'>
+
+            注:用户可以修改下述的礼品名称,修改后在微信公众平台中的微转盘游戏中,获奖后提示的礼品名称也会相应的修改
+            
+        </div>
+
+
 
         <div class="bigWheelWarp">
-           
+
 
             <div class="tab-content">
 
-
-
-               {* <div style="color: #428bca; margin-top: 1em; padding-left: 1.5em; width: 50%;">
-                    提示:概率以百分比计算,所填概率之和必须小于100, 一百减去当前概率之和,剩余概率由其他项平均分配!
-                    <br /><b style=" color: rgb(240,173,78)">注:所填写的概率必须为整数</b>
-                </div>*}
                 {if $requestVal eq "1"}
                     <div style="margin-left: 1.5em;width: 50%;" id="errorMessage" class="alert alert-danger errorMessage"> 修改成功</div>
                 {/if}
@@ -99,20 +102,21 @@
 
                         <input type="hidden" name="gift_type" value="1"/>
 
-                        {foreach from=$giftSetting item=setting}
+                        {foreach from=$giftSetting item=setting key=k}
 
-                        <div class="rowLocation" style='clear: both;'>
-                            <label for="inputPassword3" class="control-label col-sm-2 ">名称</label>
-                            <input type="text" name='probability[]' id="" class="form-control nowProbability" value="{$setting.gift_name}" placeholder="所显示为当前概率">
-                           
-                        </div>
+                            <div class="rowLocation" style='clear: both;'>
+                                <label for="inputPassword3" class="control-label col-sm-2 ">名称{$k+1}</label>
+                                <input type="text" name='probability[]' id="" class="form-control nowProbability" value="{$setting.gift_name}" placeholder="所显示为当前概率">
+
+                            </div>
 
 
                         {/foreach}
-                       
 
-                        <div style=" margin-top: 3em;margin-left: 31.5em;">
-                            <button type="submit" class="btn btn-primary" id="submitProbabilityInfo" style=" letter-spacing: 0.2em;"   onclick='$("form1").submit();' >提交信息</button>
+
+                        <div style=" margin-top: 3em;margin-left: 12.5em;">
+                            <button type="submit" class="btn btn-primary" id="submitProbabilityInfo" style=" letter-spacing: 0.2em;"   onclick='$("form1").submit()
+                                                ;' >提交信息</button>
                         </div>
 
                     </form>

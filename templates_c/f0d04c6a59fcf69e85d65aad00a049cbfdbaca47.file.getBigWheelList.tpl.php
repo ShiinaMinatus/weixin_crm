@@ -1,16 +1,16 @@
-<?php /* Smarty version Smarty-3.0-RC2, created on 2014-07-15 13:35:30
+<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-13 19:25:11
          compiled from "/web/www/weixin_crm//templates/yajie/gift/getBigWheelList.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:183591702253c4bda2a4abf5-78456015%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:137928011654142997dde1c5-35016759%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'f0d04c6a59fcf69e85d65aad00a049cbfdbaca47' => 
     array (
       0 => '/web/www/weixin_crm//templates/yajie/gift/getBigWheelList.tpl',
-      1 => 1405402524,
+      1 => 1410607144,
     ),
   ),
-  'nocache_hash' => '183591702253c4bda2a4abf5-78456015',
+  'nocache_hash' => '137928011654142997dde1c5-35016759',
   'function' => 
   array (
   ),
@@ -46,11 +46,11 @@ $_smarty_tpl->decodeProperties(array (
         <title>大转盘游戏配置信息</title>
     </head>
     <script>
-        $(function(){
-        $('#myTab a').click(function (e) {
-        e.preventDefault()
-        $(this).tab('show');
-    })
+        $(function() {
+            $('#myTab a').click(function(e) {
+                e.preventDefault()
+                $(this).tab('show');
+            })
     </script>
 
 
@@ -93,19 +93,25 @@ $_smarty_tpl->decodeProperties(array (
     <boby>
 
 
-        
-         <div class="page-header">
-                <h1> <small>大转盘游戏配置信息</small></h1>
-            </div>
+
+        <div class="page-header">
+            <h1> <small>大转盘礼品名称配置</small></h1>
+        </div>
+
+
+        <div class="alert alert-info" role="alert" style='font-size: 14px;'>
+
+            注:用户可以修改下述的礼品名称,修改后在微信公众平台中的微转盘游戏中,获奖后提示的礼品名称也会相应的修改
+            
+        </div>
+
+
 
         <div class="bigWheelWarp">
-           
+
 
             <div class="tab-content">
 
-
-
-               
                 <?php if ($_smarty_tpl->getVariable('requestVal')->value=="1"){?>
                     <div style="margin-left: 1.5em;width: 50%;" id="errorMessage" class="alert alert-danger errorMessage"> 修改成功</div>
                 <?php }?>
@@ -118,24 +124,28 @@ $_smarty_tpl->decodeProperties(array (
                         <input type="hidden" name="gift_type" value="1"/>
 
                         <?php  $_smarty_tpl->tpl_vars['setting'] = new Smarty_Variable;
+ $_smarty_tpl->tpl_vars['k'] = new Smarty_Variable;
  $_from = $_smarty_tpl->getVariable('giftSetting')->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 if (count($_from) > 0){
     foreach ($_from as $_smarty_tpl->tpl_vars['setting']->key => $_smarty_tpl->tpl_vars['setting']->value){
+ $_smarty_tpl->tpl_vars['k']->value = $_smarty_tpl->tpl_vars['setting']->key;
 ?>
 
-                        <div class="rowLocation" style='clear: both;'>
-                            <label for="inputPassword3" class="control-label col-sm-2 ">名称</label>
-                            <input type="text" name='probability[]' id="" class="form-control nowProbability" value="<?php echo $_smarty_tpl->tpl_vars['setting']->value['gift_name'];?>
+                            <div class="rowLocation" style='clear: both;'>
+                                <label for="inputPassword3" class="control-label col-sm-2 ">名称<?php echo $_smarty_tpl->tpl_vars['k']->value+1;?>
+</label>
+                                <input type="text" name='probability[]' id="" class="form-control nowProbability" value="<?php echo $_smarty_tpl->tpl_vars['setting']->value['gift_name'];?>
 " placeholder="所显示为当前概率">
-                           
-                        </div>
+
+                            </div>
 
 
                         <?php }} ?>
-                       
 
-                        <div style=" margin-top: 3em;margin-left: 31.5em;">
-                            <button type="submit" class="btn btn-primary" id="submitProbabilityInfo" style=" letter-spacing: 0.2em;"   onclick='$("form1").submit();' >提交信息</button>
+
+                        <div style=" margin-top: 3em;margin-left: 12.5em;">
+                            <button type="submit" class="btn btn-primary" id="submitProbabilityInfo" style=" letter-spacing: 0.2em;"   onclick='$("form1").submit()
+                                                ;' >提交信息</button>
                         </div>
 
                     </form>

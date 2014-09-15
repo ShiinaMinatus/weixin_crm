@@ -1,16 +1,16 @@
-<?php /* Smarty version Smarty-3.0-RC2, created on 2014-07-02 16:52:23
+<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-13 19:13:22
          compiled from "/web/www/weixin_crm//templates/yajie/activty/activtyList.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:91181077753b3c84789cde1-31739647%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:1327570342541426d2d92670-39170912%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'e6ee3f6edc44161e6b8c0cbc59bd604ddcf421c4' => 
     array (
       0 => '/web/www/weixin_crm//templates/yajie/activty/activtyList.tpl',
-      1 => 1401854721,
+      1 => 1410507256,
     ),
   ),
-  'nocache_hash' => '91181077753b3c84789cde1-31739647',
+  'nocache_hash' => '1327570342541426d2d92670-39170912',
   'function' => 
   array (
   ),
@@ -22,7 +22,8 @@ $_smarty_tpl->decodeProperties(array (
 <link href="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
 /css/minimal/blue.css" rel="stylesheet">
 <link href="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
-/css/crm_table_style.css" rel="stylesheet">
+/css/crm_table_style_<?php echo $_smarty_tpl->getVariable('source')->value;?>
+.css" rel="stylesheet">
 <style>
     body{
         overflow-x: hidden;
@@ -66,9 +67,6 @@ $_smarty_tpl->decodeProperties(array (
         padding-left: 25px;
     }
 </style>
-<div class="navBarStyle">
-    当前位置：任务管理 > 活动报名详情
-</div>
 <div style="height: 51px;">
 
      <div style="position: relative;left: 23px; top: 4px;"><a href="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
