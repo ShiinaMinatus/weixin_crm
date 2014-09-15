@@ -104,14 +104,14 @@
 
             
             </div>
-            <div style="float: left; min-height: 1200px;  height: 1200px; width: 900px;">
+            <div style="float: left;  " class='init_class'>
 
 
                 <p>容器</p>
 
-                <div id='testDiv' style=' width:900px;  height: 100%; background-color: #f5f5f5; '>
+                <div id='testDiv' style='height: 100%; background-color: #f5f5f5; '>
 
-                    <div accept='title' id='titleArea' style='width: 870px; height: 50px; '>&nbsp;</div>
+                    <div accept='title' id='titleArea' style=' height: 50px; '>&nbsp;</div>
 
 
                     <div style=' height: 900px;overflow: auto;' belog='divPack' id='divPack' class='divPack'></div>

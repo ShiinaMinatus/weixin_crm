@@ -1,16 +1,16 @@
-<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-13 16:09:32
+<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-15 14:30:16
          compiled from "/web/www/weixin_crm//templates/yajie/company/../_visual_layout.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:18372798285413fbbcef8dc6-66435438%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:34383857954168778b36432-64263029%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '4a482936f6e919f67cda69f9efad30425cfda9b2' => 
     array (
       0 => '/web/www/weixin_crm//templates/yajie/company/../_visual_layout.tpl',
-      1 => 1410595705,
+      1 => 1410762583,
     ),
   ),
-  'nocache_hash' => '18372798285413fbbcef8dc6-66435438',
+  'nocache_hash' => '34383857954168778b36432-64263029',
   'function' => 
   array (
   ),
@@ -81,9 +81,9 @@ $_smarty_tpl->decodeProperties(array (
         <div class="form-field">
             <textarea placeholder="文档标题" class="doc-title" name="doc_title" style="overflow: hidden; word-wrap: break-word; resize: none; height: 31px;" id='titleArea1'></textarea>
         </div>
-        <div class="registerWarp" style=' width: 1000px; height: 1000px;margin:0 auto;'>
+        <div class="registerWarp" class='init_class'>
 
-            <textarea id="edit" placeholder="这里输入内容" style=' width: 1000px; height: 1000px;margin:0 auto;'></textarea>
+            <textarea id="edit" placeholder="这里输入内容" class='init_class'></textarea>
         </div>
 
 

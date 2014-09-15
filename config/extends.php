@@ -87,7 +87,7 @@ function sendCustom($open_id, $token, $content) {
  *  $method  为传递的方式  POST  GER
  *  $data   当method 为post时  传值为array
  */
-function transferData($url, $method, $data ='') {
+function transferData($url, $method, $data = '') {
 
     switch ($method) {
 
@@ -156,7 +156,7 @@ function getWeek($unixTime = '') {
     return '星期' . $weekarray[date('w', $unixTime)];
 }
 
-function sendWeixinCustom($money, $toopen_id,$user_id) {
+function sendWeixinCustom($money, $toopen_id, $user_id) {
 
 
 
@@ -179,16 +179,15 @@ function sendWeixinCustom($money, $toopen_id,$user_id) {
         $integral = $weixin->vars['integral'];
 
         $content = $weixin->vars['weixin_content'];
-        
-        
+
+
         /**
          * 添加用户积分 给当前用户
          */
-        
         $userController = new userController();
-        
+
         $userController->addPointer($user_id, $integral);
-        
+
 
         /**
          * 将{$money}替换成金额  并发送到微信客户端
@@ -210,7 +209,7 @@ function sendWeixinCustom($money, $toopen_id,$user_id) {
             $token = $companyToken->getToken($admin->vars['compang_id'], $appid, $secret);
 
 
-  
+
             $result = sendCustom($toopen_id, $token, $content_);
 
 
@@ -230,6 +229,39 @@ function sendWeixinCustom($money, $toopen_id,$user_id) {
             }
         }
     }
+}
+
+/**
+ *   上传图片素材到微信公众平台
+ */
+
+function https_upload_pic_request($filePath,$access_token) {
+
+
+    //上传图片
+    $type = "image";
+
+    //$filepath = dirname(__FILE__) . "\winter.jpg";
+
+    $filedata = array("file1" => "@" . $filePath);
+
+    $url = "http://file.api.weixin.qq.com/cgi-bin/media/upload?access_token=$access_token&type=$type";
+    
+    return curlPost($url,$filedata);
+   
+}
+
+
+/**
+ * 高级群发接口 将图片的meida id 发送到微信公众平台 
+ */
+
+function group_send_image($ACCESS_TOKEN){
+
+    $url = "https://api.weixin.qq.com/cgi-bin/media/uploadnews?access_token=$ACCESS_TOKEN";
+
+    
+
 }
 
 ?>
