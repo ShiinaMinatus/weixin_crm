@@ -146,13 +146,10 @@
                                     </tr>
                                 </table>
                                 <table id="subtree120" style="DISPLAY: none" width="100%" border="0" align="center" cellpadding="0" ellspacing="0" class="left-table03 tableDefault">
-<<<<<<< HEAD
+
                                   
                                   {*  <tr>
-=======
 
-                                    <tr>
->>>>>>> afcd91016322e18a8a7ae516bf271e47ac7bf828
 
                                         <td width="100%">
 
@@ -562,7 +559,7 @@
                                         </td>
                                     </tr>
 
-<<<<<<< HEAD
+
                                     <tr>
 
                                         <td width="100%">
@@ -577,11 +574,10 @@
                                     </tr>
 
                                     
-                                     {if $auth_result[1000]==1}
-=======
+
 
                                     {if $auth_result[1000]==1}
->>>>>>> afcd91016322e18a8a7ae516bf271e47ac7bf828
+
                                         <tr>
 
                                             <td width="100%">

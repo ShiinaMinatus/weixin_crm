@@ -1,16 +1,16 @@
-<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-13 19:13:27
+<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-15 10:33:47
          compiled from "/web/www/weixin_crm//templates/yajie/company/addcompany.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:1214868371541426d74314e2-43435545%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:11323665435416500b5cf809-98006358%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'adbaca0286f4871400e3a7ac9286555c312a64ba' => 
     array (
       0 => '/web/www/weixin_crm//templates/yajie/company/addcompany.tpl',
-      1 => 1410606708,
+      1 => 1410748185,
     ),
   ),
-  'nocache_hash' => '1214868371541426d74314e2-43435545',
+  'nocache_hash' => '11323665435416500b5cf809-98006358',
   'function' => 
   array (
   ),
@@ -23,7 +23,7 @@ $_smarty_tpl->decodeProperties(array (
         <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js" type="text/javascript">
 </script>
         <link href="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
-/css/flat/blue.css" rel="stylesheet" type="text/css">
+/css/minimal/green.css" rel="stylesheet" type="text/css">
         <script src="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
 /js/icheck.min.js" type="text/javascript">
 </script>
@@ -39,8 +39,8 @@ $_smarty_tpl->decodeProperties(array (
 
                 $(document).ready(function() {
                     $('input').iCheck({
-        checkboxClass: 'icheckbox_flat-blue',
-        radioClass: 'iradio_flat-blue'
+        checkboxClass: 'icheckbox_minimal-green',
+        radioClass: 'iradio_minimal-green'
         });
                 });
 
@@ -54,12 +54,12 @@ $_smarty_tpl->decodeProperties(array (
            
         <div class="alert alert-info" role="alert" style='font-size: 14px;'>
 
-              <div style='height: 30px;'>? 公司信息:用户可以自定义或者使用我们的模版来设计公司信息</div>
+              <div style='height: 30px;'>公司信息:用户可以自定义或者使用我们的模版来设计公司信息</div>
 
 
-            <div style='height: 30px;'>? 智能模版:用户使用</div>
+            <div style='height: 30px;'>智能模版:用户使用</div>
 
-             <div>? 自定义模版:可以让用户快速的制作模版</div>
+             <div>自定义模版:可以让用户快速的制作模版</div>
         </div>
 
 

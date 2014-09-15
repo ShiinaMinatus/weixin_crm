@@ -1,16 +1,16 @@
-<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-13 13:28:01
+<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-15 10:14:23
          compiled from "/web/www/weixin_crm//templates/yajie/left.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:2274253865413d5e1dbbc98-91145329%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:61843353954164b7f4d8094-15824221%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '0d8b99cafee6d5fc8c0d14e092db3abeece3a334' => 
     array (
       0 => '/web/www/weixin_crm//templates/yajie/left.tpl',
-      1 => 1410586079,
+      1 => 1410747262,
     ),
   ),
-  'nocache_hash' => '2274253865413d5e1dbbc98-91145329',
+  'nocache_hash' => '61843353954164b7f4d8094-15824221',
   'function' => 
   array (
   ),
@@ -94,49 +94,49 @@ _css.css" rel="stylesheet" type="text/css">
 
 
 
-                             
-                                <!--                    公司模块开始-->
-                                <table width="100%" border="0" cellpadding="0" cellspacing="0" class=" zhucaidan " id="table120">
+
+                            <!--                    公司模块开始-->
+                            <table width="100%" border="0" cellpadding="0" cellspacing="0" class=" zhucaidan " id="table120">
+                                <tr>
+                                    <td height="29" onclick="list('120')">
+                                        <table width="85%" border="0" align="center" cellpadding="0" cellspacing="0">
+                                            <tr>
+
+                                                <td width="85%">
+
+                                                    
+                                                    
+                                                    <a href="javascript:vold(0)" target="mainFrame" class="left-font03 left-font" >消费管理</a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table id="subtree120" style="DISPLAY: none" width="100%" border="0" align="center" cellpadding="0" ellspacing="0" class="left-table03 tableDefault">
+
+
+                                <?php if ($_smarty_tpl->getVariable('auth_result')->value[4]==1){?>
                                     <tr>
-                                        <td height="29" onclick="list('120')">
-                                            <table width="85%" border="0" align="center" cellpadding="0" cellspacing="0">
-                                                <tr>
 
-                                                    <td width="85%">
-
-                                                        
-                                                        
-                                                        <a href="javascript:vold(0)" target="mainFrame" class="left-font03 left-font" >消费管理</a>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </td>
-                                    </tr>
-                                </table>
-                                <table id="subtree120" style="DISPLAY: none" width="100%" border="0" align="center" cellpadding="0" ellspacing="0" class="left-table03 tableDefault">
-                                  
-                                   
-                                    <?php if ($_smarty_tpl->getVariable('auth_result')->value[4]==1){?>
-                                        <tr>
-
-                                            <td width="100%">
+                                        <td width="100%">
 
 
 
-                                                <div class='left-a' >
+                                            <div class='left-a' >
 
-                                                    <a  style='' href="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
+                                                <a  style='' href="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
 /pageredirst.php?action=user&functionname=pointAndMoneyManage" target="mainFrame" class="left-fontSmall" >消费积分管理</a>
 
-                                                </div>
+                                            </div>
 
-                                            </td>
-                                        </tr>
-                                    <?php }?>
-                                    
+                                        </td>
+                                    </tr>
+                                <?php }?>
 
-                                </table>
-                            
+
+                            </table>
+
 
 
 
@@ -162,6 +162,7 @@ _css.css" rel="stylesheet" type="text/css">
                                     </tr>
                                 </table>
                                 <table id="subtree120" style="DISPLAY: none" width="100%" border="0" align="center" cellpadding="0" ellspacing="0" class="left-table03 tableDefault">
+
                                   
                                   
                                     
@@ -186,7 +187,7 @@ _css.css" rel="stylesheet" type="text/css">
 
 
 
-                           
+
 
                             <?php if ($_smarty_tpl->getVariable('auth_result')->value[6]==1){?>
 
@@ -408,85 +409,85 @@ _css.css" rel="stylesheet" type="text/css">
 
                             <?php }?>
 
-                           
 
-                             <table width="100%" border="0" cellpadding="0" cellspacing="0" class="zhucaidan" id="table5">
+
+                            <table width="100%" border="0" cellpadding="0" cellspacing="0" class="zhucaidan" id="table5">
+                                <tr>
+                                    <td height="29" onclick="list('5')">
+                                        <table width="85%" border="0" align="center" cellpadding="0" cellspacing="0">
+                                            <tr>
+
+                                                <td width="85%">
+
+                                                    
+
+                                                    
+
+                                                    <a href="javascript:vold(0)" target="mainFrame" class="left-font03 left-font" >统计管理</a>
+                                                </td>
+
+                                            </tr>
+                                        </table> 
+                                    </td>
+                                </tr>
+                            </table>
+                            <table id="subtree5" style="DISPLAY: none" width="100%" border="0" align="center" cellpadding="0" ellspacing="0" class="left-table03 tableDefault">
+
+                                <?php if ($_smarty_tpl->getVariable('auth_result')->value[16]==1){?>
                                     <tr>
-                                        <td height="29" onclick="list('5')">
-                                            <table width="85%" border="0" align="center" cellpadding="0" cellspacing="0">
-                                                <tr>
 
-                                                    <td width="85%">
+                                        <td width="100%">
 
-                                                        
-
-                                                        
-
-                                                        <a href="javascript:vold(0)" target="mainFrame" class="left-font03 left-font" >统计管理</a>
-                                                    </td>
-
-                                         </tr>
-                                            </table> 
-                                        </td>
-                                    </tr>
-                                </table>
-                                <table id="subtree5" style="DISPLAY: none" width="100%" border="0" align="center" cellpadding="0" ellspacing="0" class="left-table03 tableDefault">
-
-                                    <?php if ($_smarty_tpl->getVariable('auth_result')->value[16]==1){?>
-                                        <tr>
-
-                                            <td width="100%">
-
-                                                <div class='left-a' >
-                                                    <a style='' href="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
+                                            <div class='left-a' >
+                                                <a style='' href="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
 /pageredirst.php?action=registration&functionname=registrationCount" target="mainFrame" class="left-fontSmall" >签到统计</a>
 
-                                                </div>
-                                            </td>
+                                            </div>
+                                        </td>
 
-                                        </tr>
+                                    </tr>
 
-                                    <?php }?>
+                                <?php }?>
 
 
-                                    <?php if ($_smarty_tpl->getVariable('auth_result')->value[19]==1){?>
-                                        <tr>
+                                <?php if ($_smarty_tpl->getVariable('auth_result')->value[19]==1){?>
+                                    <tr>
 
-                                            <td width="100%">
+                                        <td width="100%">
 
-                                                <div class='left-a' >
-                                                    <a style='' href="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
+                                            <div class='left-a' >
+                                                <a style='' href="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
 /pageredirst.php?action=question&functionname=questionCount" target="mainFrame" class="left-fontSmall">问卷统计</a>
 
-                                                </div>
-                                            </td>
+                                            </div>
+                                        </td>
 
-                                        </tr>
+                                    </tr>
 
-                                    <?php }?>
+                                <?php }?>
 
 
-                                     <?php if ($_smarty_tpl->getVariable('auth_result')->value[3]==1){?>
-                                        <tr>
+                                <?php if ($_smarty_tpl->getVariable('auth_result')->value[3]==1){?>
+                                    <tr>
 
-                                            <td width="100%">
+                                        <td width="100%">
 
-                                                <div class='left-a' >
+                                            <div class='left-a' >
 
-                                                    <a  style='' href="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
+                                                <a  style='' href="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
 /pageredirst.php?action=user&functionname=userList" target="mainFrame" class="left-fontSmall" >客户信息</a>
 
-                                                </div>
+                                            </div>
 
-                                            </td>
-                                        </tr>
+                                        </td>
+                                    </tr>
 
-                                    <?php }?>
+                                <?php }?>
 
-                                </table>
+                            </table>
 
 
-                           
+
 
 
 
@@ -528,10 +529,10 @@ _css.css" rel="stylesheet" type="text/css">
                                         </tr>
 
                                     <?php }?>
-                                    
 
 
-                                    
+
+
                                     <?php if ($_smarty_tpl->getVariable('auth_result')->value[17]==1){?>
 
                                         <tr>
@@ -552,7 +553,7 @@ _css.css" rel="stylesheet" type="text/css">
                                     <?php }?>
 
 
-                                     <tr>
+                                    <tr>
 
                                         <td width="100%">
 
@@ -565,6 +566,7 @@ _css.css" rel="stylesheet" type="text/css">
 
                                         </td>
                                     </tr>
+
 
                                     <tr>
 
@@ -581,7 +583,10 @@ _css.css" rel="stylesheet" type="text/css">
                                     </tr>
 
                                     
-                                     <?php if ($_smarty_tpl->getVariable('auth_result')->value[1000]==1){?>
+
+
+                                    <?php if ($_smarty_tpl->getVariable('auth_result')->value[1000]==1){?>
+
                                         <tr>
 
                                             <td width="100%">
@@ -882,152 +887,152 @@ _css.css" rel="stylesheet" type="text/css">
 
                             <!-- 文案详情 -->
 
-                           
-                                <!--                    公司模块开始-->
-                                <table width="100%" border="0" cellpadding="0" cellspacing="0" class=" zhucaidan " id="table120">
-                                    <tr>
-                                        <td height="29" onclick="list('120')">
-                                            <table width="85%" border="0" align="center" cellpadding="0" cellspacing="0">
-                                                <tr>
 
-                                                    <td width="85%">
+                            <!--                    公司模块开始-->
+                            <table width="100%" border="0" cellpadding="0" cellspacing="0" class=" zhucaidan " id="table120">
+                                <tr>
+                                    <td height="29" onclick="list('120')">
+                                        <table width="85%" border="0" align="center" cellpadding="0" cellspacing="0">
+                                            <tr>
 
-                                                        
-                                                        
-                                                        <a href="javascript:vold(0)" target="mainFrame" class="left-font03 left-font" >系统管理</a>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </td>
-                                    </tr>
-                                </table>
-                                <table id="subtree120" style="DISPLAY: none" width="100%" border="0" align="center" cellpadding="0" ellspacing="0" class="left-table03 tableDefault">
-                                   
+                                                <td width="85%">
 
-                                    
-                                    <tr>
-
-                                        <td width="100%">
-
-                                            <div class='left-a' >
-
-                                                <a  style='' href="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
-/pageredirst.php?action=company&functionname=official&id=8" target="mainFrame" class="left-fontSmall" >会员卡说明</a>
-
-                                            </div>
-
-                                        </td>
-                                    </tr>
+                                                    
+                                                    
+                                                    <a href="javascript:vold(0)" target="mainFrame" class="left-font03 left-font" >系统管理</a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table id="subtree120" style="DISPLAY: none" width="100%" border="0" align="center" cellpadding="0" ellspacing="0" class="left-table03 tableDefault">
 
 
-                                       <tr>
 
-                                        <td width="100%">
+                                <tr>
 
-                                            <div class='left-a' >
+                                    <td width="100%">
 
-                                                <a  style='' href="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
-/pageredirst.php?action=company&functionname=official&id=9" target="mainFrame" class="left-fontSmall" >适用门店以及地址</a>
+                                        <div class='left-a' >
 
-                                            </div>
+                                            <a  style='' href="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
+/pageredirst.php?action=company&functionname=cardInfoConfig" target="mainFrame" class="left-fontSmall" >会员卡说明</a>
 
-                                        </td>
-                                    </tr>
+                                        </div>
 
-                                      <tr>
+                                    </td>
+                                </tr>
 
-                                        <td width="100%">
 
-                                            <div class='left-a' >
+                                <tr>
 
-                                                <a  style='' href="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
+                                    <td width="100%">
+
+                                        <div class='left-a' >
+
+                                            <a  style='' href="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
+/pageredirst.php?action=company&functionname=storeInfo" target="mainFrame" class="left-fontSmall" >适用门店以及地址</a>
+
+                                        </div>
+
+                                    </td>
+                                </tr>
+
+                                <tr>
+
+                                    <td width="100%">
+
+                                        <div class='left-a' >
+
+                                            <a  style='' href="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
 /pageredirst.php?action=company&functionname=official&id=10" target="mainFrame" class="left-fontSmall" >报手机号就能用卡啦！</a>
 
-                                            </div>
+                                        </div>
 
-                                        </td>
-                                    </tr>
-                                    
-                                    
-                                    
-                                        <tr>
+                                    </td>
+                                </tr>
 
-                                            <td width="100%">
 
-                                                <div class='left-a' >
 
-                                                    <a  style='' href="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
+                                <tr>
+
+                                    <td width="100%">
+
+                                        <div class='left-a' >
+
+                                            <a  style='' href="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
 /pageredirst.php?action=company&functionname=official&id=1" target="mainFrame" class="left-fontSmall" >微服务</a>
 
-                                                </div>
+                                        </div>
 
-                                            </td>
-                                        </tr>
-
-                                  
+                                    </td>
+                                </tr>
 
 
-                                    <tr>
 
-                                        <td width="100%">
 
-                                            <div class='left-a' >
+                                <tr>
 
-                                                <a  style='' href="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
+                                    <td width="100%">
+
+                                        <div class='left-a' >
+
+                                            <a  style='' href="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
 /pageredirst.php?action=company&functionname=official&id=2" target="mainFrame" class="left-fontSmall" >移动商务通</a>
 
-                                            </div>
+                                        </div>
 
-                                        </td>
-                                    </tr>
+                                    </td>
+                                </tr>
 
-                                 
-                                      <tr>
 
-                                        <td width="100%">
+                                <tr>
 
-                                            <div class='left-a' >
+                                    <td width="100%">
 
-                                                <a  style='' href="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
+                                        <div class='left-a' >
+
+                                            <a  style='' href="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
 /pageredirst.php?action=company&functionname=official&id=4" target="mainFrame" class="left-fontSmall" >成功案例</a>
 
-                                            </div>
+                                        </div>
 
-                                        </td>
-                                    </tr>
+                                    </td>
+                                </tr>
 
-                                      <tr>
+                                <tr>
 
-                                        <td width="100%">
+                                    <td width="100%">
 
-                                            <div class='left-a' >
+                                        <div class='left-a' >
 
-                                                <a  style='' href="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
+                                            <a  style='' href="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
 /pageredirst.php?action=company&functionname=official&id=5" target="mainFrame" class="left-fontSmall" >联系我们</a>
 
-                                            </div>
+                                        </div>
 
-                                        </td>
-                                    </tr>
-
-                                   
+                                    </td>
+                                </tr>
 
 
-                                     <tr>
 
-                                        <td width="100%">
 
-                                            <div class='left-a' >
+                                <tr>
 
-                                                <a  style='' href="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
+                                    <td width="100%">
+
+                                        <div class='left-a' >
+
+                                            <a  style='' href="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
 /pageredirst.php?action=company&functionname=official&id=7" target="mainFrame" class="left-fontSmall" >在线客服</a>
 
-                                            </div>
+                                        </div>
 
-                                        </td>
-                                    </tr>
-                                </table>
-                           
+                                    </td>
+                                </tr>
+                            </table>
+
                         </td>
                     </tr>
                 </table>

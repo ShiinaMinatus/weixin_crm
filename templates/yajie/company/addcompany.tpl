@@ -4,7 +4,7 @@
         <title></title>
         <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js" type="text/javascript">
 </script>
-        <link href="{$WebSiteUrl}/css/flat/blue.css" rel="stylesheet" type="text/css">
+        <link href="{$WebSiteUrl}/css/minimal/green.css" rel="stylesheet" type="text/css">
         <script src="{$WebSiteUrl}/js/icheck.min.js" type="text/javascript">
 </script>
 
@@ -17,8 +17,8 @@
 
                 $(document).ready(function() {
                     $('input').iCheck({
-        checkboxClass: 'icheckbox_flat-blue',
-        radioClass: 'iradio_flat-blue'
+        checkboxClass: 'icheckbox_minimal-green',
+        radioClass: 'iradio_minimal-green'
         });
                 });
 
@@ -32,12 +32,12 @@
            
         <div class="alert alert-info" role="alert" style='font-size: 14px;'>
 
-              <div style='height: 30px;'>? 公司信息:用户可以自定义或者使用我们的模版来设计公司信息</div>
+              <div style='height: 30px;'>公司信息:用户可以自定义或者使用我们的模版来设计公司信息</div>
 
 
-            <div style='height: 30px;'>? 智能模版:用户使用</div>
+            <div style='height: 30px;'>智能模版:用户使用</div>
 
-             <div>? 自定义模版:可以让用户快速的制作模版</div>
+             <div>自定义模版:可以让用户快速的制作模版</div>
         </div>
 
 
@@ -161,9 +161,6 @@
 
 
             'onUploadSuccess': function(file, data, response) {
-
-                alert(file)
-
 
                 var json = eval("(" + data + ")");
 

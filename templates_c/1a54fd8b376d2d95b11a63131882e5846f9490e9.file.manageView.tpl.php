@@ -1,16 +1,16 @@
-<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-12 15:48:57
+<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-15 10:14:53
          compiled from "/web/www/weixin_crm//templates/yajie/user/manageView.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:5004260665412a5694c9335-50228323%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:111481224754164b9dbf2811-91637279%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '1a54fd8b376d2d95b11a63131882e5846f9490e9' => 
     array (
       0 => '/web/www/weixin_crm//templates/yajie/user/manageView.tpl',
-      1 => 1410508135,
+      1 => 1410746368,
     ),
   ),
-  'nocache_hash' => '5004260665412a5694c9335-50228323',
+  'nocache_hash' => '111481224754164b9dbf2811-91637279',
   'function' => 
   array (
   ),
@@ -75,7 +75,7 @@ $_smarty_tpl->decodeProperties(array (
         height: auto;
     }
 </style>
-<div class="userMangerTitle">积分信息管理</div>
+<div class="userMangerTitle">消费积分管理</div>
 
 <div style="text-align: center; padding-top: 100px;">
     <?php if ($_smarty_tpl->getVariable('printMessage')->value!=''){?>
@@ -116,7 +116,7 @@ $_smarty_tpl->decodeProperties(array (
     <div style="height: 15px;"></div>
     <span class="input-group-btn">
 
-        <button id="alertDialog" data-toggle="modal" data-target="#myModal" type="button"  accesskey="Enter" class="btn btn-default" style="width: auto;" >确定</button>
+        <button id="alertDialog" data-toggle="modal" data-target="#myModal" type="button"  accesskey="Enter" class="btn btn-primary" style="width: auto;" >确定</button>
     </span>
 
     <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
