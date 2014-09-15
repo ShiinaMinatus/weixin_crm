@@ -63,7 +63,7 @@
                                     <div class="form-group"> 
                                         <label  class="col-sm-2 control-label labelWidth">门店地址:</label>
                                         <div class="col-sm-2">
-                                            <textarea id="storeAddress" name="storeAddress" style="width: 152px;">11111</textarea>
+                                            <textarea id="storeAddress" name="storeAddress" style="width: 152px;"></textarea>
                                         </div>
                                     </div> 
 

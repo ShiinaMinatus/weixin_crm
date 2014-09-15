@@ -50,8 +50,8 @@
 
                                 <input type='hidden' name='activity_id' id='activity_id' value='{$info.activity_id}'>
                                     <div class="form-group"> 
-                                        <label  class="col-sm-2 control-label labelWidth">商家名称:&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                                        <div class="col-sm-2">
+                                        <label  class="col-sm-2 control-label labelWidth">商家名称:</label>
+                                        <div class="col-sm-2" style="margin-left: 29px;">
                                             <input class="form-control inputWidth" type="text" value="{$info.shop_name}" name="stroreName" id="stroreName">
                                         </div>
                                     </div> 
