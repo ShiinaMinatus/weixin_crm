@@ -79,48 +79,48 @@
 
 
 
-                             
-                                <!--                    公司模块开始-->
-                                <table width="100%" border="0" cellpadding="0" cellspacing="0" class=" zhucaidan " id="table120">
+
+                            <!--                    公司模块开始-->
+                            <table width="100%" border="0" cellpadding="0" cellspacing="0" class=" zhucaidan " id="table120">
+                                <tr>
+                                    <td height="29" onclick="list('120')">
+                                        <table width="85%" border="0" align="center" cellpadding="0" cellspacing="0">
+                                            <tr>
+
+                                                <td width="85%">
+
+                                                    {*                                                        <img name="img1" id="img1" src="{$WebSiteUrl}/images/ico04.png" width="12" height="12">*}
+                                                    {*                                                        <span style=' display: inline-block; width: 18px;'>&nbsp;</span>*}
+                                                    <a href="javascript:vold(0)" target="mainFrame" class="left-font03 left-font" >消费管理</a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table id="subtree120" style="DISPLAY: none" width="100%" border="0" align="center" cellpadding="0" ellspacing="0" class="left-table03 tableDefault">
+
+
+                                {if $auth_result[4]==1}
                                     <tr>
-                                        <td height="29" onclick="list('120')">
-                                            <table width="85%" border="0" align="center" cellpadding="0" cellspacing="0">
-                                                <tr>
 
-                                                    <td width="85%">
+                                        <td width="100%">
 
-                                                        {*                                                        <img name="img1" id="img1" src="{$WebSiteUrl}/images/ico04.png" width="12" height="12">*}
-                                                        {*                                                        <span style=' display: inline-block; width: 18px;'>&nbsp;</span>*}
-                                                        <a href="javascript:vold(0)" target="mainFrame" class="left-font03 left-font" >消费管理</a>
-                                                    </td>
-                                                </tr>
-                                            </table>
+
+
+                                            <div class='left-a' >
+
+                                                <a  style='' href="{$WebSiteUrl}/pageredirst.php?action=user&functionname=pointAndMoneyManage" target="mainFrame" class="left-fontSmall" >消费积分管理</a>
+
+                                            </div>
+
                                         </td>
                                     </tr>
-                                </table>
-                                <table id="subtree120" style="DISPLAY: none" width="100%" border="0" align="center" cellpadding="0" ellspacing="0" class="left-table03 tableDefault">
-                                  
-                                   
-                                    {if $auth_result[4]==1}
-                                        <tr>
-
-                                            <td width="100%">
+                                {/if}
 
 
+                            </table>
 
-                                                <div class='left-a' >
-
-                                                    <a  style='' href="{$WebSiteUrl}/pageredirst.php?action=user&functionname=pointAndMoneyManage" target="mainFrame" class="left-fontSmall" >消费积分管理</a>
-
-                                                </div>
-
-                                            </td>
-                                        </tr>
-                                    {/if}
-                                    
-
-                                </table>
-                            
 
 
 
@@ -146,8 +146,13 @@
                                     </tr>
                                 </table>
                                 <table id="subtree120" style="DISPLAY: none" width="100%" border="0" align="center" cellpadding="0" ellspacing="0" class="left-table03 tableDefault">
+<<<<<<< HEAD
                                   
                                   {*  <tr>
+=======
+
+                                    <tr>
+>>>>>>> afcd91016322e18a8a7ae516bf271e47ac7bf828
 
                                         <td width="100%">
 
@@ -191,7 +196,7 @@
 
 
 
-                           
+
 
                             {if $auth_result[6]==1}
 
@@ -405,82 +410,82 @@
 
                             {/if}
 
-                           
 
-                             <table width="100%" border="0" cellpadding="0" cellspacing="0" class="zhucaidan" id="table5">
+
+                            <table width="100%" border="0" cellpadding="0" cellspacing="0" class="zhucaidan" id="table5">
+                                <tr>
+                                    <td height="29" onclick="list('5')">
+                                        <table width="85%" border="0" align="center" cellpadding="0" cellspacing="0">
+                                            <tr>
+
+                                                <td width="85%">
+
+                                                    {*                                                        <img name="img5" id="img5" src="{$WebSiteUrl}/images/ico04.png" width="12" height="12"> *}
+
+                                                    {*                                                        <span style=' display: inline-block; width: 18px;'>&nbsp;</span>*}
+
+                                                    <a href="javascript:vold(0)" target="mainFrame" class="left-font03 left-font" >统计管理</a>
+                                                </td>
+
+                                            </tr>
+                                        </table> 
+                                    </td>
+                                </tr>
+                            </table>
+                            <table id="subtree5" style="DISPLAY: none" width="100%" border="0" align="center" cellpadding="0" ellspacing="0" class="left-table03 tableDefault">
+
+                                {if $auth_result[16]==1}
                                     <tr>
-                                        <td height="29" onclick="list('5')">
-                                            <table width="85%" border="0" align="center" cellpadding="0" cellspacing="0">
-                                                <tr>
 
-                                                    <td width="85%">
+                                        <td width="100%">
 
-                                                        {*                                                        <img name="img5" id="img5" src="{$WebSiteUrl}/images/ico04.png" width="12" height="12"> *}
+                                            <div class='left-a' >
+                                                <a style='' href="{$WebSiteUrl}/pageredirst.php?action=registration&functionname=registrationCount" target="mainFrame" class="left-fontSmall" >签到统计</a>
 
-                                                        {*                                                        <span style=' display: inline-block; width: 18px;'>&nbsp;</span>*}
+                                            </div>
+                                        </td>
 
-                                                        <a href="javascript:vold(0)" target="mainFrame" class="left-font03 left-font" >统计管理</a>
-                                                    </td>
+                                    </tr>
 
-                                         </tr>
-                                            </table> 
+                                {/if}
+
+
+                                {if $auth_result[19]==1}
+                                    <tr>
+
+                                        <td width="100%">
+
+                                            <div class='left-a' >
+                                                <a style='' href="{$WebSiteUrl}/pageredirst.php?action=question&functionname=questionCount" target="mainFrame" class="left-fontSmall">问卷统计</a>
+
+                                            </div>
+                                        </td>
+
+                                    </tr>
+
+                                {/if}
+
+
+                                {if $auth_result[3]==1}
+                                    <tr>
+
+                                        <td width="100%">
+
+                                            <div class='left-a' >
+
+                                                <a  style='' href="{$WebSiteUrl}/pageredirst.php?action=user&functionname=userList" target="mainFrame" class="left-fontSmall" >客户信息</a>
+
+                                            </div>
+
                                         </td>
                                     </tr>
-                                </table>
-                                <table id="subtree5" style="DISPLAY: none" width="100%" border="0" align="center" cellpadding="0" ellspacing="0" class="left-table03 tableDefault">
 
-                                    {if $auth_result[16]==1}
-                                        <tr>
+                                {/if}
 
-                                            <td width="100%">
-
-                                                <div class='left-a' >
-                                                    <a style='' href="{$WebSiteUrl}/pageredirst.php?action=registration&functionname=registrationCount" target="mainFrame" class="left-fontSmall" >签到统计</a>
-
-                                                </div>
-                                            </td>
-
-                                        </tr>
-
-                                    {/if}
+                            </table>
 
 
-                                    {if $auth_result[19]==1}
-                                        <tr>
 
-                                            <td width="100%">
-
-                                                <div class='left-a' >
-                                                    <a style='' href="{$WebSiteUrl}/pageredirst.php?action=question&functionname=questionCount" target="mainFrame" class="left-fontSmall">问卷统计</a>
-
-                                                </div>
-                                            </td>
-
-                                        </tr>
-
-                                    {/if}
-
-
-                                     {if $auth_result[3]==1}
-                                        <tr>
-
-                                            <td width="100%">
-
-                                                <div class='left-a' >
-
-                                                    <a  style='' href="{$WebSiteUrl}/pageredirst.php?action=user&functionname=userList" target="mainFrame" class="left-fontSmall" >客户信息</a>
-
-                                                </div>
-
-                                            </td>
-                                        </tr>
-
-                                    {/if}
-
-                                </table>
-
-
-                           
 
 
 
@@ -521,10 +526,10 @@
                                         </tr>
 
                                     {/if}
-                                    
 
 
-                                    
+
+
                                     {if $auth_result[17]==1}
 
                                         <tr>
@@ -544,7 +549,7 @@
                                     {/if}
 
 
-                                     <tr>
+                                    <tr>
 
                                         <td width="100%">
 
@@ -557,6 +562,7 @@
                                         </td>
                                     </tr>
 
+<<<<<<< HEAD
                                     <tr>
 
                                         <td width="100%">
@@ -572,6 +578,10 @@
 
                                     
                                      {if $auth_result[1000]==1}
+=======
+
+                                    {if $auth_result[1000]==1}
+>>>>>>> afcd91016322e18a8a7ae516bf271e47ac7bf828
                                         <tr>
 
                                             <td width="100%">
@@ -861,144 +871,144 @@
 
                             <!-- 文案详情 -->
 
-                           
-                                <!--                    公司模块开始-->
-                                <table width="100%" border="0" cellpadding="0" cellspacing="0" class=" zhucaidan " id="table120">
-                                    <tr>
-                                        <td height="29" onclick="list('120')">
-                                            <table width="85%" border="0" align="center" cellpadding="0" cellspacing="0">
-                                                <tr>
 
-                                                    <td width="85%">
+                            <!--                    公司模块开始-->
+                            <table width="100%" border="0" cellpadding="0" cellspacing="0" class=" zhucaidan " id="table120">
+                                <tr>
+                                    <td height="29" onclick="list('120')">
+                                        <table width="85%" border="0" align="center" cellpadding="0" cellspacing="0">
+                                            <tr>
 
-                                                        {*                                                        <img name="img1" id="img1" src="{$WebSiteUrl}/images/ico04.png" width="12" height="12">*}
-                                                        {*                                                        <span style=' display: inline-block; width: 18px;'>&nbsp;</span>*}
-                                                        <a href="javascript:vold(0)" target="mainFrame" class="left-font03 left-font" >系统管理</a>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </td>
-                                    </tr>
-                                </table>
-                                <table id="subtree120" style="DISPLAY: none" width="100%" border="0" align="center" cellpadding="0" ellspacing="0" class="left-table03 tableDefault">
-                                   
+                                                <td width="85%">
 
-                                    
-                                    <tr>
-
-                                        <td width="100%">
-
-                                            <div class='left-a' >
-
-                                                <a  style='' href="{$WebSiteUrl}/pageredirst.php?action=company&functionname=official&id=8" target="mainFrame" class="left-fontSmall" >会员卡说明</a>
-
-                                            </div>
-
-                                        </td>
-                                    </tr>
+                                                    {*                                                        <img name="img1" id="img1" src="{$WebSiteUrl}/images/ico04.png" width="12" height="12">*}
+                                                    {*                                                        <span style=' display: inline-block; width: 18px;'>&nbsp;</span>*}
+                                                    <a href="javascript:vold(0)" target="mainFrame" class="left-font03 left-font" >系统管理</a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table id="subtree120" style="DISPLAY: none" width="100%" border="0" align="center" cellpadding="0" ellspacing="0" class="left-table03 tableDefault">
 
 
-                                       <tr>
 
-                                        <td width="100%">
+                                <tr>
 
-                                            <div class='left-a' >
+                                    <td width="100%">
 
-                                                <a  style='' href="{$WebSiteUrl}/pageredirst.php?action=company&functionname=official&id=9" target="mainFrame" class="left-fontSmall" >适用门店以及地址</a>
+                                        <div class='left-a' >
 
-                                            </div>
+                                            <a  style='' href="{$WebSiteUrl}/pageredirst.php?action=company&functionname=cardInfoConfig" target="mainFrame" class="left-fontSmall" >会员卡说明</a>
 
-                                        </td>
-                                    </tr>
+                                        </div>
 
-                                      <tr>
-
-                                        <td width="100%">
-
-                                            <div class='left-a' >
-
-                                                <a  style='' href="{$WebSiteUrl}/pageredirst.php?action=company&functionname=official&id=10" target="mainFrame" class="left-fontSmall" >报手机号就能用卡啦！</a>
-
-                                            </div>
-
-                                        </td>
-                                    </tr>
-                                    
-                                    
-                                    
-                                        <tr>
-
-                                            <td width="100%">
-
-                                                <div class='left-a' >
-
-                                                    <a  style='' href="{$WebSiteUrl}/pageredirst.php?action=company&functionname=official&id=1" target="mainFrame" class="left-fontSmall" >微服务</a>
-
-                                                </div>
-
-                                            </td>
-                                        </tr>
-
-                                  
+                                    </td>
+                                </tr>
 
 
-                                    <tr>
+                                <tr>
 
-                                        <td width="100%">
+                                    <td width="100%">
 
-                                            <div class='left-a' >
+                                        <div class='left-a' >
 
-                                                <a  style='' href="{$WebSiteUrl}/pageredirst.php?action=company&functionname=official&id=2" target="mainFrame" class="left-fontSmall" >移动商务通</a>
+                                            <a  style='' href="{$WebSiteUrl}/pageredirst.php?action=company&functionname=storeInfo" target="mainFrame" class="left-fontSmall" >适用门店以及地址</a>
 
-                                            </div>
+                                        </div>
 
-                                        </td>
-                                    </tr>
+                                    </td>
+                                </tr>
 
-                                 
-                                      <tr>
+                                <tr>
 
-                                        <td width="100%">
+                                    <td width="100%">
 
-                                            <div class='left-a' >
+                                        <div class='left-a' >
 
-                                                <a  style='' href="{$WebSiteUrl}/pageredirst.php?action=company&functionname=official&id=4" target="mainFrame" class="left-fontSmall" >成功案例</a>
+                                            <a  style='' href="{$WebSiteUrl}/pageredirst.php?action=company&functionname=official&id=10" target="mainFrame" class="left-fontSmall" >报手机号就能用卡啦！</a>
 
-                                            </div>
+                                        </div>
 
-                                        </td>
-                                    </tr>
-
-                                      <tr>
-
-                                        <td width="100%">
-
-                                            <div class='left-a' >
-
-                                                <a  style='' href="{$WebSiteUrl}/pageredirst.php?action=company&functionname=official&id=5" target="mainFrame" class="left-fontSmall" >联系我们</a>
-
-                                            </div>
-
-                                        </td>
-                                    </tr>
-
-                                   
+                                    </td>
+                                </tr>
 
 
-                                     <tr>
 
-                                        <td width="100%">
+                                <tr>
 
-                                            <div class='left-a' >
+                                    <td width="100%">
 
-                                                <a  style='' href="{$WebSiteUrl}/pageredirst.php?action=company&functionname=official&id=7" target="mainFrame" class="left-fontSmall" >在线客服</a>
+                                        <div class='left-a' >
 
-                                            </div>
+                                            <a  style='' href="{$WebSiteUrl}/pageredirst.php?action=company&functionname=official&id=1" target="mainFrame" class="left-fontSmall" >微服务</a>
 
-                                        </td>
-                                    </tr>
-                                </table>
-                           
+                                        </div>
+
+                                    </td>
+                                </tr>
+
+
+
+
+                                <tr>
+
+                                    <td width="100%">
+
+                                        <div class='left-a' >
+
+                                            <a  style='' href="{$WebSiteUrl}/pageredirst.php?action=company&functionname=official&id=2" target="mainFrame" class="left-fontSmall" >移动商务通</a>
+
+                                        </div>
+
+                                    </td>
+                                </tr>
+
+
+                                <tr>
+
+                                    <td width="100%">
+
+                                        <div class='left-a' >
+
+                                            <a  style='' href="{$WebSiteUrl}/pageredirst.php?action=company&functionname=official&id=4" target="mainFrame" class="left-fontSmall" >成功案例</a>
+
+                                        </div>
+
+                                    </td>
+                                </tr>
+
+                                <tr>
+
+                                    <td width="100%">
+
+                                        <div class='left-a' >
+
+                                            <a  style='' href="{$WebSiteUrl}/pageredirst.php?action=company&functionname=official&id=5" target="mainFrame" class="left-fontSmall" >联系我们</a>
+
+                                        </div>
+
+                                    </td>
+                                </tr>
+
+
+
+
+                                <tr>
+
+                                    <td width="100%">
+
+                                        <div class='left-a' >
+
+                                            <a  style='' href="{$WebSiteUrl}/pageredirst.php?action=company&functionname=official&id=7" target="mainFrame" class="left-fontSmall" >在线客服</a>
+
+                                        </div>
+
+                                    </td>
+                                </tr>
+                            </table>
+
                         </td>
                     </tr>
                 </table>

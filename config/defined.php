@@ -3,7 +3,7 @@
 
 session_start();
 
-ini_set('display_errors', '0');
+ini_set('display_errors', '1');
 
 
 define('ROOT', $_SERVER['DOCUMENT_ROOT']);
@@ -16,8 +16,8 @@ defined('PROJECT') or define('PROJECT', '/weixin_crm/');
 defined('ROOTPATH') or define('ROOTPATH',  ROOT . PROJECT);
 
 
+//defined('WebSiteUrl') or define('WebSiteUrl', 'http://localhost/weixin_crm');
 defined('WebSiteUrl') or define('WebSiteUrl', 'http://localhost/weixin_crm');
-//defined('WebSiteUrl') or define('WebSiteUrl', 'http://localhost/yajie_weixin_crm_new/weixin_crm');
 
 defined('URLHANDLER') or define('URLHANDLER', WebSiteUrl.'/publicHandler');
 

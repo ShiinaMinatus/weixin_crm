@@ -12,15 +12,6 @@
         margin-top: 15px;
         text-align: center;
     }
-
-    .sortBar{
-        width: auto;
-        margin-left: 25px;
-        height: 25px;
-        line-height: 0px;
-        margin-right: 45px;
-        /*        margin: 0 auto;*/
-    }
     table tr>th{
         text-align: center;
         background-color: #eee;
