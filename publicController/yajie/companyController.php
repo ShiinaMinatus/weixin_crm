@@ -49,6 +49,7 @@ class companyController {
     }
 
     public function companyEdit() {
+        
         //  $_ENV['smarty']->assign('registrationNumber', $registrationValue);
         $companyInfo = new companyInfoModel();
         $companyInfo->initialize();
