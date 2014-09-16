@@ -1,16 +1,16 @@
-<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-15 17:07:38
+<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-16 09:27:41
          compiled from "/web/www/weixin_crm//templates/yajie/company/../_visual_layout.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:1161780015416ac5a3f90d7-77493351%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:13739963865417920d3e6fb0-19138081%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '4a482936f6e919f67cda69f9efad30425cfda9b2' => 
     array (
       0 => '/web/www/weixin_crm//templates/yajie/company/../_visual_layout.tpl',
-      1 => 1410772055,
+      1 => 1410776027,
     ),
   ),
-  'nocache_hash' => '1161780015416ac5a3f90d7-77493351',
+  'nocache_hash' => '13739963865417920d3e6fb0-19138081',
   'function' => 
   array (
   ),
@@ -34,7 +34,7 @@ $_smarty_tpl->decodeProperties(array (
                         themeType : 'example1',
                         items:[
 
-                            'preview','justifyleft','justifycenter','justifyright','indent','outdent'
+                            'justifyleft','justifycenter','justifyright','indent','outdent'
 
                             ,'fontsize','forecolor','bold','italic','link','unlink','image','source'
          
@@ -83,9 +83,8 @@ $_smarty_tpl->decodeProperties(array (
         </div>
 
         <div style='height: 10px;'>&nbsp;</div>
-        <div class="registerWarp" class='init_class'>
-
-            <textarea id="edit" placeholder="这里输入内容" style='width: 100%; height: 100%;' class='init_class'></textarea>
+        <div class="registerWarp init_class"  >
+            <textarea id="edit" placeholder="这里输入内容" style='width: 100%; height: 100%;' ></textarea>
         </div>
 
 
