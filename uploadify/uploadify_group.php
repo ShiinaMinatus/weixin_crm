@@ -6,10 +6,11 @@ Released under the MIT License <http://www.opensource.org/licenses/mit-license.p
 */
 
 // Define a destination
-$targetFolder = '/weixin_crm/uploads'; // Relative to the root
+$targetFolder = '/yajie_weixin_crm_new/weixin_crm/uploads'; // Relative to the root
+//$targetFolder = '/weixin_crm/uploads'; // Relative to the root
 
-
-$url = 'http://localhost/weixin_crm/uploads/';
+$url = 'http://localhost/yajie_weixin_crm_new/weixin_crm/uploads/';
+//$url = 'http://localhost/weixin_crm/uploads/';
 
 
 $arrayp['objectid'] =  $_REQUEST['objectid'];
@@ -20,7 +21,7 @@ if (!empty($_FILES)) {
 	$targetFile = rtrim($targetPath,'/') . '/' . $_FILES['Filedata']['name'];
 	
 	// Validate the file type
-	$fileTypes = array('jpg','jpeg','gif','png'); // File extensions
+	$fileTypes = array('jpg','jpeg'); // File extensions
 	$fileParts = pathinfo($_FILES['Filedata']['name']);
 	
 	if (in_array($fileParts['extension'],$fileTypes)) {
@@ -28,7 +29,7 @@ if (!empty($_FILES)) {
 
 		$arrayp['path'] =  $url.$_FILES['Filedata']['name'];
 
-
+               header('Content-type: application/json'); 
 		echo json_encode($arrayp);
 	} else {
 		echo 'Invalid file type.';

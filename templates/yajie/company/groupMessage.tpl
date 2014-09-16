@@ -315,14 +315,13 @@
                                                                                                                         var companyContent_ = $('#activity_html_').val();
 
                                                                                                                         $(function() {
-                                                                                                                            
-                                                                                                                            
+
                                                                                                                             
                                                                                                                                         $('#upload_0').uploadify({
                                                                                                                                             'swf': websiteUrl + '/uploadify/uploadify.swf',
                                                                                                                                             'uploader': websiteUrl + '/uploadify/uploadify_group.php',
                                                                                                                                             'formData': {
-                                                                                                                                                'objectid': 'upload_0',
+                                                                                                                                                'objectid': 'upload_0'
                                                                                                                                             },
                                                                                                                                             'onUploadSuccess': function(file, data, response) {
 
