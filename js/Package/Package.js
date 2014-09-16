@@ -120,9 +120,9 @@ packAgeList.prototype.init = function() {
                 case 'text':
 
 
-                    var closeHtml = '<span  class="closeSpan" style=" outline: none;cursor: pointer;position: absolute;left: 620px;top: 0px;" onclick="$(this).parent().parent().remove()">X</span>';
+                    var closeHtml = '<span  class="closeSpan" style=" outline: none;cursor: pointer;position: absolute;" onclick="$(this).parent().parent().remove()">X</span>';
 
-                    var textAreaHtml = '<div class="textArea"  style="width:320px; margin:0 auto;"   belog="' + eleType + '" ><div contenteditable="true"><p style="outline: none;" class="textArea" belog="' + eleType + '" >本可视化布局程序在HTML5浏览器上运行更加完美, 能实现自动本地化保存, 即使关闭了网页, 下一次打开仍然能恢复上一次的操作.</p></div>' + closeHtml + '</div>';
+                    var textAreaHtml = '<div class="textArea"  style="width:320px; margin:0 auto;"   belog="' + eleType + '" ><div style="float:left" contenteditable="true"><p style="outline: none;" class="textArea" belog="' + eleType + '" >本可视化布局程序在HTML5浏览器上运行更加完美, 能实现自动本地化保存, 即使关闭了网页, 下一次打开仍然能恢复上一次的操作.</p></div>' + closeHtml + '</div>';
 
                     var configHtml = '<div class="textDiv textHeight none" belog="' + eleType + '" id="' + eleType + '"  style="position: relative; word-wrap : break-word;"> </div>';
 

@@ -13,7 +13,7 @@
                         themeType : 'example1',
                         items:[
 
-                            'preview','justifyleft','justifycenter','justifyright','indent','outdent'
+                            'justifyleft','justifycenter','justifyright','indent','outdent'
 
                             ,'fontsize','forecolor','bold','italic','link','unlink','image','source'
          
@@ -62,9 +62,8 @@
         </div>
 
         <div style='height: 10px;'>&nbsp;</div>
-        <div class="registerWarp" class='init_class'>
-
-            <textarea id="edit" placeholder="这里输入内容" style='width: 100%; height: 100%;' class='init_class'></textarea>
+        <div class="registerWarp init_class"  >
+            <textarea id="edit" placeholder="这里输入内容" style='width: 100%; height: 100%;' ></textarea>
         </div>
 
 
