@@ -50,11 +50,16 @@
                     </head>
                     <body>
                         <div class="userMangerTitle">联系客服</div>
+                        <div class="alert alert-info" role="alert" style='font-size: 14px;margin-left: 25px;margin-right: 25px; '>
+                            <div style='height: 30px;'>请在下方空格内填写区号+电话号码或者填写11位手机号</div>
+                            <div>例如：021-31263800或者13911111111。</div>
+                        </div>
+                        <div style="height: 25px;"></div>
                         {if $scuesss eq "1"}
                             <div id="Message" class="alert alert-danger errorMessage" style="display: block">恭喜你修改成功</div>
                         {/if}
                         <div id="errorMessage" class="alert alert-danger errorMessage">恭喜你修改成功</div>
-                        <div style="height: 100px;"></div>
+                        <div style="height: 45px;"></div>
                         <div style="margin-left:15px;margin-top:15px;">
                             <div style="width: 1000px; margin: 0 auto;">
                                 <form class="form-horizontal" action="{$WebSiteUrl}/pageredirst.php?action=company&functionname=phoneEdit" method="post">
@@ -84,5 +89,16 @@
                                                     <script src="{$WebSiteUrl}/js/bootstrap-datetimepicker.js"></script>
 
                                                     <script>
-                       
+                                                    
+                                                    $("#addButton").click(function(){
+                                                    $("#Message").hide();
+                                                    var telPhone=$("#phoneInfo").val();
+
+                                                        
+                                                    if(!getTelRegex(telPhone)&&!getMobilPhoneRegex(telPhone)){
+                                                    $("#errorMessage").html('请填写正确的区号+固定电话或者手机号')
+                                                    $("#errorMessage").show();
+                                                    return false;
+                                                }
+                                            });
                                                     </script>

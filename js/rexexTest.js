@@ -22,5 +22,9 @@ function getPhoneRegex(data){
     var regex = /^\d{3}\-\d{3}\-\d{5}$/;
     return regex.test(data);
 }
+function getTelRegex(data){
+    var regex = /\d{3}-\d{8}|\d{4}-\d{7}/;
+    return regex.test(data);
+}
 
 

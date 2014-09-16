@@ -42,7 +42,15 @@
 </style>
 
 <div class="userMangerTitle">{$title}</div>
+<div class="alert alert-info" role="alert" style='font-size: 14px;width: 600px;margin: 0 auto;'>
 
+    <div style='height: 30px;'>添加消息:可以用来添加一条子群发消息</div>
+
+
+    <div style='height: 30px;'>群发该组图文消息:点击后将直接发送该组图文消息至微信</div>
+
+    <div>删除消息:删除该条消息</div>
+</div>
 <div style="height: 50px;"></div>
 {if $printMessage neq ""}
     <div class="sortBar alert alert-warning" style="text-align: center"><label for="inputPassword3" class="control-label">{$printMessage}</label></div>

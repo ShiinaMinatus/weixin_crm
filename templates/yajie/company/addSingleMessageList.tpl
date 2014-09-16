@@ -71,7 +71,15 @@
                     <body>
 
                         <div style='height: 10px;'>&nbsp;</div>
+                        <div class="alert alert-info" role="alert" style='font-size: 14px;margin-left: 25px;margin-right: 25px; '>
 
+                            <div style='height: 30px;'>正文:用户可以自定义或者使用我们的模版来设计公司信息</div>
+
+                            <div style='height: 30px;'>标题:群发消息标题不能为空</div>
+                            <div style='height: 30px;'>智能模版:用户使用我们定制的插件</div>
+
+                            <div>自定义模版:可以让用户快速的制作模版</div>
+                        </div>
 
 
                         <div id="errorMessageDiv" class="sortBar alert alert-warning" style="text-align: center;display: none"><label id="errorMessage" for="inputPassword3" class="control-label"></label></div>

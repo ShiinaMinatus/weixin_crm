@@ -42,7 +42,15 @@
 </style>
 
 <div class="userMangerTitle">消息群发</div>
+<div class="alert alert-info" role="alert" style='font-size: 14px;width: 600px;margin: 0 auto;'>
 
+    <div style='height: 30px;'>添加群发消息:可以用来添加一组群发消息</div>
+
+
+    <div style='height: 30px;'>详细编辑群发消息:点击标题列下的超链接进入相应的群发消息组</div>
+
+    <div>删除群发消息:直接删除该组下所有群发消息</div>
+</div>
 <div style="height: 50px;"></div>
 {if $printMessage neq ""}
     <div class="sortBar alert alert-warning" style="text-align: center"><label for="inputPassword3" class="control-label">{$printMessage}</label></div>
