@@ -239,7 +239,7 @@ function https_upload_pic_request($filePath, $access_token) {
 
 
     //上传图片
-    $type = "image";
+    $type = "thumb";
 
     $filedata = array("media" => "@" . $filePath);
 
@@ -282,9 +282,17 @@ function group_send_image($ACCESS_TOKEN, $array) {
 
     $url = "https://api.weixin.qq.com/cgi-bin/media/uploadnews?access_token=$ACCESS_TOKEN";
 
-    $result['Articles'] = $array;
+    $result = array('articles'=>$array);
 
-    return curlPost($url, $result);
+
+    
+
+    $jsondata = urldecode(json_encode($result));
+
+    
+
+
+    return https_request($url, $jsondata);
 }
 
 /**
@@ -294,13 +302,36 @@ function mass_send_group($id, $token, $meida_id) {
 
     $url = "https://api.weixin.qq.com/cgi-bin/message/mass/sendall?access_token=$token";
 
-    $data['filter'] = array('group_id' => $id);
+    $data['filter'] = array('group_id' => urlencode($id));
+
+    $data['mpnews'] = array('media_id' => urlencode($meida_id));
+
+    $data['msgtype'] = urlencode('mpnews');
+
+    $jsonData = urldecode(json_encode($data));
+
+    return curlPost($url, $jsonData);
+}
+
+
+function mass_send_group_user($array, $token, $meida_id) {
+
+    $url = "https://api.weixin.qq.com/cgi-bin/message/mass/send?access_token=$token";
+    
+    $data['touser'] = $array;
 
     $data['mpnews'] = array('media_id' => $meida_id);
 
     $data['msgtype'] = 'mpnews';
 
-    return curlPost($url, $data);
+    var_dump($data);
+
+    die;
+
+    
+    $jsonData = json_encode($data);
+
+    return curlPost($url, $jsonData);
 }
 
 /**

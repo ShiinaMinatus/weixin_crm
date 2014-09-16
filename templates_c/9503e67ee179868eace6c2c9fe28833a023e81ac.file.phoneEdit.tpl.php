@@ -1,16 +1,16 @@
-<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-15 16:47:20
+<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-16 15:07:03
          compiled from "/web/www/weixin_crm//templates/yajie/company/phoneEdit.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:11528822055416a79872fc30-01894081%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:3820558335417e197025b39-58963534%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '9503e67ee179868eace6c2c9fe28833a023e81ac' => 
     array (
       0 => '/web/www/weixin_crm//templates/yajie/company/phoneEdit.tpl',
-      1 => 1410762646,
+      1 => 1410837881,
     ),
   ),
-  'nocache_hash' => '11528822055416a79872fc30-01894081',
+  'nocache_hash' => '3820558335417e197025b39-58963534',
   'function' => 
   array (
   ),
@@ -74,11 +74,16 @@ $_smarty_tpl->decodeProperties(array (
                     </head>
                     <body>
                         <div class="userMangerTitle">联系客服</div>
+                        <div class="alert alert-info" role="alert" style='font-size: 14px;margin-left: 25px;margin-right: 25px; '>
+                            <div style='height: 30px;'>请在下方空格内填写区号+电话号码或者填写11位手机号</div>
+                            <div>例如：021-31263800或者13911111111。</div>
+                        </div>
+                        <div style="height: 25px;"></div>
                         <?php if ($_smarty_tpl->getVariable('scuesss')->value=="1"){?>
                             <div id="Message" class="alert alert-danger errorMessage" style="display: block">恭喜你修改成功</div>
                         <?php }?>
                         <div id="errorMessage" class="alert alert-danger errorMessage">恭喜你修改成功</div>
-                        <div style="height: 100px;"></div>
+                        <div style="height: 45px;"></div>
                         <div style="margin-left:15px;margin-top:15px;">
                             <div style="width: 1000px; margin: 0 auto;">
                                 <form class="form-horizontal" action="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
@@ -112,5 +117,16 @@ $_smarty_tpl->decodeProperties(array (
 /js/bootstrap-datetimepicker.js"></script>
 
                                                     <script>
-                       
+                                                    
+                                                    $("#addButton").click(function(){
+                                                    $("#Message").hide();
+                                                    var telPhone=$("#phoneInfo").val();
+
+                                                        
+                                                    if(!getTelRegex(telPhone)&&!getMobilPhoneRegex(telPhone)){
+                                                    $("#errorMessage").html('请填写正确的区号+固定电话或者手机号')
+                                                    $("#errorMessage").show();
+                                                    return false;
+                                                }
+                                            });
                                                     </script>

@@ -7,22 +7,22 @@
  */
 
 
-if(!empty($_REQUEST['session_id'])){
+if (!empty($_REQUEST['session_id'])) {
 
-	session_id($_REQUEST['session_id']);
-
+    session_id($_REQUEST['session_id']);
 }
-
-//session_start();
 
 
 include '../config/defined.php';
 
+
+
+
 // Define a destination
-$targetFolder = '/yajie_weixin_crm_new/weixin_crm/uploads'; // Relative to the root
+$targetFolder = '/weixin_crm/uploads'; // Relative to the root
 //$targetFolder = '/weixin_crm/uploads'; // Relative to the root
 
-$url = 'http://localhost/yajie_weixin_crm_new/weixin_crm/uploads/';
+$url = 'http://localhost/weixin_crm/uploads/';
 //$url = 'http://localhost/weixin_crm/uploads/';
 
 
@@ -36,34 +36,44 @@ if (!empty($_FILES)) {
 
     // Validate the file type
     $fileTypes = array('jpg', 'jpeg'); // File extensions
+
     $fileParts = pathinfo($_FILES['Filedata']['name']);
-    $fileSizeLimte=1*1024*1024;
-    if ($_FILES['Filedata']['size']>$fileSizeLimte){
-         echo 'code1';//文件大小溢出
-    }
-    else if (in_array($fileParts['extension'], $fileTypes)) {
+    
+    $fileSizeLimte = 1 * 1024 * 1024;
+
+
+   
+    if ($_FILES['Filedata']['size'] > $fileSizeLimte) {
+        echo 'code1'; //文件大小溢出
+    } else if (in_array($fileParts['extension'], $fileTypes)) {
+
+
+
 
         move_uploaded_file($tempFile, $targetFile);
 
 
-        chmod($targetFile, 0755);
+
+        @chmod($targetFile, 0755);
 
         $arrayp['path'] = $url . $_FILES['Filedata']['name'];
 
         $token = getAccessToken();
-        
+
         $file = realpath($targetFile); //文件目录路径
 
 
         $result = https_upload_pic_request($file, $token);
 
-        $result_ =  json_decode($result,true);
 
-    
 
-        if($result_['media_id'] != ''){
+        $result_ = json_decode($result, true);
 
-        	$arrayp['media_id'] = $result_['media_id'];
+
+
+        if ($result_['thumb_media_id'] != '') {
+
+            $arrayp['media_id'] = $result_['thumb_media_id'];
         }
 
 
@@ -77,5 +87,4 @@ if (!empty($_FILES)) {
         echo 'code2';
     }
 }
-
 ?>
