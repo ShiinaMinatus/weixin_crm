@@ -193,156 +193,165 @@
                                                                                 'session_id':'{$session_id}'
                                                                             },
                                                                             'onUploadSuccess': function(file, data, response) {
+                                                                            alert(data);
+                                                                            $("#errorMessageDiv").hide();
+                                                                            if(data=="code2"){
+                                                                            $("#errorMessageDiv").show();
+                                                                            $("#errorMessage").html("上传图片失败，图片格式必须为jpg或者jpge格式");
+                                                                        }else if(data=="code1"){
+                                                                        $("#errorMessageDiv").show();
+                                                                        $("#errorMessage").html("上传图片失败，由于微信限制图片大小必须小于1M");
+                                                                    }else{
+                                                                    var json = eval("(" + data + ")");
+                                                                    $('#uploadUrl').val(json['path']);
+                                                                }
+                                                                // var json = eval("(" + data + ")");
 
-                                                                                alert(data);
+                                                                // $('#uploadUrl').val(json['path']);
                                                                             
-                                                                            // var json = eval("(" + data + ")");
-
-                                                                            // $('#uploadUrl').val(json['path']);
-                                                                            
-                                                                        }
-                                                                    });
-
-                                                                    var type = $('#type').val();
-
-
-
-                                                                    if (type == 0) {
-
-                                                                    if (companyContent_ != '') {
-
-                                                                    $('#divPack').html(companyContent_);
-
-                                                                    $('#titleArea').html(companyTitle);
-
-                                                                    $('.uploadify').each(function(obj) {
-
-                                                                    var ids = $(this).attr('id');
-                                                                                        
-                                                                    $('.uploadify-queue').remove();
-                                                                                                
-                                                                    $('#' + ids).html('');
-                                                                                                
-                                                                                                
-                                                                    $('#' + ids).uploadify({
-                                                                    'swf': websiteUrl + '/uploadify/uploadify.swf',
-                                                                    'uploader': websiteUrl + '/uploadify/uploadify.php',
-                                                                    'formData': {
-                                                                    'objectid': ids,
-                                                                },
-                                                                'onUploadSuccess': function(file, data, response) {
-                                                                                            
-                                                                var json = eval("(" + data + ")");
-
-
-                                                                $('#' + json['objectid']).parent().prev().find('img').attr('src', json['path'])
-
-
-
                                                             }
                                                         });
 
-                                                    })
+                                                        var type = $('#type').val();
+
+
+
+                                                        if (type == 0) {
+
+                                                        if (companyContent_ != '') {
+
+                                                        $('#divPack').html(companyContent_);
+
+                                                        $('#titleArea').html(companyTitle);
+
+                                                        $('.uploadify').each(function(obj) {
+
+                                                        var ids = $(this).attr('id');
+                                                                                        
+                                                        $('.uploadify-queue').remove();
+                                                                                                
+                                                        $('#' + ids).html('');
+                                                                                                
+                                                                                                
+                                                        $('#' + ids).uploadify({
+                                                        'swf': websiteUrl + '/uploadify/uploadify.swf',
+                                                        'uploader': websiteUrl + '/uploadify/uploadify.php',
+                                                        'formData': {
+                                                        'objectid': ids,
+                                                    },
+                                                    'onUploadSuccess': function(file, data, response) {
+                                                                                            
+                                                    var json = eval("(" + data + ")");
+
+
+                                                    $('#' + json['objectid']).parent().prev().find('img').attr('src', json['path'])
+
+
 
                                                 }
+                                            });
 
-                                                $('#init_id').show();
+                                        })
 
-                                            } else {
-
-
-                                            $('#visual_id').show();
-
-                                            if (companyContent_ != '') {
-
-                                            $('#edit').html(companyContent);
-
-                                            $('#titleArea1').html(companyTitle)
-
-                                        }
                                     }
-
-
-                                    $('input').on('ifChecked', function() {
-
-
-                                    var type = $(this).val();
-
-                                    $('.public').css('display', 'none');
-
-
-
-                                    $('#type').val(type);
-
-
-                                    if (type == 0) {
 
                                     $('#init_id').show();
 
-
                                 } else {
+
 
                                 $('#visual_id').show();
 
+                                if (companyContent_ != '') {
+
+                                $('#edit').html(companyContent);
+
+                                $('#titleArea1').html(companyTitle)
 
                             }
+                        }
 
 
-                        });
+                        $('input').on('ifChecked', function() {
 
 
-                        $('#saveButton').click(function(event) {
-                        /* Act on the event */
+                        var type = $(this).val();
 
-                        if($("#title1").val()==""||$("#title1").val()==" "){
-                        $("#errorMessageDiv").show();
-                        $("#errorMessage").html("标题名称不能为空");
-                        return false
-                    }else{
-                    $('.modal-body').html('');
-
-                    previewBoby();
+                        $('.public').css('display', 'none');
 
 
-                    $('#form1').submit();
+
+                        $('#type').val(type);
+
+
+                        if (type == 0) {
+
+                        $('#init_id').show();
+
+
+                    } else {
+
+                    $('#visual_id').show();
+
+
                 }
 
 
             });
 
 
+            $('#saveButton').click(function(event) {
+            /* Act on the event */
 
-            $('#previewButton').click(function() {
+            if($("#title1").val()==""||$("#title1").val()==" "){
+            $("#errorMessageDiv").show();
+            $("#errorMessage").html("标题名称不能为空");
+            return false
+        }else{
+        $('.modal-body').html('');
 
-
-
-
-            $(".Preview").modal();
-
-
-            previewBoby();
-
-
-
-        })
+        previewBoby();
 
 
-    })
+        $('#form1').submit();
+    }
 
 
-    function previewBoby() {
-
-    var type = $('#type').val();
+});
 
 
 
+$('#previewButton').click(function() {
 
-    if (type == 0) {
 
 
-    var titleContent = $('#titleArea').html();
 
-    var packContent = $('#divPack').html();
+$(".Preview").modal();
+
+
+previewBoby();
+
+
+
+})
+
+
+})
+
+
+function previewBoby() {
+
+var type = $('#type').val();
+
+
+
+
+if (type == 0) {
+
+
+var titleContent = $('#titleArea').html();
+
+var packContent = $('#divPack').html();
 
 } else {
 

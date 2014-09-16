@@ -13,16 +13,16 @@ if(!empty($_REQUEST['session_id'])){
 
 }
 
-session_start();
+//session_start();
 
 
 include '../config/defined.php';
 
 // Define a destination
-$targetFolder = '/weixin_crm/uploads'; // Relative to the root
+$targetFolder = '/yajie_weixin_crm_new/weixin_crm/uploads'; // Relative to the root
 //$targetFolder = '/weixin_crm/uploads'; // Relative to the root
 
-$url = 'http://localhost/weixin_crm/uploads/';
+$url = 'http://localhost/yajie_weixin_crm_new/weixin_crm/uploads/';
 //$url = 'http://localhost/weixin_crm/uploads/';
 
 
@@ -37,8 +37,11 @@ if (!empty($_FILES)) {
     // Validate the file type
     $fileTypes = array('jpg', 'jpeg'); // File extensions
     $fileParts = pathinfo($_FILES['Filedata']['name']);
-
-    if (in_array($fileParts['extension'], $fileTypes)) {
+    $fileSizeLimte=1*1024*1024;
+    if ($_FILES['Filedata']['size']>$fileSizeLimte){
+         echo 'code1';//文件大小溢出
+    }
+    else if (in_array($fileParts['extension'], $fileTypes)) {
 
         move_uploaded_file($tempFile, $targetFile);
 
@@ -48,8 +51,7 @@ if (!empty($_FILES)) {
         $arrayp['path'] = $url . $_FILES['Filedata']['name'];
 
         $token = getAccessToken();
-
-
+        
         $file = realpath($targetFile); //文件目录路径
 
 
@@ -72,7 +74,7 @@ if (!empty($_FILES)) {
 
         echo json_encode($arrayp);
     } else {
-        echo 'Invalid file type.';
+        echo 'code2';
     }
 }
 
