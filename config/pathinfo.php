@@ -9,8 +9,6 @@ if (!empty($_SERVER['PATH_INFO'])) {
 
     $pathInfo = explode('/', trim($_SERVER['PATH_INFO'], '/'));
 
-
-
     $source = strtolower($pathInfo[0]);
 
     if (empty($_SESSION['weixin_crm_source'])) {

@@ -253,6 +253,11 @@ class companyController {
 
     public function addGroupMessageList() {
         //  $_ENV['smarty']->display('groupMessageList');
+
+
+        $session_id = session_id();
+
+        $_ENV['smarty']->assign('session_id',$session_id);
         $_ENV['smarty']->display('addGroupMessageList');
     }
 
