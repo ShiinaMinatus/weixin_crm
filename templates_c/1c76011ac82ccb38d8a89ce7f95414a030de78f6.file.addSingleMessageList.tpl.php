@@ -1,39 +1,39 @@
-<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-16 15:43:44
-         compiled from "/web/www/weixin_crm//templates/yajie/company/addGroupMessageList.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:8804207255417ea30445c49-13613097%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-16 15:46:23
+         compiled from "/web/www/weixin_crm//templates/yajie/company/addSingleMessageList.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:4589060865417eacf9c6a45-48598235%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
-    'f4f57a5e4382e9ab6d7ee0aed396b93bba9736de' => 
+    '1c76011ac82ccb38d8a89ce7f95414a030de78f6' => 
     array (
-      0 => '/web/www/weixin_crm//templates/yajie/company/addGroupMessageList.tpl',
-      1 => 1410853411,
+      0 => '/web/www/weixin_crm//templates/yajie/company/addSingleMessageList.tpl',
+      1 => 1410853417,
     ),
   ),
-  'nocache_hash' => '8804207255417ea30445c49-13613097',
+  'nocache_hash' => '4589060865417eacf9c6a45-48598235',
   'function' => 
   array (
   ),
   'has_nocache_code' => false,
 )); /*/%%SmartyHeaderCode%%*/?>
-<html>
+<html >
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <title></title>
         <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js" type="text/javascript">
         </script>
         <link href="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
-/css/minimal/green.css" rel="stylesheet" type="text/css" ></link>
+/css/minimal/green.css" rel="stylesheet" type="text/css" />
         <script src="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
 /js/icheck.min.js" type="text/javascript">
         </script>
         <script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/js/bootstrap.min.js" type="text/javascript">
         </script>
-        <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/css/bootstrap.min.css" type="text/css"></link>
+        <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/css/bootstrap.min.css" type="text/css">
 
         <link href="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
 /css/crm_table_style_<?php echo $_smarty_tpl->getVariable('source')->value;?>
-.css" rel="stylesheet"></link>
+.css" rel="stylesheet">
         <script type="text/javascript">
 
             $(document).ready(function() {
@@ -44,8 +44,6 @@ $_smarty_tpl->decodeProperties(array (
             });
 
         </script>
-
-
 
 
         <style>
@@ -124,7 +122,8 @@ $_smarty_tpl->decodeProperties(array (
 
             <div >
                 <form class="form-horizontal" action="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
-/pageredirst.php?action=company&functionname=saveGropuMessageTitle" method="post" id='form1' name='form1'>
+/pageredirst.php?action=company&functionname=saveSingleMessageList&messageId=<?php echo $_smarty_tpl->getVariable('messageId')->value;?>
+" method="post" id='form1' name='form1'>
                     <div id="messageEditArea">
                         <div id="editArea1" class="editArea">
                             <div class="appmsg_edit_item">
@@ -210,249 +209,245 @@ $_smarty_tpl->decodeProperties(array (
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
-        
+
         <script src="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
 /js/rexexTest.js" type="text/javascript"></script>
 
         <script>
 
 
-            var companyContent = $('#activity_html').val();
+                            var companyContent = $('#activity_html').val();
 
-            var companyTitle = $('#activity_title').val();
+                            var companyTitle = $('#activity_title').val();
 
-            var companyContent_ = $('#activity_html_').val();
+                            var companyContent_ = $('#activity_html_').val();
 
-            $(function() {
-                $('#upload_0').uploadify({
-                    'swf': websiteUrl + '/uploadify/uploadify.swf',
-                    'uploader': websiteUrl + '/uploadify/uploadify_group.php',
-                    'formData': {
-                        'objectid': 'upload_0',
-                        'session_id': '<?php echo $_smarty_tpl->getVariable('session_id')->value;?>
+                            $(function() {
+                                $('#upload_0').uploadify({
+                                    'swf': websiteUrl + '/uploadify/uploadify.swf',
+                                    'uploader': websiteUrl + '/uploadify/uploadify_group.php',
+                                    'formData': {
+                                        'objectid': 'upload_0',
+                                        'session_id': '<?php echo $_smarty_tpl->getVariable('session_id')->value;?>
 '
-                    },
-                    'onUploadSuccess': function(file, data, response) {
+                                    },
+                                    'onUploadSuccess': function(file, data, response) {
+                                        
+                                        alert(data);
+                                       
+                                        $("#errorMessageDiv").hide();
+                                        if (data == "code2") {
+                                            $("#errorMessageDiv").show();
+                                            $("#errorMessage").html("上传图片失败，图片格式必须为jpg或者jpge格式");
+                                        } else if (data == "code1") {
+                                            $("#errorMessageDiv").show();
+                                            $("#errorMessage").html("上传图片失败，由于微信限制图片大小必须小于1M");
+                                        } else {
+                                            var json = eval("(" + data + ")");
+                                            $('#uploadUrl').val(json['path']);
 
 
-                        alert(data);
-                     
-                        
-                        $("#errorMessageDiv").hide();
-                        if (data == "code2") {
-                            $("#errorMessageDiv").show();
-                            $("#errorMessage").html("上传图片失败，图片格式必须为jpg或者jpge格式");
-                        } else if (data == "code1") {
-                            $("#errorMessageDiv").show();
-                            $("#errorMessage").html("上传图片失败，由于微信限制图片大小必须小于1M");
-                        } else {
-                            var json = eval("(" + data + ")");
-                            $('#uploadUrl').val(json['path']);
+                                            $('#meida_id').val(json['media_id']);
 
 
-                            $('#meida_id').val(json['media_id']);
-                            
-                            
-                            if(json['path'] != ''){
+                                            if (json['path'] != '') {
 
 
-                                $('#upload_img').append('<img src="'+json['path']+'" style="width:50px; height:50px;">')
-                                
-                            
-                            }
-                        }
-// var json = eval("(" + data + ")");
+                                                $('#upload_img').append('<img src="' + json['path'] + '" style="width:50px; height:50px;">')
 
-// $('#uploadUrl').val(json['path']);
 
-                    }
-                });
+                                            }
+                                        }
 
-                var type = $('#type').val();
+                                    }
+                                });
+
+                                var type = $('#type').val();
 
 
 
-                if (type == 0) {
+                                if (type == 0) {
 
-                    if (companyContent_ != '') {
+                                    if (companyContent_ != '') {
 
-                        $('#divPack').html(companyContent_);
+                                        $('#divPack').html(companyContent_);
 
-                        $('#titleArea').html(companyTitle);
+                                        $('#titleArea').html(companyTitle);
 
-                        $('.uploadify').each(function(obj) {
+                                        $('.uploadify').each(function(obj) {
 
-                            var ids = $(this).attr('id');
+                                            var ids = $(this).attr('id');
 
-                            $('.uploadify-queue').remove();
+                                            $('.uploadify-queue').remove();
 
-                            $('#' + ids).html('');
-
-
-                            $('#' + ids).uploadify({
-                                'swf': websiteUrl + '/uploadify/uploadify.swf',
-                                'uploader': websiteUrl + '/uploadify/uploadify.php',
-                                'formData': {
-                                    'objectid': ids,
-                                },
-                                'onUploadSuccess': function(file, data, response) {
-
-                                    var json = eval("(" + data + ")");
+                                            $('#' + ids).html('');
 
 
-                                    $('#' + json['objectid']).parent().prev().find('img').attr('src', json['path'])
+                                            $('#' + ids).uploadify({
+                                                'swf': websiteUrl + '/uploadify/uploadify.swf',
+                                                'uploader': websiteUrl + '/uploadify/uploadify.php',
+                                                'formData': {
+                                                    'objectid': ids,
+                                                },
+                                                'onUploadSuccess': function(file, data, response) {
+
+                                                    var json = eval("(" + data + ")");
 
 
+                                                    $('#' + json['objectid']).parent().prev().find('img').attr('src', json['path'])
+
+
+
+                                                }
+                                            });
+
+                                        })
+
+                                    }
+
+                                    $('#init_id').show();
+
+                                } else {
+
+
+                                    $('#visual_id').show();
+
+                                    if (companyContent_ != '') {
+
+                                        $('#edit').html(companyContent);
+
+                                        $('#titleArea1').html(companyTitle)
+
+                                    }
+                                }
+
+
+                                $('input').on('ifChecked', function() {
+
+
+                                    var type = $(this).val();
+
+                                    $('.public').css('display', 'none');
+
+
+
+                                    $('#type').val(type);
+
+
+                                    if (type == 0) {
+
+                                        $('#init_id').show();
+
+
+                                    } else {
+
+                                        $('#visual_id').show();
+
+
+                                    }
+
+
+                                });
+
+
+                                $('#saveButton').click(function(event) {
+                                    /* Act on the event */
+                                    if ($("#title1").val() == "" || $("#title1").val() == " ") {
+                                        $("#errorMessageDiv").show();
+                                        $("#errorMessage").html("标题名称不能为空");
+                                        return false
+                                    }
+                                    else {
+
+                                        $('.modal-body').html('');
+
+                                        previewBoby();
+
+
+                                        $('#form1').submit();
+                                    }
+
+
+                                });
+
+
+
+                                $('#previewButton').click(function() {
+
+
+
+
+                                    $(".Preview").modal();
+
+
+                                    previewBoby();
+
+
+
+                                })
+
+
+                            })
+
+
+                            function previewBoby() {
+
+                                var type = $('#type').val();
+
+
+
+
+                                if (type == 0) {
+
+
+                                    var titleContent = $('#titleArea').html();
+
+                                    var packContent = $('#divPack').html();
+
+                                } else {
+
+                                    var titleContent = $('#titleArea1').html();
+
+                                    var html = document.getElementById('edit').value; // 原生API
+
+                                    html = editor.html();
+
+                                    editor.sync();
+
+                                    html = document.getElementById('edit').value; // 原生API
+
+                                    var packContent = html;
 
                                 }
-                            });
 
-                        })
 
-                    }
 
-                    $('#init_id').show();
-
-                } else {
-
-
-                    $('#visual_id').show();
-
-                    if (companyContent_ != '') {
-
-                        $('#edit').html(companyContent);
-
-                        $('#titleArea1').html(companyTitle)
-
-                    }
-                }
-
-
-                $('input').on('ifChecked', function() {
-
-
-                    var type = $(this).val();
-
-                    $('.public').css('display', 'none');
-
-
-
-                    $('#type').val(type);
-
-
-                    if (type == 0) {
-
-                        $('#init_id').show();
-
-
-                    } else {
-
-                        $('#visual_id').show();
-
-
-                    }
-
-
-                });
-
-
-                $('#saveButton').click(function(event) {
-                    /* Act on the event */
-
-                    if ($("#title1").val() == "" || $("#title1").val() == " ") {
-                        $("#errorMessageDiv").show();
-                        $("#errorMessage").html("标题名称不能为空");
-                        return false
-                    } else {
-                        $('.modal-body').html('');
-
-                        previewBoby();
-
-
-                        $('#form1').submit();
-                    }
-
-
-                });
-
-
-
-                $('#previewButton').click(function() {
-
-
-
-
-                    $(".Preview").modal();
-
-
-                    previewBoby();
-
-
-
-                })
-
-
-            })
-
-
-            function previewBoby() {
-
-                var type = $('#type').val();
-
-
-
-
-                if (type == 0) {
-
-
-                    var titleContent = $('#titleArea').html();
-
-                    var packContent = $('#divPack').html();
-
-                } else {
-
-                    var titleContent = $('#titleArea1').html();
-
-                    var html = document.getElementById('edit').value; // 原生API
-
-                    html = editor.html();
-
-                    editor.sync();
-
-                    html = document.getElementById('edit').value; // 原生API
-
-                    var packContent = html;
-
-                }
-
-
-
-                var bobyPreview = titleContent + packContent;
+                                var bobyPreview = titleContent + packContent;
 
 //编辑器原本内容    
 
-                $('#activity_html_').val(packContent);
+                                $('#activity_html_').val(packContent);
 
 //标题
 
-                $('#activity_title').val(titleContent);
+                                $('#activity_title').val(titleContent);
 
 //将预览内容放入
 
-                $('.modal-body').html(bobyPreview);
+                                $('.modal-body').html(bobyPreview);
 
-                $('.modal-body').find('.closeSpan').remove();
+                                $('.modal-body').find('.closeSpan').remove();
 
-                $('.modal-body').find("[contenteditable = 'true']").attr('contenteditable', 'false');
+                                $('.modal-body').find("[contenteditable = 'true']").attr('contenteditable', 'false');
 
-                $('.modal-body .upload').remove();
+                                $('.modal-body .upload').remove();
 
 //将预览内容(标题和内容)放入
 
-                $('#activity_html').val($('.modal-body').html());
-            }
+                                $('#activity_html').val($('.modal-body').html());
+                            }
+
 
         </script>
-
     </body>
 </html>

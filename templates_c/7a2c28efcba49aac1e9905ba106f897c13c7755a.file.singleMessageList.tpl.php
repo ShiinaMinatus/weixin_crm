@@ -1,16 +1,16 @@
-<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-16 11:27:54
-         compiled from "/web/www/weixin_crm//templates/yajie/company/groupMessageList.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:3413615535417ae3ab49879-81005327%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-16 12:00:06
+         compiled from "/web/www/weixin_crm//templates/yajie/company/singleMessageList.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:2836579965417b5c624d131-51955688%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
-    'f97b45d40c89b529cf304ea31d56e27a5c035fbf' => 
+    '7a2c28efcba49aac1e9905ba106f897c13c7755a' => 
     array (
-      0 => '/web/www/weixin_crm//templates/yajie/company/groupMessageList.tpl',
+      0 => '/web/www/weixin_crm//templates/yajie/company/singleMessageList.tpl',
       1 => 1410837881,
     ),
   ),
-  'nocache_hash' => '3413615535417ae3ab49879-81005327',
+  'nocache_hash' => '2836579965417b5c624d131-51955688',
   'function' => 
   array (
   ),
@@ -63,15 +63,16 @@ $_smarty_tpl->decodeProperties(array (
     }
 </style>
 
-<div class="userMangerTitle">消息群发</div>
+<div class="userMangerTitle"><?php echo $_smarty_tpl->getVariable('title')->value;?>
+</div>
 <div class="alert alert-info" role="alert" style='font-size: 14px;width: 600px;margin: 0 auto;'>
 
-    <div style='height: 30px;'>添加群发消息:可以用来添加一组群发消息</div>
+    <div style='height: 30px;'>添加消息:可以用来添加一条子群发消息</div>
 
 
-    <div style='height: 30px;'>详细编辑群发消息:点击标题列下的超链接进入相应的群发消息组</div>
+    <div style='height: 30px;'>群发该组图文消息:点击后将直接发送该组图文消息至微信</div>
 
-    <div>删除群发消息:直接删除该组下所有群发消息</div>
+    <div>删除消息:删除该条消息</div>
 </div>
 <div style="height: 50px;"></div>
 <?php if ($_smarty_tpl->getVariable('printMessage')->value!=''){?>
@@ -81,9 +82,13 @@ $_smarty_tpl->decodeProperties(array (
 <?php }?>
 <div class="dataArea">
 
-    <button  class="btn btn-primary" style="color:white;border-radius:0px;height: 32px; text-align: center; margin-top: -3px;" type="button" onclick="window.location.href='<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
-/pageredirst.php?action=company&functionname=addGroupMessageList'">添加群发消息</button>
-
+    <div style="float: left"> <button  class="btn btn-primary" style="color:white;border-radius:0px;height: 32px; text-align: center; margin-top: -3px;" type="button" onclick="window.location.href='<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
+/pageredirst.php?action=company&functionname=addSingleMessageList&messageId=<?php echo $_smarty_tpl->getVariable('messageId')->value;?>
+'">添加消息</button></div>
+    <div  style="float: right"><button  class="btn btn-primary" style="color:white;border-radius:0px;height: 32px; text-align: center; margin-top: -3px;" type="button" onclick="window.location.href='<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
+/pageredirst.php?action=company&functionname=sendGroupMessage&messageId=<?php echo $_smarty_tpl->getVariable('messageId')->value;?>
+'">群发该组图文消息</button></div>
+    <div style="clear: both"></div>
     <div style=' height: 10px;'>&nbsp;</div>
 
 
@@ -96,18 +101,29 @@ if (count($_from) > 0){
     foreach ($_from as $_smarty_tpl->tpl_vars['activtyAlls']->key => $_smarty_tpl->tpl_vars['activtyAlls']->value){
  $_smarty_tpl->tpl_vars['key']->value = $_smarty_tpl->tpl_vars['activtyAlls']->key;
 ?>
-            <tr>
-                <td ><img src="<?php echo $_smarty_tpl->tpl_vars['activtyAlls']->value['message_pic'];?>
+            <?php if ($_smarty_tpl->tpl_vars['activtyAlls']->value['message_type']=='1'){?>
+                <tr>
+                    <td ><img src="<?php echo $_smarty_tpl->tpl_vars['activtyAlls']->value['message_pic'];?>
 " style="width: 50px;height: 50px"></td>
-                <td class="shopName"><a href="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
-/pageredirst.php?action=company&functionname=singleMessageList&messageId=<?php echo $_smarty_tpl->tpl_vars['activtyAlls']->value['message_id'];?>
-"><?php echo $_smarty_tpl->tpl_vars['activtyAlls']->value['message_title'];?>
-</a></td>
-                <td><?php echo smarty_modifier_date_format($_smarty_tpl->tpl_vars['activtyAlls']->value['create_time'],"%Y-%m-%d");?>
+                    <td class="shopName"><?php echo $_smarty_tpl->tpl_vars['activtyAlls']->value['message_title'];?>
 </td>
-                <td><button data-toggle="modal" data-target="#myModal"  type="button" class="btn btn-primary delLink">删除<span style="display: none" class="shopId" ><?php echo $_smarty_tpl->tpl_vars['activtyAlls']->value['id'];?>
+                    <td><?php echo smarty_modifier_date_format($_smarty_tpl->tpl_vars['activtyAlls']->value['create_time'],"%Y-%m-%d");?>
+</td>
+                    <td><button data-toggle="modal" data-target="#myModal"  type="button" disabled="yes" class="btn btn-primary delLink">删除<span style="display: none" class="shopId"><?php echo $_smarty_tpl->tpl_vars['activtyAlls']->value['id'];?>
 </span></button></td>
-            </tr>
+                </tr>
+            <?php }else{ ?>
+                <tr>
+                    <td ><img src="<?php echo $_smarty_tpl->tpl_vars['activtyAlls']->value['message_pic'];?>
+" style="width: 50px;height: 50px"></td>
+                    <td class="shopName"><?php echo $_smarty_tpl->tpl_vars['activtyAlls']->value['message_title'];?>
+</td>
+                    <td><?php echo smarty_modifier_date_format($_smarty_tpl->tpl_vars['activtyAlls']->value['create_time'],"%Y-%m-%d");?>
+</td>
+                    <td><button data-toggle="modal" data-target="#myModal"  type="button" class="btn btn-primary delLink">删除<span style="display: none" class="shopId"><?php echo $_smarty_tpl->tpl_vars['activtyAlls']->value['id'];?>
+</span></button></td>
+                </tr>
+            <?php }?>
         <?php }} ?>
     </table>
 </div>
@@ -126,7 +142,8 @@ if (count($_from) > 0){
                 <a  id="checkTrue" href="#"><button type="button" class="btn btn-primary">确认</button></a>
             </div>
             <input type='hidden' value="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
-/pageredirst.php?action=company&functionname=delMessageGroup" id="delUrl">
+/pageredirst.php?action=company&functionname=delMessageSingleList&messageId=<?php echo $_smarty_tpl->getVariable('messageId')->value;?>
+" id="delUrl">
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
@@ -146,7 +163,7 @@ if (count($_from) > 0){
     shopName=$(this).parent().parent().find(".shopName").html();
     shopId=$(this).find(".shopId").html();
     $("#shopName").html(shopName);
-    delStoreInfo=$("#delUrl").val()+"&messageId="+shopId;
+    delStoreInfo=$("#delUrl").val()+"&listId="+shopId;
     $("#checkTrue").attr("href",delStoreInfo);
 });
 </script>

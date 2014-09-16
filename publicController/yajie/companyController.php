@@ -257,7 +257,7 @@ class companyController {
 
         $session_id = session_id();
 
-        $_ENV['smarty']->assign('session_id',$session_id);
+        $_ENV['smarty']->assign('session_id', $session_id);
         $_ENV['smarty']->display('addGroupMessageList');
     }
 
@@ -268,6 +268,8 @@ class companyController {
             $data['message_title'] = $_POST['title'];
             $data['message_text'] = $_POST['activity_html'];
             $data['message_type'] = 1; //为第一条
+            $data['MEDIA_ID'] = $_POST['meida_id'];
+            $data['message_pic'] = $_POST['uploadUrl'];
             $data['create_time'] = time();
             $returnId = $groupMessage->insert($data);
             $dataId['message_id'] = $returnId;
@@ -296,6 +298,12 @@ class companyController {
 
     public function addSingleMessageList() {
         $errorMessage = " ";
+
+        $session_id = session_id();
+
+        $_ENV['smarty']->assign('session_id', $session_id);
+
+
         if (isset($_GET["messageId"])) {
             $groupMessage = new groupMessageModel();
             $groupMessage->initialize("message_id = '" . $_GET["messageId"] . "'");
@@ -332,6 +340,11 @@ class companyController {
                 $data['message_text'] = $_POST['activity_html'];
                 $data['message_type'] = 2; //为子条目
                 $data['create_time'] = time();
+
+                $data['MEDIA_ID'] = $_POST['meida_id'];
+
+                $data['message_pic'] = $_POST['uploadUrl'];
+
                 $data['message_id'] = $_GET["messageId"];
                 $returnId = $groupMessage->insert($data);
                 $errorMessage = '添加消息成功！';
@@ -373,6 +386,89 @@ class companyController {
                 $_ENV['smarty']->assign('title', $MessageTitle);
                 $_ENV['smarty']->display('singleMessageList');
             }
+        }
+    }
+
+    public function sendGroupMessage() {
+        if (isset($_GET['messageId'])) {
+            $groupMessage = new groupMessageModel();
+            $groupMessage->initialize("message_id='" . $_GET["messageId"] . "'");
+            $messageArray = $groupMessage->vars_all;
+
+            $postMessageArray = array();
+
+            foreach ($messageArray as $messageItem) {
+
+                $messageItemArray = array();
+
+                $messageItemarray['thumb_media_id'] = urlencode($messageItem['MEDIA_ID']);
+
+                $messageItemarray['title'] =  urlencode($messageItem['message_title']);
+
+                $messageItemarray['content'] = urlencode($messageItem['message_title']);
+
+                $messageItemarray['author'] = urlencode('');
+
+                $messageItemarray['content_source_url'] = urlencode(WebSiteUrl.'?g=Yajie&a=company&v=groups&id='.$messageItem['id']);
+
+                $messageItemarray['digest'] = urlencode('aaaaa');
+
+                $postMessageArray[] = $messageItemarray;
+            }
+
+            /**
+             *  获取
+             */
+            $token = getAccessToken();
+
+            $result = group_send_image($token, $postMessageArray);
+
+            $result_array = json_decode($result, true);
+
+            if (!empty($result_array) && $result_array['media_id']) {
+
+                $id = $result_array['media_id'];
+
+
+                /**
+                 * 获取组的内容
+                 */
+                $groupResult = getGroup($token);
+
+                $groupResult_ = $groupResult['groups'];
+
+
+                $groupId = array();
+                
+                // $array = array('ocpOotwOr44N8_zpyG7LttDgZscw');
+                
+                // $a = mass_send_group_user($array, $token, $id);
+
+
+                 $a =  mass_send_group(2, $token, $id);
+                
+                var_dump($a);
+
+
+
+               // foreach ($groupResult_ as $k => $v) {
+
+               //     if ($v['count'] > 0) {
+
+               //         array_push($groupId, $v['id']);
+               //     }
+               // }
+
+               // if (count($groupId) > 0) {
+
+               //     foreach ($groupId as $v) {
+
+               //        $a =  mass_send_group($v, $token, $id);
+               //     }
+               // }
+            }
+
+           
         }
     }
 
