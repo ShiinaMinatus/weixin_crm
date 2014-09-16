@@ -49,7 +49,7 @@ class companyController {
     }
 
     public function companyEdit() {
-        
+
         //  $_ENV['smarty']->assign('registrationNumber', $registrationValue);
         $companyInfo = new companyInfoModel();
         $companyInfo->initialize();
@@ -243,7 +243,132 @@ class companyController {
     }
 
     public function groupMessage() {
-        $_ENV['smarty']->display('groupMessage');
+        $groupMessage = new groupMessageModel();
+        $groupMessage->addOrderBy("create_time desc");
+        $groupMessage->initialize("message_type = '1'");
+        $titleMessage = $groupMessage->vars_all;
+        $_ENV['smarty']->assign('info', $titleMessage);
+        $_ENV['smarty']->display('groupMessageList');
+    }
+
+    public function addGroupMessageList() {
+        //  $_ENV['smarty']->display('groupMessageList');
+        $_ENV['smarty']->display('addGroupMessageList');
+    }
+
+    public function saveGropuMessageTitle() {
+        $errorMessage = '';
+        $groupMessage = new groupMessageModel();
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $data['message_title'] = $_POST['title'];
+            $data['message_text'] = $_POST['activity_html'];
+            $data['message_type'] = 1; //为第一条
+            $data['create_time'] = time();
+            $returnId = $groupMessage->insert($data);
+            $dataId['message_id'] = $returnId;
+            $groupMessage->initialize("id = '" . $returnId . "'");
+            $groupMessage->update($dataId);
+            $errorMessage = "添加群发消息组成功";
+            $_ENV['smarty']->assign('printMessage', $errorMessage);
+            $this->groupMessage();
+        }
+    }
+
+    public function singleMessageList() {
+        if (isset($_GET["messageId"])) {
+            $groupMessage = new groupMessageModel();
+            $groupMessage->initialize("message_id = '" . $_GET["messageId"] . "'");
+            $listMessage = $groupMessage->vars_all;
+            $groupMessage->initialize("message_id = '" . $_GET["messageId"] . "' and message_type='1'");
+            $Message = $groupMessage->vars_all;
+            $MessageTitle = $Message[0]['message_title'];
+            $_ENV['smarty']->assign('info', $listMessage);
+            $_ENV['smarty']->assign('messageId', $_GET["messageId"]);
+            $_ENV['smarty']->assign('title', $MessageTitle);
+            $_ENV['smarty']->display('singleMessageList');
+        }
+    }
+
+    public function addSingleMessageList() {
+        $errorMessage = " ";
+        if (isset($_GET["messageId"])) {
+            $groupMessage = new groupMessageModel();
+            $groupMessage->initialize("message_id = '" . $_GET["messageId"] . "'");
+            $listNumber = $groupMessage->vars_number;
+            $_ENV['smarty']->assign('messageId', $_GET["messageId"]);
+            if ($listNumber >= 8) {
+                $errorMessage = "群发图文消息最多只能同时发送8条";
+                $_ENV['smarty']->assign('printMessage', $errorMessage);
+                $groupMessage = new groupMessageModel();
+                $groupMessage->initialize("message_id = '" . $_GET["messageId"] . "'");
+                $listMessage = $groupMessage->vars_all;
+                $groupMessage->initialize("message_id = '" . $_GET["messageId"] . "' and message_type='1'");
+                $Message = $groupMessage->vars_all;
+                $MessageTitle = $Message[0]['message_title'];
+                $_ENV['smarty']->assign('info', $listMessage);
+                $_ENV['smarty']->assign('messageId', $_GET["messageId"]);
+                $_ENV['smarty']->assign('title', $MessageTitle);
+                $_ENV['smarty']->display('singleMessageList');
+            } else {
+
+                $_ENV['smarty']->display('addSingleMessageList');
+            }
+        } else {
+            $_ENV['smarty']->display('singleMessageList');
+        }
+    }
+
+    public function saveSingleMessageList() {
+        $errorMessage = '';
+        $groupMessage = new groupMessageModel();
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            if (isset($_GET["messageId"])) {
+                $data['message_title'] = $_POST['title'];
+                $data['message_text'] = $_POST['activity_html'];
+                $data['message_type'] = 2; //为子条目
+                $data['create_time'] = time();
+                $data['message_id'] = $_GET["messageId"];
+                $returnId = $groupMessage->insert($data);
+                $errorMessage = '添加消息成功！';
+            } else {
+                $errorMessage = '参数获取发生了错误，请重试';
+            }
+            $_ENV['smarty']->assign('printMessage', $errorMessage);
+            $this->singleMessageList();
+        } else {
+            $this->singleMessageList();
+        }
+    }
+
+    public function delMessageGroup() {
+        if (isset($_GET["messageId"])) {
+            $groupMessage = new groupMessageModel();
+            $groupMessage->initialize("id='" . $_GET["messageId"] . "' or message_id='" . $_GET["messageId"] . "'");
+            if ($groupMessage->vars_number > 0) {
+                $groupMessage->remove();
+                $this->groupMessage();
+            }
+        }
+    }
+
+    public function delMessageSingleList() {
+        if (isset($_GET["messageId"]) && isset($_GET["listId"])) {
+            $groupMessage = new groupMessageModel();
+            $groupMessage->initialize("id='" . $_GET["listId"] . "'");
+            if ($groupMessage->vars_number > 0) {
+                $groupMessage->remove();
+                $groupMessage = new groupMessageModel();
+                $groupMessage->initialize("message_id = '" . $_GET["messageId"] . "'");
+                $listMessage = $groupMessage->vars_all;
+                $groupMessage->initialize("message_id = '" . $_GET["messageId"] . "' and message_type='1'");
+                $Message = $groupMessage->vars_all;
+                $MessageTitle = $Message[0]['message_title'];
+                $_ENV['smarty']->assign('info', $listMessage);
+                $_ENV['smarty']->assign('messageId', $_GET["messageId"]);
+                $_ENV['smarty']->assign('title', $MessageTitle);
+                $_ENV['smarty']->display('singleMessageList');
+            }
+        }
     }
 
 }
