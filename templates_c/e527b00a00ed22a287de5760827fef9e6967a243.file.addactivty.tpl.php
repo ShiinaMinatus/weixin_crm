@@ -1,22 +1,22 @@
-<?php /* Smarty version Smarty-3.0-RC2, created on 2014-07-04 14:35:17
+<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-17 17:18:13
          compiled from "/web/www/weixin_crm//templates/yajie/activty/addactivty.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:162440661553b64b2553d3f9-07017355%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:1076293312541951d5276742-51346665%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'e527b00a00ed22a287de5760827fef9e6967a243' => 
     array (
       0 => '/web/www/weixin_crm//templates/yajie/activty/addactivty.tpl',
-      1 => 1404443545,
+      1 => 1410945486,
     ),
   ),
-  'nocache_hash' => '162440661553b64b2553d3f9-07017355',
+  'nocache_hash' => '1076293312541951d5276742-51346665',
   'function' => 
   array (
   ),
   'has_nocache_code' => false,
 )); /*/%%SmartyHeaderCode%%*/?>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html >
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title></title>
@@ -40,35 +40,30 @@ $_smarty_tpl->decodeProperties(array (
                 <link href="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
 /css/bootstrap-datetimepicker.css" rel="stylesheet" media="screen">
 
-                    <script>
+                <link rel="stylesheet" href="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
+/kindeditor/themes/example1/example1.css" />
 
-                        $(function() {
+    <script charset="utf-8" src="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
+/kindeditor/kindeditor.js"></script>
 
-                            editor = new Simditor({
-                                textarea: $('#activity_html'),
-                                pasteImage: true,
-                                toolbar: [
-                                    'title',
-                                    'bold',
-                                    'italic',
-                                    'underline',
-                                    'strikethrough',
-                                    'ol',
-                                    'ul',
-                                    'blockquote',
-                                    'code',
-                                    'table',
-                                    'link',
-                                    'image',
-                                    'hr',
-                                    'indent',
-                                    'outdent',
-                                ],
-                            });
 
-                        })
+        <script charset="utf-8" src="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
+/kindeditor/lang/zh_CN.js"></script> 
+        <script>
+            var editor;
+            KindEditor.ready(function(K) {
+                editor = K.create('#activity_html', {
+                        themeType : 'example1',
+                        items:[
 
-                    </script>
+                            'justifyleft','justifycenter','justifyright','indent','outdent'
+
+                            ,'fontsize','forecolor','bold','italic','link','unlink','image','source'
+         
+                        ]
+                });
+            });
+        </script>
 
                     <style>
                         .labelWidth{
@@ -126,7 +121,7 @@ $_smarty_tpl->decodeProperties(array (
 
                                         <div class="col-sm-2" style='width:800px;height:auto;min-height:300px'>
 
-                                            <textarea id="activity_html" name="activity_html" style=""></textarea>
+                                            <textarea id="activity_html" name="activity_html" style="height:800px;"></textarea>
 
                                         </div>
 

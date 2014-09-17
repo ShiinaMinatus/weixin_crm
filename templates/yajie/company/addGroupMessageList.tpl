@@ -182,17 +182,8 @@
             </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
         
-        <script src="{$WebSiteUrl}/js/rexexTest.js" type="text/javascript"></script>
 
         <script>
-
-
-            var companyContent = $('#activity_html').val();
-
-            var companyTitle = $('#activity_title').val();
-
-            var companyContent_ = $('#activity_html_').val();
-
             $(function() {
                 $('#upload_0').uploadify({
                     'swf': websiteUrl + '/uploadify/uploadify.swf',
@@ -203,10 +194,6 @@
                     },
                     'onUploadSuccess': function(file, data, response) {
 
-
-                        alert(data);
-                     
-                        
                         $("#errorMessageDiv").hide();
                         if (data == "code2") {
                             $("#errorMessageDiv").show();
@@ -230,9 +217,6 @@
                             
                             }
                         }
-// var json = eval("(" + data + ")");
-
-// $('#uploadUrl').val(json['path']);
 
                     }
                 });
@@ -243,57 +227,12 @@
 
                 if (type == 0) {
 
-                    if (companyContent_ != '') {
-
-                        $('#divPack').html(companyContent_);
-
-                        $('#titleArea').html(companyTitle);
-
-                        $('.uploadify').each(function(obj) {
-
-                            var ids = $(this).attr('id');
-
-                            $('.uploadify-queue').remove();
-
-                            $('#' + ids).html('');
-
-
-                            $('#' + ids).uploadify({
-                                'swf': websiteUrl + '/uploadify/uploadify.swf',
-                                'uploader': websiteUrl + '/uploadify/uploadify.php',
-                                'formData': {
-                                    'objectid': ids,
-                                },
-                                'onUploadSuccess': function(file, data, response) {
-
-                                    var json = eval("(" + data + ")");
-
-
-                                    $('#' + json['objectid']).parent().prev().find('img').attr('src', json['path'])
-
-
-
-                                }
-                            });
-
-                        })
-
-                    }
-
                     $('#init_id').show();
 
                 } else {
 
 
                     $('#visual_id').show();
-
-                    if (companyContent_ != '') {
-
-                        $('#edit').html(companyContent);
-
-                        $('#titleArea1').html(companyTitle)
-
-                    }
                 }
 
 
@@ -398,15 +337,14 @@
 
                 var bobyPreview = titleContent + packContent;
 
-//编辑器原本内容    
+ 
 
                 $('#activity_html_').val(packContent);
 
-//标题
 
                 $('#activity_title').val(titleContent);
 
-//将预览内容放入
+
 
                 $('.modal-body').html(bobyPreview);
 
@@ -416,7 +354,6 @@
 
                 $('.modal-body .upload').remove();
 
-//将预览内容(标题和内容)放入
 
                 $('#activity_html').val($('.modal-body').html());
             }

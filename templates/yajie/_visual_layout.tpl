@@ -28,42 +28,23 @@
                 margin: 0;
             }
 
-            .doc-title {
-                border: 0 none;
-                display: block;
-                font-size: 22px;
-                font-weight: bold;
-                height: 22px;
-                line-height: 1.4;
-                margin: 0 auto;
-                min-height: 22px;
-                overflow: hidden;
-                padding: 17px 0 41px;
-                resize: none;
-                text-align: center;
-                width: 80%;
-            }
-
-         
-
-           
-
-           
-
+            
         </style>
     </head>
     <body>
 
 
+        <div style='height: 10px;'>&nbsp;</div>
 
 
         <div class="form-field">
-            <textarea placeholder="文档标题" class="doc-title" name="doc_title" style="overflow: hidden; word-wrap: break-word; resize: none; height: 31px;" id='titleArea1'></textarea>
+          
+            <div id='titleArea1' style='outline:none; height: 48px;' contenteditable="true"  class="init_class doc-title" name="doc_title"><div  style="width:90%;overflow: hidden; word-wrap: break-word; resize: none; height: 48px;margin:0 auto; text-align:center;outline: none;" id="aaaaa">文档标题</div></div>
         </div>
 
         <div style='height: 10px;'>&nbsp;</div>
-        <div class="registerWarp init_class"  >
-            <textarea id="edit" placeholder="这里输入内容" style='width: 100%; height: 100%;' ></textarea>
+        <div class="registerWarp init_class doc_title"  >
+            <textarea id="edit" placeholder="这里输入内容" style='width: 100%; height: 300px' ></textarea>
         </div>
 
 

@@ -1,16 +1,16 @@
-<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-16 09:27:41
+<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-17 16:59:38
          compiled from "/web/www/weixin_crm//templates/yajie/company/../_visual_layout.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:13739963865417920d3e6fb0-19138081%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:207338748654194d7a973d25-40947696%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '4a482936f6e919f67cda69f9efad30425cfda9b2' => 
     array (
       0 => '/web/www/weixin_crm//templates/yajie/company/../_visual_layout.tpl',
-      1 => 1410776027,
+      1 => 1410944364,
     ),
   ),
-  'nocache_hash' => '13739963865417920d3e6fb0-19138081',
+  'nocache_hash' => '207338748654194d7a973d25-40947696',
   'function' => 
   array (
   ),
@@ -49,42 +49,23 @@ $_smarty_tpl->decodeProperties(array (
                 margin: 0;
             }
 
-            .doc-title {
-                border: 0 none;
-                display: block;
-                font-size: 22px;
-                font-weight: bold;
-                height: 22px;
-                line-height: 1.4;
-                margin: 0 auto;
-                min-height: 22px;
-                overflow: hidden;
-                padding: 17px 0 41px;
-                resize: none;
-                text-align: center;
-                width: 80%;
-            }
-
-         
-
-           
-
-           
-
+            
         </style>
     </head>
     <body>
 
 
+        <div style='height: 10px;'>&nbsp;</div>
 
 
         <div class="form-field">
-            <textarea placeholder="文档标题" class="doc-title" name="doc_title" style="overflow: hidden; word-wrap: break-word; resize: none; height: 31px;" id='titleArea1'></textarea>
+          
+            <div id='titleArea1' style='outline:none; height: 48px;' contenteditable="true"  class="init_class doc-title" name="doc_title"><div  style="width:90%;overflow: hidden; word-wrap: break-word; resize: none; height: 48px;margin:0 auto; text-align:center;outline: none;" id="aaaaa">文档标题</div></div>
         </div>
 
         <div style='height: 10px;'>&nbsp;</div>
-        <div class="registerWarp init_class"  >
-            <textarea id="edit" placeholder="这里输入内容" style='width: 100%; height: 100%;' ></textarea>
+        <div class="registerWarp init_class doc_title"  >
+            <textarea id="edit" placeholder="这里输入内容" style='width: 100%; height: 300px' ></textarea>
         </div>
 
 

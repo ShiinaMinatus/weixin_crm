@@ -1,4 +1,4 @@
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html >
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title></title>
@@ -16,35 +16,27 @@
 
                 <link href="{$WebSiteUrl}/css/bootstrap-datetimepicker.css" rel="stylesheet" media="screen">
 
-                    <script>
+                <link rel="stylesheet" href="{$WebSiteUrl}/kindeditor/themes/example1/example1.css" />
 
-                        $(function() {
+    <script charset="utf-8" src="{$WebSiteUrl}/kindeditor/kindeditor.js"></script>
 
-                            editor = new Simditor({
-                                textarea: $('#activity_html'),
-                                pasteImage: true,
-                                toolbar: [
-                                    'title',
-                                    'bold',
-                                    'italic',
-                                    'underline',
-                                    'strikethrough',
-                                    'ol',
-                                    'ul',
-                                    'blockquote',
-                                    'code',
-                                    'table',
-                                    'link',
-                                    'image',
-                                    'hr',
-                                    'indent',
-                                    'outdent',
-                                ],
-                            });
 
-                        })
+        <script charset="utf-8" src="{$WebSiteUrl}/kindeditor/lang/zh_CN.js"></script> 
+        <script>
+            var editor;
+            KindEditor.ready(function(K) {
+                editor = K.create('#activity_html', {
+                        themeType : 'example1',
+                        items:[
 
-                    </script>
+                            'justifyleft','justifycenter','justifyright','indent','outdent'
+
+                            ,'fontsize','forecolor','bold','italic','link','unlink','image','source'
+         
+                        ]
+                });
+            });
+        </script>
 
                     <style>
                         .labelWidth{
@@ -101,7 +93,7 @@
 
                                         <div class="col-sm-2" style='width:800px;height:auto;min-height:300px'>
 
-                                            <textarea id="activity_html" name="activity_html" style=""></textarea>
+                                            <textarea id="activity_html" name="activity_html" style="height:800px;"></textarea>
 
                                         </div>
 

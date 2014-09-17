@@ -1,5 +1,5 @@
 
-        <script src="{$WebSiteUrl}/uploadify/jquery.uploadify.min.js" type="text/javascript"></script>
+        <script src="{$WebSiteUrl}/uploadify/jquery.uploadify.min.js?ver={math equation=rand(125,324)}" type="text/javascript"></script>
         <link rel="stylesheet" type="text/css" href="{$WebSiteUrl}/uploadify/uploadify.css" />
 
  <style>
@@ -54,7 +54,7 @@
 
                 .textHeight{
 
-                    min-height: 80px;
+                    min-height: 40px;
                 }
                 
                 .smamllImageHeight{
@@ -73,7 +73,7 @@
                     font-size: 22px;
                     font-weight: bold;
 
-                    line-height: 48px;
+                    line-height: 43px;
 
                     min-height: 22px;
                     overflow: hidden;
@@ -84,6 +84,9 @@
                 }
 
             </style>
+
+
+
 
  <div id='record'></div>
 
@@ -97,10 +100,10 @@
                 <p>组件</p>
 
 
-                <div class="draglist draggable"  title="标题" draggable="true" id='titlePackage'>标题</div>
-                <div class="draglist draggable" title="文本框" draggable="true"  id='textPackage'>文本框</div>
-                <div class="draglist draggable" title="图片" draggable="true" id='imagePackage'>小图</div>
-                <div class="draglist draggable" title="图片" draggable="true" id='BigimagePackage'>大图</div>
+                <div class="draglist draggable"   draggable="true" id='titlePackage'>标题</div>
+                <div class="draglist draggable"  draggable="true"  id='textPackage'>文本框</div>
+                <div class="draglist draggable" draggable="true" id='imagePackage'>小图</div>
+                <div class="draglist draggable"  draggable="true" id='BigimagePackage'>大图</div>
 
             
             </div>
@@ -111,7 +114,7 @@
 
                 <div id='testDiv' style='height: 100%; background-color: #f5f5f5; '>
 
-                    <div accept='title' id='titleArea' style=' height: 50px; '>&nbsp;</div>
+                    <div accept='title' id='titleArea' style=' height: 50px; position: relative;'>&nbsp;</div>
 
 
                     <div style=' height: 900px;overflow: auto;' belog='divPack' id='divPack' class='divPack'></div>
@@ -165,7 +168,6 @@
     var package = new packAgeList(listArray, listType);
 
     package.init();
-    
     
     function preview(){
         

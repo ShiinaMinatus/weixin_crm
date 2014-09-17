@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty-3.0-RC2, created on 2014-07-02 15:12:14
+<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-17 17:05:29
          compiled from "/web/www/weixin_crm//templates/yajie/question/questionCount.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:6850521053b3b0ce35b023-68413369%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:71311445754194ed9577eb6-42372242%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -10,7 +10,7 @@ $_smarty_tpl->decodeProperties(array (
       1 => 1401854721,
     ),
   ),
-  'nocache_hash' => '6850521053b3b0ce35b023-68413369',
+  'nocache_hash' => '71311445754194ed9577eb6-42372242',
   'function' => 
   array (
   ),

@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-15 10:08:30
+<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-17 17:05:27
          compiled from "/web/www/weixin_crm//templates/yajie/gift/getBigWheelList.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:19802480054164a1ebe2695-87700083%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:57456389854194ed781abe6-04997933%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -10,7 +10,7 @@ $_smarty_tpl->decodeProperties(array (
       1 => 1410607528,
     ),
   ),
-  'nocache_hash' => '19802480054164a1ebe2695-87700083',
+  'nocache_hash' => '57456389854194ed781abe6-04997933',
   'function' => 
   array (
   ),

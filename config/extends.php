@@ -197,7 +197,6 @@ function sendWeixinCustom($money, $toopen_id, $user_id) {
         $company = new companyModel($admin->vars['compang_id']);
 
 
-
         if ($company->vars_number > 0) {
 
             $appid = $company->vars['appid'];
@@ -207,8 +206,6 @@ function sendWeixinCustom($money, $toopen_id, $user_id) {
             $companyToken = new companyTokenModel();
 
             $token = $companyToken->getToken($admin->vars['compang_id'], $appid, $secret);
-
-
 
             $result = sendCustom($toopen_id, $token, $content_);
 

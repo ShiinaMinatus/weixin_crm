@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-15 16:49:01
+<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-17 16:43:43
          compiled from "/web/www/weixin_crm//templates/yajie/left.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:2463387535416a7fdb89723-43064873%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:686700056541949bf0933d9-59325489%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -10,7 +10,7 @@ $_smarty_tpl->decodeProperties(array (
       1 => 1410770936,
     ),
   ),
-  'nocache_hash' => '2463387535416a7fdb89723-43064873',
+  'nocache_hash' => '686700056541949bf0933d9-59325489',
   'function' => 
   array (
   ),
