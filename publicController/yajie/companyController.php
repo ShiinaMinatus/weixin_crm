@@ -409,7 +409,7 @@ class companyController {
 
                 $messageItemarray['author'] = urlencode('');
 
-                $messageItemarray['content_source_url'] = urlencode(WebSiteUrl.'?g=Yajie&a=company&v=groups&id='.$messageItem['id']);
+                $messageItemarray['content_source_url'] = urlencode(WebSiteUrl.'?g='.$_SESSION['weixin_crm_source'].'&a=company&v=groups&id='.$messageItem['id']);
 
                 $messageItemarray['digest'] = urlencode('aaaaa');
 

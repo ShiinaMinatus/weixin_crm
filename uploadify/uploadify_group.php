@@ -66,7 +66,6 @@ if (!empty($_FILES)) {
         $result = https_upload_pic_request($file, $token);
 
 
-
         $result_ = json_decode($result, true);
 
 

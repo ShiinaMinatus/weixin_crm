@@ -1,16 +1,16 @@
-<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-16 15:43:44
+<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-17 09:53:37
          compiled from "/web/www/weixin_crm//templates/yajie/company/addGroupMessageList.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:8804207255417ea30445c49-13613097%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:14782536785418e9a15d9de0-03100745%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'f4f57a5e4382e9ab6d7ee0aed396b93bba9736de' => 
     array (
       0 => '/web/www/weixin_crm//templates/yajie/company/addGroupMessageList.tpl',
-      1 => 1410853411,
+      1 => 1410918805,
     ),
   ),
-  'nocache_hash' => '8804207255417ea30445c49-13613097',
+  'nocache_hash' => '14782536785418e9a15d9de0-03100745',
   'function' => 
   array (
   ),
@@ -211,18 +211,8 @@ $_smarty_tpl->decodeProperties(array (
             </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
         
-        <script src="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
-/js/rexexTest.js" type="text/javascript"></script>
 
         <script>
-
-
-            var companyContent = $('#activity_html').val();
-
-            var companyTitle = $('#activity_title').val();
-
-            var companyContent_ = $('#activity_html_').val();
-
             $(function() {
                 $('#upload_0').uploadify({
                     'swf': websiteUrl + '/uploadify/uploadify.swf',
@@ -261,9 +251,6 @@ $_smarty_tpl->decodeProperties(array (
                             
                             }
                         }
-// var json = eval("(" + data + ")");
-
-// $('#uploadUrl').val(json['path']);
 
                     }
                 });
@@ -274,57 +261,12 @@ $_smarty_tpl->decodeProperties(array (
 
                 if (type == 0) {
 
-                    if (companyContent_ != '') {
-
-                        $('#divPack').html(companyContent_);
-
-                        $('#titleArea').html(companyTitle);
-
-                        $('.uploadify').each(function(obj) {
-
-                            var ids = $(this).attr('id');
-
-                            $('.uploadify-queue').remove();
-
-                            $('#' + ids).html('');
-
-
-                            $('#' + ids).uploadify({
-                                'swf': websiteUrl + '/uploadify/uploadify.swf',
-                                'uploader': websiteUrl + '/uploadify/uploadify.php',
-                                'formData': {
-                                    'objectid': ids,
-                                },
-                                'onUploadSuccess': function(file, data, response) {
-
-                                    var json = eval("(" + data + ")");
-
-
-                                    $('#' + json['objectid']).parent().prev().find('img').attr('src', json['path'])
-
-
-
-                                }
-                            });
-
-                        })
-
-                    }
-
                     $('#init_id').show();
 
                 } else {
 
 
                     $('#visual_id').show();
-
-                    if (companyContent_ != '') {
-
-                        $('#edit').html(companyContent);
-
-                        $('#titleArea1').html(companyTitle)
-
-                    }
                 }
 
 
@@ -429,15 +371,14 @@ $_smarty_tpl->decodeProperties(array (
 
                 var bobyPreview = titleContent + packContent;
 
-//编辑器原本内容    
+ 
 
                 $('#activity_html_').val(packContent);
 
-//标题
 
                 $('#activity_title').val(titleContent);
 
-//将预览内容放入
+
 
                 $('.modal-body').html(bobyPreview);
 
@@ -447,7 +388,6 @@ $_smarty_tpl->decodeProperties(array (
 
                 $('.modal-body .upload').remove();
 
-//将预览内容(标题和内容)放入
 
                 $('#activity_html').val($('.modal-body').html());
             }
