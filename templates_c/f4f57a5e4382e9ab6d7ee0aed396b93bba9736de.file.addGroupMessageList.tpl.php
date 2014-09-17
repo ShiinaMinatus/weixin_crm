@@ -1,16 +1,16 @@
-<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-17 09:53:37
+<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-17 11:54:28
          compiled from "/web/www/weixin_crm//templates/yajie/company/addGroupMessageList.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:14782536785418e9a15d9de0-03100745%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:797759951541905f4b3d302-01368833%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'f4f57a5e4382e9ab6d7ee0aed396b93bba9736de' => 
     array (
       0 => '/web/www/weixin_crm//templates/yajie/company/addGroupMessageList.tpl',
-      1 => 1410918805,
+      1 => 1410919849,
     ),
   ),
-  'nocache_hash' => '14782536785418e9a15d9de0-03100745',
+  'nocache_hash' => '797759951541905f4b3d302-01368833',
   'function' => 
   array (
   ),
@@ -224,10 +224,6 @@ $_smarty_tpl->decodeProperties(array (
                     },
                     'onUploadSuccess': function(file, data, response) {
 
-
-                        alert(data);
-                     
-                        
                         $("#errorMessageDiv").hide();
                         if (data == "code2") {
                             $("#errorMessageDiv").show();

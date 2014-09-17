@@ -1,16 +1,16 @@
-<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-16 09:27:41
+<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-17 13:28:06
          compiled from "/web/www/weixin_crm//templates/yajie/company/../_visual_layout.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:13739963865417920d3e6fb0-19138081%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:189828599454191be668fbf9-18148586%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '4a482936f6e919f67cda69f9efad30425cfda9b2' => 
     array (
       0 => '/web/www/weixin_crm//templates/yajie/company/../_visual_layout.tpl',
-      1 => 1410776027,
+      1 => 1410931537,
     ),
   ),
-  'nocache_hash' => '13739963865417920d3e6fb0-19138081',
+  'nocache_hash' => '189828599454191be668fbf9-18148586',
   'function' => 
   array (
   ),
@@ -48,38 +48,16 @@ $_smarty_tpl->decodeProperties(array (
             .form-edit-doc .form-item .form-field {
                 margin: 0;
             }
-
-            .doc-title {
-                border: 0 none;
-                display: block;
-                font-size: 22px;
-                font-weight: bold;
-                height: 22px;
-                line-height: 1.4;
-                margin: 0 auto;
-                min-height: 22px;
-                overflow: hidden;
-                padding: 17px 0 41px;
-                resize: none;
-                text-align: center;
-                width: 80%;
-            }
-
-         
-
-           
-
-           
-
         </style>
     </head>
     <body>
 
 
+        <div style='height: 10px;'>&nbsp;</div>
 
 
         <div class="form-field">
-            <textarea placeholder="文档标题" class="doc-title" name="doc_title" style="overflow: hidden; word-wrap: break-word; resize: none; height: 31px;" id='titleArea1'></textarea>
+            <textarea  class="doc-title " name="doc_title" style="overflow: hidden; word-wrap: break-word; resize: none; height: 48px;" id='titleArea1'></textarea>
         </div>
 
         <div style='height: 10px;'>&nbsp;</div>

@@ -49,7 +49,8 @@
 
     <div style='height: 30px;'>群发该组图文消息:点击后将直接发送该组图文消息至微信</div>
 
-    <div>删除消息:删除该条消息</div>
+    <div style='height: 30px;'>>删除消息:删除该条消息</div>
+    <div> 您当月还可发送<span style="color:red;">{4-$messageCheck}</span>条群发消息</div>
 </div>
 <div style="height: 50px;"></div>
 {if $printMessage neq ""}
@@ -59,7 +60,11 @@
 <div class="dataArea">
 
     <div style="float: left"> <button  class="btn btn-primary" style="color:white;border-radius:0px;height: 32px; text-align: center; margin-top: -3px;" type="button" onclick="window.location.href='{$WebSiteUrl}/pageredirst.php?action=company&functionname=addSingleMessageList&messageId={$messageId}'">添加消息</button></div>
-    <div  style="float: right"><button  class="btn btn-primary" style="color:white;border-radius:0px;height: 32px; text-align: center; margin-top: -3px;" type="button" onclick="window.location.href='{$WebSiteUrl}/pageredirst.php?action=company&functionname=sendGroupMessage&messageId={$messageId}'">群发该组图文消息</button></div>
+    {if $messageCheck >= 4}
+        <div  style="float: right"><button  class="btn btn-primary" style="color:white;border-radius:0px;height: 32px; text-align: center; margin-top: -3px;" type="button" onclick="window.location.href='{$WebSiteUrl}/pageredirst.php?action=company&functionname=sendGroupMessage&messageId={$messageId}'">群发该组图文消息</button></div>
+    {else}
+        <div  style="float: right"><button  class="btn btn-primary" style="color:white;border-radius:0px;height: 32px; text-align: center; margin-top: -3px;" type="button" onclick="window.location.href='{$WebSiteUrl}/pageredirst.php?action=company&functionname=sendGroupMessage&messageId={$messageId}'">群发该组图文消息</button></div>
+    {/if}
     <div style="clear: both"></div>
     <div style=' height: 10px;'>&nbsp;</div>
 

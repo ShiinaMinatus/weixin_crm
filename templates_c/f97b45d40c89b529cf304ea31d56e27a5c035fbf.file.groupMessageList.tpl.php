@@ -1,16 +1,16 @@
-<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-16 11:27:54
+<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-17 09:59:55
          compiled from "/web/www/weixin_crm//templates/yajie/company/groupMessageList.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:3413615535417ae3ab49879-81005327%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:19114515135418eb1b107a81-60463658%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'f97b45d40c89b529cf304ea31d56e27a5c035fbf' => 
     array (
       0 => '/web/www/weixin_crm//templates/yajie/company/groupMessageList.tpl',
-      1 => 1410837881,
+      1 => 1410918978,
     ),
   ),
-  'nocache_hash' => '3413615535417ae3ab49879-81005327',
+  'nocache_hash' => '19114515135418eb1b107a81-60463658',
   'function' => 
   array (
   ),
@@ -70,8 +70,9 @@ $_smarty_tpl->decodeProperties(array (
 
 
     <div style='height: 30px;'>详细编辑群发消息:点击标题列下的超链接进入相应的群发消息组</div>
-
-    <div>删除群发消息:直接删除该组下所有群发消息</div>
+    <div style='height: 30px;'>删除群发消息:直接删除该组下所有群发消息</div>
+    <div> 您当月还可发送<span style="color:red;"><?php echo $_smarty_tpl->getVariable('sendCount')->value;?>
+</span>条群发消息</div>
 </div>
 <div style="height: 50px;"></div>
 <?php if ($_smarty_tpl->getVariable('printMessage')->value!=''){?>
@@ -88,7 +89,7 @@ $_smarty_tpl->decodeProperties(array (
 
 
     <table class="table crmTable table-bordered">
-        <tr><th>封面</th><th>标题</th><th>创建时间</th><th>删除</th></tr>
+        <tr><th>封面</th><th>标题</th><th>创建时间</th><th>是否发送</th><th>删除</th></tr>
         <?php  $_smarty_tpl->tpl_vars['activtyAlls'] = new Smarty_Variable;
  $_smarty_tpl->tpl_vars['key'] = new Smarty_Variable;
  $_from = $_smarty_tpl->getVariable('info')->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
@@ -105,6 +106,11 @@ if (count($_from) > 0){
 </a></td>
                 <td><?php echo smarty_modifier_date_format($_smarty_tpl->tpl_vars['activtyAlls']->value['create_time'],"%Y-%m-%d");?>
 </td>
+                <?php if ($_smarty_tpl->tpl_vars['activtyAlls']->value['send_type']==1){?>
+                    <td>是</td>
+                <?php }else{ ?>
+                    <td>否</td>
+                <?php }?>
                 <td><button data-toggle="modal" data-target="#myModal"  type="button" class="btn btn-primary delLink">删除<span style="display: none" class="shopId" ><?php echo $_smarty_tpl->tpl_vars['activtyAlls']->value['id'];?>
 </span></button></td>
             </tr>

@@ -27,38 +27,16 @@
             .form-edit-doc .form-item .form-field {
                 margin: 0;
             }
-
-            .doc-title {
-                border: 0 none;
-                display: block;
-                font-size: 22px;
-                font-weight: bold;
-                height: 22px;
-                line-height: 1.4;
-                margin: 0 auto;
-                min-height: 22px;
-                overflow: hidden;
-                padding: 17px 0 41px;
-                resize: none;
-                text-align: center;
-                width: 80%;
-            }
-
-         
-
-           
-
-           
-
         </style>
     </head>
     <body>
 
 
+        <div style='height: 10px;'>&nbsp;</div>
 
 
         <div class="form-field">
-            <textarea placeholder="文档标题" class="doc-title" name="doc_title" style="overflow: hidden; word-wrap: break-word; resize: none; height: 31px;" id='titleArea1'></textarea>
+            <textarea  class="doc-title " name="doc_title" style="overflow: hidden; word-wrap: break-word; resize: none; height: 48px;" id='titleArea1'></textarea>
         </div>
 
         <div style='height: 10px;'>&nbsp;</div>

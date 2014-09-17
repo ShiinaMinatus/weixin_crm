@@ -1,24 +1,26 @@
-<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-15 10:49:22
+<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-17 11:58:51
          compiled from "/web/www/weixin_crm//templates/yajie/company/../_init.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:1844565083541653b2e502c6-55483550%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:1917751840541906fbbb1ca1-69556266%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '239130dd5bd036f0c5d2cfaf1b77b9bacf83655f' => 
     array (
       0 => '/web/www/weixin_crm//templates/yajie/company/../_init.tpl',
-      1 => 1410749331,
+      1 => 1410926327,
     ),
   ),
-  'nocache_hash' => '1844565083541653b2e502c6-55483550',
+  'nocache_hash' => '1917751840541906fbbb1ca1-69556266',
   'function' => 
   array (
   ),
   'has_nocache_code' => false,
 )); /*/%%SmartyHeaderCode%%*/?>
-
+<?php if (!is_callable('smarty_function_math')) include '/web/www/weixin_crm/Smarty/libs/plugins/function.math.php';
+?>
         <script src="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
-/uploadify/jquery.uploadify.min.js" type="text/javascript"></script>
+/uploadify/jquery.uploadify.min.js?ver=<?php echo smarty_function_math(array('equation'=>rand(125,324)),$_smarty_tpl->smarty,$_smarty_tpl);?>
+" type="text/javascript"></script>
         <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
 /uploadify/uploadify.css" />
 
@@ -93,7 +95,7 @@ $_smarty_tpl->decodeProperties(array (
                     font-size: 22px;
                     font-weight: bold;
 
-                    line-height: 48px;
+                    line-height: 43px;
 
                     min-height: 22px;
                     overflow: hidden;
@@ -104,6 +106,9 @@ $_smarty_tpl->decodeProperties(array (
                 }
 
             </style>
+
+
+
 
  <div id='record'></div>
 
@@ -117,10 +122,10 @@ $_smarty_tpl->decodeProperties(array (
                 <p>组件</p>
 
 
-                <div class="draglist draggable"  title="标题" draggable="true" id='titlePackage'>标题</div>
-                <div class="draglist draggable" title="文本框" draggable="true"  id='textPackage'>文本框</div>
-                <div class="draglist draggable" title="图片" draggable="true" id='imagePackage'>小图</div>
-                <div class="draglist draggable" title="图片" draggable="true" id='BigimagePackage'>大图</div>
+                <div class="draglist draggable"   draggable="true" id='titlePackage'>标题</div>
+                <div class="draglist draggable"  draggable="true"  id='textPackage'>文本框</div>
+                <div class="draglist draggable" draggable="true" id='imagePackage'>小图</div>
+                <div class="draglist draggable"  draggable="true" id='BigimagePackage'>大图</div>
 
             
             </div>

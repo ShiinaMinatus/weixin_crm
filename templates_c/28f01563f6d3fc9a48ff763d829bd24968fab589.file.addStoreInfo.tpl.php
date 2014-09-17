@@ -1,16 +1,16 @@
-<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-15 10:27:03
+<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-17 10:07:26
          compiled from "/web/www/weixin_crm//templates/yajie/company/addStoreInfo.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:12933368154164e773216c6-07237672%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:14373752435418ecde78b3f4-15560719%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '28f01563f6d3fc9a48ff763d829bd24968fab589' => 
     array (
       0 => '/web/www/weixin_crm//templates/yajie/company/addStoreInfo.tpl',
-      1 => 1410746368,
+      1 => 1410762646,
     ),
   ),
-  'nocache_hash' => '12933368154164e773216c6-07237672',
+  'nocache_hash' => '14373752435418ecde78b3f4-15560719',
   'function' => 
   array (
   ),
@@ -86,7 +86,7 @@ $_smarty_tpl->decodeProperties(array (
                                     <div class="form-group"> 
                                         <label  class="col-sm-2 control-label labelWidth">门店地址:</label>
                                         <div class="col-sm-2">
-                                            <textarea id="storeAddress" name="storeAddress" style="width: 152px;">11111</textarea>
+                                            <textarea id="storeAddress" name="storeAddress" style="width: 152px;"></textarea>
                                         </div>
                                     </div> 
 

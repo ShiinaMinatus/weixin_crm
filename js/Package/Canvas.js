@@ -267,20 +267,27 @@ $Canvas.ondrop = function(ev) {
             'formData':{
                 
                  'objectid':'file_upload_'+uploadImageIdFina,
+
+                 'size':'120,120',
             
             },
 
-
             'onUploadSuccess': function(file, data, response) {
 
+                if(data == 'nosize'){
 
+                    alert('请按照规则尺寸,上传图片,图片尺寸为120px*120px');
 
-              
-                var json = eval("(" + data + ")");
+                    return false;
+
+                } else{
+
+                   var json = eval("(" + data + ")");
 
                 
-                $('#' + json['objectid']).parent().prev().find('img').attr('src',json['path'])
+                   $('#' + json['objectid']).parent().prev().find('img').attr('src',json['path'])
 
+                }
 
             }
         });
@@ -299,19 +306,28 @@ $Canvas.ondrop = function(ev) {
              'formData':{
                 
                  'objectid':'file_upload_'+uploadImageIdFina,
+
+                 'size':'250,250',
             
             },
 
 
             'onUploadSuccess': function(file, data, response) {
 
+                if(data == 'nosize'){
 
-                var json = eval("(" + data + ")");
+                    alert('请按照规则尺寸,上传图片,图片尺寸为250px*250px');
+
+                    return false;
+
+                } else{
+
+
+                    var json = eval("(" + data + ")");
 
                 
-                $('#' + json['objectid']).parent().prev().find('img').attr('src',json['path'])
-
-
+                    $('#' + json['objectid']).parent().prev().find('img').attr('src',json['path'])
+                }
               
             }
         });
@@ -350,8 +366,12 @@ $titleCanvas.ondragover = function(ev) {
 
     if (eleT == 'title') {
 
-        $('#titleArea')[0].className = 'publicDash';
+        //$('#titleArea')[0].className = 'publicDash white';
 
+
+        $('#titleArea').addClass('publicDash');
+
+        $('#titleArea').addClass('white');
 
     }
     return true;
@@ -365,9 +385,14 @@ $titleCanvas.ondragleave = function(ev) {
 
         var tmpClassName = $titleCanvas.className;
 
-        $titleCanvas.className = null;    //清除类名
 
-        $titleCanvas.className = tmpClassName.split(new RegExp(" publicDash|publicDash " + "|" + "^publicDash$", "ig")).join("");
+        $('#titleArea').removeClass('publicDash');
+
+        $('#titleArea').removeClass('white');
+
+        //$titleCanvas.className = null;    //清除类名
+
+       // $titleCanvas.className = tmpClassName.split(new RegExp(" publicDash|publicDash " + "|" + "^publicDash$", "ig")).join("");
 
     }
     return true;
@@ -379,11 +404,16 @@ $titleCanvas.ondrop = function(ev) {
 
     if (eleT == 'title') {
 
-        var textAreaHtml = '<div placeholder="文档标题"contenteditable="true"  class="doc-title" name="doc_title" style="width:320px;overflow: hidden; word-wrap: break-word; resize: none; height: 48px;margin:0 auto;" id="aaaaa">文档标题</div>';
+        var textAreaHtml = '<div placeholder="文档标题"contenteditable="true"  class="doc-title" name="doc_title" style="width:90%;overflow: hidden; word-wrap: break-word; resize: none; height: 48px;margin:0 auto;" id="aaaaa">文档标题</div><span  class="closeSpan" style=" outline: none;cursor: pointer;position: absolute;" onclick="$(this).parent().parent().remove()">X</span>';
 
         $titleCanvas.innerHTML = textAreaHtml;
 
-        $titleCanvas.className = '';
+
+         $('#titleArea').removeClass('publicDash');
+
+        $('#titleArea').removeClass('white');
+
+        //$titleCanvas.className = '';
 
     }
 

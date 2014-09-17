@@ -48,8 +48,8 @@
 
 
     <div style='height: 30px;'>详细编辑群发消息:点击标题列下的超链接进入相应的群发消息组</div>
-
-    <div>删除群发消息:直接删除该组下所有群发消息</div>
+    <div style='height: 30px;'>删除群发消息:直接删除该组下所有群发消息</div>
+    <div> 您当月还可发送<span style="color:red;">{$sendCount}</span>条群发消息</div>
 </div>
 <div style="height: 50px;"></div>
 {if $printMessage neq ""}
@@ -64,12 +64,17 @@
 
 
     <table class="table crmTable table-bordered">
-        <tr><th>封面</th><th>标题</th><th>创建时间</th><th>删除</th></tr>
+        <tr><th>封面</th><th>标题</th><th>创建时间</th><th>是否发送</th><th>删除</th></tr>
         {foreach from=$info item=activtyAlls key=key}
             <tr>
                 <td ><img src="{$activtyAlls.message_pic}" style="width: 50px;height: 50px"></td>
                 <td class="shopName"><a href="{$WebSiteUrl}/pageredirst.php?action=company&functionname=singleMessageList&messageId={$activtyAlls.message_id}">{$activtyAlls.message_title}</a></td>
                 <td>{$activtyAlls.create_time|date_format:"%Y-%m-%d"}</td>
+                {if $activtyAlls.send_type eq 1}
+                    <td>是</td>
+                {else}
+                    <td>否</td>
+                {/if}
                 <td><button data-toggle="modal" data-target="#myModal"  type="button" class="btn btn-primary delLink">删除<span style="display: none" class="shopId" >{$activtyAlls.id}</span></button></td>
             </tr>
         {/foreach}

@@ -243,11 +243,24 @@ class companyController {
     }
 
     public function groupMessage() {
+        $messageCount = new sendCountModel();
+        $nowDate = date("Y-m");
+        $messageCount->initialize("messageTime=" . $nowDate);
+        $sendCount = 0;
+        $count = $messageCount->vars_number;
+        if ($count == 0) {
+            $data['messageTime'] = $nowDate;
+            $data['messagecheck'] = 0;
+        } else {
+            $sendCount = $messageCount->vars;
+        }
+        $sendCount = 4 - $sendCount;
         $groupMessage = new groupMessageModel();
         $groupMessage->addOrderBy("create_time desc");
         $groupMessage->initialize("message_type = '1'");
         $titleMessage = $groupMessage->vars_all;
         $_ENV['smarty']->assign('info', $titleMessage);
+        $_ENV['smarty']->assign('sendCount', $sendCount);
         $_ENV['smarty']->display('groupMessageList');
     }
 
@@ -283,6 +296,18 @@ class companyController {
 
     public function singleMessageList() {
         if (isset($_GET["messageId"])) {
+            $messageCount = new sendCountModel();
+            $nowDate = date("Y-m");
+            $messageCount->initialize("messageTime=" . $nowDate);
+            $sendCount = 0;
+            $count = $messageCount->vars_number;
+            if ($count == 0) {
+                $data['messageTime'] = $nowDate;
+                $data['messagecheck'] = 0;
+            } else {
+                $sendCountArray = $messageCount->vars;
+                $sendCount = $sendCountArray['messagecheck'];
+            }
             $groupMessage = new groupMessageModel();
             $groupMessage->initialize("message_id = '" . $_GET["messageId"] . "'");
             $listMessage = $groupMessage->vars_all;
@@ -290,6 +315,7 @@ class companyController {
             $Message = $groupMessage->vars_all;
             $MessageTitle = $Message[0]['message_title'];
             $_ENV['smarty']->assign('info', $listMessage);
+            $_ENV['smarty']->assign('messageCheck', $sendCount);
             $_ENV['smarty']->assign('messageId', $_GET["messageId"]);
             $_ENV['smarty']->assign('title', $MessageTitle);
             $_ENV['smarty']->display('singleMessageList');
@@ -392,6 +418,8 @@ class companyController {
     public function sendGroupMessage() {
         if (isset($_GET['messageId'])) {
             $groupMessage = new groupMessageModel();
+
+
             $groupMessage->initialize("message_id='" . $_GET["messageId"] . "'");
             $messageArray = $groupMessage->vars_all;
 
@@ -403,13 +431,14 @@ class companyController {
 
                 $messageItemarray['thumb_media_id'] = urlencode($messageItem['MEDIA_ID']);
 
-                $messageItemarray['title'] =  urlencode($messageItem['message_title']);
+                $messageItemarray['title'] = urlencode($messageItem['message_title']);
 
                 $messageItemarray['content'] = urlencode($messageItem['message_title']);
 
                 $messageItemarray['author'] = urlencode('');
 
                 $messageItemarray['content_source_url'] = urlencode(WebSiteUrl.'?g='.$_SESSION['weixin_crm_source'].'&a=company&v=groups&id='.$messageItem['id']);
+
 
                 $messageItemarray['digest'] = urlencode('aaaaa');
 
@@ -439,36 +468,59 @@ class companyController {
 
 
                 $groupId = array();
-                
+
                 // $array = array('ocpOotwOr44N8_zpyG7LttDgZscw');
-                
                 // $a = mass_send_group_user($array, $token, $id);
 
 
-                 $a =  mass_send_group(2, $token, $id);
-                
-                var_dump($a);
+                $a = mass_send_group(2, $token, $id);
+
+                $returnSend = json_decode($a, true);
+                if ($returnSend["errorcode"] == 0) {
+                    //添加发送成功数
+                    $scuessFlag = true;
+                    $messageCount = new sendCountModel();
+                    $nowDate = date("Y-m");
+                    $messageCount->initialize("messageTime=" . $nowDate);
+                    $sendCount = 0;
+                    $count = $messageCount->vars_number;
+                    if ($count == 0) {
+                        $data['messageTime'] = $nowDate;
+                        $data['messagecheck'] = 0;
+                    } else if ($count < 4) {
+                        $sendCount = $messageCount->vars;
+                        $data['messagecheck'] = $sendCount['messagecheck'] + 1;
+                        $messageCount->update($data);
+                    } else {
+                        $errorMessage = "已经超出本月可发送次数，发送失败";
+                        $scuessFlag = FALSE;
+                    }
+                    //添加发送成功flag
+                    if ($scuessFlag) {
+                        $sendMessage = new groupMessageModel();
+                        $sendMessage->initialize("message_id = '" . $_GET["messageId"] . "' and message_type='1'");
+                        $data['send_type'] = 1;
+                        $sendMessage->update($data);
+                        $errorMessage = "群发消息发送成功";
+                    }
+                    $_ENV['smarty']->assign('printMessage', $errorMessage);
+                    $this->groupMessage();
+                }
 
 
 
-               // foreach ($groupResult_ as $k => $v) {
 
-               //     if ($v['count'] > 0) {
-
-               //         array_push($groupId, $v['id']);
-               //     }
-               // }
-
-               // if (count($groupId) > 0) {
-
-               //     foreach ($groupId as $v) {
-
-               //        $a =  mass_send_group($v, $token, $id);
-               //     }
-               // }
+                // foreach ($groupResult_ as $k => $v) {
+                //     if ($v['count'] > 0) {
+                //         array_push($groupId, $v['id']);
+                //     }
+                // }
+                // if (count($groupId) > 0) {
+                //     foreach ($groupId as $v) {
+                //        $a =  mass_send_group($v, $token, $id);
+                //     }
+                // }
             }
-
-           
         }
     }
 

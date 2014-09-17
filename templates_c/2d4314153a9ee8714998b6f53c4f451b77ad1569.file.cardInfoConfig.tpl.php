@@ -1,16 +1,16 @@
-<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-15 10:26:34
+<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-17 10:06:51
          compiled from "/web/www/weixin_crm//templates/yajie/company/cardInfoConfig.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:139053641554164e5a1a7111-28688088%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:17855363255418ecbb8f5842-57289881%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '2d4314153a9ee8714998b6f53c4f451b77ad1569' => 
     array (
       0 => '/web/www/weixin_crm//templates/yajie/company/cardInfoConfig.tpl',
-      1 => 1410746368,
+      1 => 1410837881,
     ),
   ),
-  'nocache_hash' => '139053641554164e5a1a7111-28688088',
+  'nocache_hash' => '17855363255418ecbb8f5842-57289881',
   'function' => 
   array (
   ),
@@ -73,8 +73,8 @@ $_smarty_tpl->decodeProperties(array (
                                 <input type='hidden' name='activity_id' id='activity_id' value='<?php echo $_smarty_tpl->getVariable('info')->value['activity_id'];?>
 '>
                                     <div class="form-group"> 
-                                        <label  class="col-sm-2 control-label labelWidth">商家名称:&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                                        <div class="col-sm-2">
+                                        <label  class="col-sm-2 control-label labelWidth">商家名称:</label>
+                                        <div class="col-sm-2" style="margin-left: 29px;">
                                             <input class="form-control inputWidth" type="text" value="<?php echo $_smarty_tpl->getVariable('info')->value['shop_name'];?>
 " name="stroreName" id="stroreName">
                                         </div>
@@ -106,7 +106,7 @@ $_smarty_tpl->decodeProperties(array (
                             </form>
                         </div>
                         <div style="width: 300px;height: 150px;">
-                            <a id="test" type="button" href="#" data-toggle="popover" title="如何填写会员卡说明" data-placement="button" data-content="由于我们在微信端拥有会员卡说明模板，所以在crm后台编辑时，只需要每段文字之后添加「;」（分号）替代换行符进行分割即可。例如：“第一条，用户获得会员卡之后可以直接使用。;第二条，用户可以随时注销会员卡。”">如何填写会员卡说明</a>
+                            <a id="test" type="button" href="#" data-toggle="popover" title="如何填写会员卡说明" data-placement="button" data-content="由于我们在微信端拥有「会员卡说明」模板屏蔽了换行符，所以在crm后台编辑时，需要每段文字之后添加「;」（半角分号）替代换行符进行分割即可。例如：“第一条，用户获得会员卡之后可以直接使用。;第二条，用户可以随时注销会员卡。”">如何填写会员卡说明</a>
                         </div>
                 </body>
                 </html>
