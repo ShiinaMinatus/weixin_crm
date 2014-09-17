@@ -180,13 +180,13 @@ function sendWeixinCustom($money, $toopen_id, $user_id) {
 
         $content = $weixin->vars['weixin_content'];
 
-
+        $getIntegral = $integral * $money;//添加积分为比例
         /**
          * 添加用户积分 给当前用户
          */
         $userController = new userController();
 
-        $userController->addPointer($user_id, $integral);
+        $userController->addPointer($user_id, $getIntegral);
 
 
         /**
@@ -231,7 +231,6 @@ function sendWeixinCustom($money, $toopen_id, $user_id) {
     }
 }
 
-
 /**
  *   上传图片素材到微信公众平台 获取另外id   微信公众平台
  */
@@ -248,21 +247,19 @@ function https_upload_pic_request($filePath, $access_token) {
     return https_request($url, $filedata);
 }
 
-
-function https_request($url, $data = null)
-{
-     $ch = curl_init($url) ;
-        curl_setopt($ch, CURLOPT_POST, 1);
-        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-        curl_setopt($ch, CURLOPT_POST, 1);
-        curl_setopt($ch, CURLOPT_POSTFIELDS,$data);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        $result = curl_exec($ch) ;
-        if (curl_errno($ch)) {
-         return curl_error($ch);
-        }
-        curl_close($ch);
-        return $result;
+function https_request($url, $data = null) {
+    $ch = curl_init($url);
+    curl_setopt($ch, CURLOPT_POST, 1);
+    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+    curl_setopt($ch, CURLOPT_POST, 1);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    $result = curl_exec($ch);
+    if (curl_errno($ch)) {
+        return curl_error($ch);
+    }
+    curl_close($ch);
+    return $result;
 }
 
 /**
@@ -282,14 +279,14 @@ function group_send_image($ACCESS_TOKEN, $array) {
 
     $url = "https://api.weixin.qq.com/cgi-bin/media/uploadnews?access_token=$ACCESS_TOKEN";
 
-    $result = array('articles'=>$array);
+    $result = array('articles' => $array);
 
 
-    
+
 
     $jsondata = urldecode(json_encode($result));
 
-    
+
 
 
     return https_request($url, $jsondata);
@@ -313,11 +310,10 @@ function mass_send_group($id, $token, $meida_id) {
     return curlPost($url, $jsonData);
 }
 
-
 function mass_send_group_user($array, $token, $meida_id) {
 
     $url = "https://api.weixin.qq.com/cgi-bin/message/mass/send?access_token=$token";
-    
+
     $data['touser'] = $array;
 
     $data['mpnews'] = array('media_id' => $meida_id);
@@ -328,7 +324,7 @@ function mass_send_group_user($array, $token, $meida_id) {
 
     die;
 
-    
+
     $jsonData = json_encode($data);
 
     return curlPost($url, $jsonData);
@@ -371,9 +367,8 @@ function getGroup($ACCESS_TOKEN) {
     return $result;
 }
 
-function uploadMedia($url){
-        
-       
-    }
+function uploadMedia($url) {
+    
+}
 
 ?>
