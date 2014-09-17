@@ -500,8 +500,8 @@ class companyController {
                     if ($scuessFlag) {
                         $sendMessage = new groupMessageModel();
                         $sendMessage->initialize("message_id = '" . $_GET["messageId"] . "' and message_type='1'");
-                        $data['send_type'] = 1;
-                        $sendMessage->update($data);
+                        $dataSend['send_type'] = 1;
+                        $sendMessage->update($dataSend);
                         $errorMessage = "群发消息发送成功";
                     }
                     $_ENV['smarty']->assign('printMessage', $errorMessage);

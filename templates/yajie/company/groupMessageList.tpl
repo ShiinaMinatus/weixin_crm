@@ -10,7 +10,7 @@
         color: rgb(91,91,91);
         font-size: 2.5em;
         margin-top: 15px;
-       
+        text-align: center;
     }
     .selectBar{
 
@@ -21,7 +21,7 @@
         text-align: left;
         width: 60%;
         min-width: 500px;
-       
+        margin: 0 auto;
         height: 190px;
     }
     .sortBar{
@@ -42,15 +42,16 @@
 </style>
 
 <div class="userMangerTitle">消息群发</div>
-<div class="alert alert-info" role="alert" style='font-size: 14px;width: 650px;'>
+<div class="alert alert-info" role="alert" style='font-size: 14px;width: 640px;margin: 0 auto; line-height: 30px;'>
 
-    <div style='height: 30px;'>添加群发消息:可以用来添加一组群发消息</div>
+    <div >添加群发消息:可以用来添加一组群发消息</div>
 
 
-    <div style='height: 30px;'>详细编辑群发消息:点击标题列下的超链接或者点击群发列下对应的进入按钮进入相应的群发消息组</div>
-    <div style='height: 30px;'>删除群发消息:直接删除该组下所有群发消息</div>
+    <div >详细编辑群发消息:点击标题列的超链接或者点击群发列下对应的进入按钮进入相应的群发消息组</div>
+    <div >删除群发消息:直接删除该组下所有群发消息</div>
     <div> 您当月还可发送<span style="color:red;">{$sendCount}</span>条群发消息</div>
 </div>
+<div style="height: 50px;"></div>
 {if $printMessage neq ""}
     <div class="sortBar alert alert-warning" style="text-align: center"><label for="inputPassword3" class="control-label">{$printMessage}</label></div>
     <div style="height: 25px;"></div>

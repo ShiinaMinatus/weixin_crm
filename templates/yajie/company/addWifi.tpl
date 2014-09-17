@@ -58,12 +58,12 @@
                         {/if}
                         <div id="errorMessage" class="alert alert-danger errorMessage">恭喜你添加成功</div>
                         <div style="margin-left:15px;margin-top:15px;">
-                            <div style="width: 1000px; margin: 0 auto;">
+                            <div style="width: 285px; margin: 0 auto;">
                                 <form class="form-horizontal" action="{$WebSiteUrl}/pageredirst.php?action=company&functionname=wifiEdit" method="post">
                                     <div class="form-group"> 
                                         <label class="col-sm-2 control-label labelWidth">wifi账号</label>
 
-                                        <div class="col-sm-2" style='width:800px;'>
+                                        <div class="col-sm-2" style=''>
                                             {if $info neq ""}
                                                 <input type='text' id="wifiName" name="wifiName" style="" value='{$info.wifiName}'>
                                                 {else}
@@ -78,7 +78,7 @@
 
                                                         <label class="col-sm-2 control-label labelWidth">wifi密码</label>
 
-                                                        <div class="col-sm-2" style='width:800px;'>
+                                                        <div class="col-sm-2" style=''>
                                                             {if $info neq ""}
                                                                 <input type='text' id="wifiPassword" name="wifiPassword" style="" value='{$info.wifiPassword}'>
                                                                 {else}

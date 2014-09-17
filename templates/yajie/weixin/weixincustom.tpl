@@ -17,7 +17,7 @@
         color: rgb(91,91,91);
         font-size: 2.5em;
         margin-top: 15px;
-       
+        text-align: center;
     }
     .errorMessage{
         width: 300px;
@@ -26,7 +26,7 @@
     }
 </style>
 <div class="userMangerTitle">微信内容配置</div>
-<div class="alert alert-info" role="alert" style='font-size: 14px;width: 650px;line-height: 30px;'>
+<div class="alert alert-info" role="alert" style='font-size: 14px;width: 95%;margin: 0 auto;line-height: 30px;'>
 
     <div style='line-height: 30px'>微信内容:编辑会员成功消费后发送至微信客户端的消息，消费的金额请使用「&lt;money>」替代，系统将会自动将其转换为对应的消费金额</div>
 
@@ -34,6 +34,7 @@
     <div style=''>积分奖励:积分将以消费金额1：N的形式转换、n请填写正整数，例如：填写5即每消费1元获得5积分</div>
 
 </div>
+<div style="height: 25px;"></div>
 {if $printMessage neq ""}
     <div class="sortBar alert alert-warning" style="width: 600px;"><label for="inputPassword3" class="control-label">{$printMessage}</label></div>
 {/if}
@@ -59,7 +60,7 @@
                 </div>
             </div> 
 
-            <p style="text-align: center;"><button id="addButton" type="button" class="btn btn-info">确认</button></p>
+            <p style="padding-left: 90px;"><button id="addButton" type="button" class="btn btn-info">确认</button></p>
 
 
         </form>
