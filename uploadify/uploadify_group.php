@@ -39,7 +39,7 @@ if (!empty($_FILES)) {
 
     $fileParts = pathinfo($_FILES['Filedata']['name']);
     
-    $fileSizeLimte = 1 * 1024 * 1024;
+    $fileSizeLimte = 1 * 1024 * 64;
 
 
    
