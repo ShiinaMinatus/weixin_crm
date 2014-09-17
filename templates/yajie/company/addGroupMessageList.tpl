@@ -15,11 +15,11 @@
         <script type="text/javascript">
 
             $(document).ready(function() {
-                $('input').iCheck({
-                    checkboxClass: 'icheckbox_minimal-green',
-                    radioClass: 'iradio_minimal-green'
-                });
-            });
+            $('input').iCheck({
+            checkboxClass: 'icheckbox_minimal-green',
+            radioClass: 'iradio_minimal-green'
+        });
+    });
 
         </script>
 
@@ -78,6 +78,7 @@
             <div style='height: 30px;'>正文:用户可以自定义或者使用我们的模版来设计公司信息</div>
 
             <div style='height: 30px;'>标题:群发消息标题不能为空</div>
+            <div style='height: 30px;'>封面:封面图片为jpg或者jpeg格式，文件容量小于<span style="color: red">64KB</span></div>
             <div style='height: 30px;'>智能模版:用户使用我们定制的插件</div>
 
             <div>自定义模版:可以让用户快速的制作模版</div>
@@ -181,182 +182,182 @@
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
-        
+
 
         <script>
-            $(function() {
-                $('#upload_0').uploadify({
-                    'swf': websiteUrl + '/uploadify/uploadify.swf',
-                    'uploader': websiteUrl + '/uploadify/uploadify_group.php',
-                    'formData': {
-                        'objectid': 'upload_0',
-                        'session_id': '{$session_id}'
-                    },
-                    'onUploadSuccess': function(file, data, response) {
+    $(function() {
+    $('#upload_0').uploadify({
+    'swf': websiteUrl + '/uploadify/uploadify.swf',
+    'uploader': websiteUrl + '/uploadify/uploadify_group.php',
+    'formData': {
+    'objectid': 'upload_0',
+    'session_id': '{$session_id}'
+},
+'onUploadSuccess': function(file, data, response) {
 
-                        $("#errorMessageDiv").hide();
-                        if (data == "code2") {
-                            $("#errorMessageDiv").show();
-                            $("#errorMessage").html("上传图片失败，图片格式必须为jpg或者jpge格式");
-                        } else if (data == "code1") {
-                            $("#errorMessageDiv").show();
-                            $("#errorMessage").html("上传图片失败，由于微信限制图片大小必须小于1M");
-                        } else {
-                            var json = eval("(" + data + ")");
-                            $('#uploadUrl').val(json['path']);
+$("#errorMessageDiv").hide();
+if (data == "code2") {
+$("#errorMessageDiv").show();
+$("#errorMessage").html("上传图片失败，图片格式必须为jpg或者jpge格式");
+} else if (data == "code1") {
+$("#errorMessageDiv").show();
+$("#errorMessage").html("上传图片失败，由于微信限制图片大小必须小于1M");
+} else {
+var json = eval("(" + data + ")");
+$('#uploadUrl').val(json['path']);
 
 
-                            $('#meida_id').val(json['media_id']);
+$('#meida_id').val(json['media_id']);
                             
                             
-                            if(json['path'] != ''){
+if(json['path'] != ''){
 
 
-                                $('#upload_img').append('<img src="'+json['path']+'" style="width:50px; height:50px;">')
+$('#upload_img').append('<img src="'+json['path']+'" style="width:50px; height:50px;">')
                                 
                             
-                            }
-                        }
+}
+}
 
-                    }
-                });
+}
+});
 
-                var type = $('#type').val();
+var type = $('#type').val();
 
 
 
-                if (type == 0) {
+if (type == 0) {
 
-                    $('#init_id').show();
+$('#init_id').show();
 
-                } else {
+} else {
 
 
-                    $('#visual_id').show();
-                }
+$('#visual_id').show();
+}
 
 
-                $('input').on('ifChecked', function() {
+$('input').on('ifChecked', function() {
 
 
-                    var type = $(this).val();
+var type = $(this).val();
 
-                    $('.public').css('display', 'none');
+$('.public').css('display', 'none');
 
 
 
-                    $('#type').val(type);
+$('#type').val(type);
 
 
-                    if (type == 0) {
+if (type == 0) {
 
-                        $('#init_id').show();
+$('#init_id').show();
 
 
-                    } else {
+} else {
 
-                        $('#visual_id').show();
+$('#visual_id').show();
 
 
-                    }
+}
 
 
-                });
+});
 
 
-                $('#saveButton').click(function(event) {
-                    /* Act on the event */
+$('#saveButton').click(function(event) {
+/* Act on the event */
 
-                    if ($("#title1").val() == "" || $("#title1").val() == " ") {
-                        $("#errorMessageDiv").show();
-                        $("#errorMessage").html("标题名称不能为空");
-                        return false
-                    } else {
-                        $('.modal-body').html('');
+if ($("#title1").val() == "" || $("#title1").val() == " ") {
+$("#errorMessageDiv").show();
+$("#errorMessage").html("标题名称不能为空");
+return false
+} else {
+$('.modal-body').html('');
 
-                        previewBoby();
+previewBoby();
 
 
-                        $('#form1').submit();
-                    }
+$('#form1').submit();
+}
 
 
-                });
+});
 
 
 
-                $('#previewButton').click(function() {
+$('#previewButton').click(function() {
 
 
 
 
-                    $(".Preview").modal();
+$(".Preview").modal();
 
 
-                    previewBoby();
+previewBoby();
 
 
 
-                })
+})
 
 
-            })
+})
 
 
-            function previewBoby() {
+function previewBoby() {
 
-                var type = $('#type').val();
+var type = $('#type').val();
 
 
 
 
-                if (type == 0) {
+if (type == 0) {
 
 
-                    var titleContent = $('#titleArea').html();
+var titleContent = $('#titleArea').html();
 
-                    var packContent = $('#divPack').html();
+var packContent = $('#divPack').html();
 
-                } else {
+} else {
 
-                    var titleContent = $('#titleArea1').html();
+var titleContent = $('#titleArea1').html();
 
-                    var html = document.getElementById('edit').value; // 原生API
+var html = document.getElementById('edit').value; // 原生API
 
-                    html = editor.html();
+html = editor.html();
 
-                    editor.sync();
+editor.sync();
 
-                    html = document.getElementById('edit').value; // 原生API
+html = document.getElementById('edit').value; // 原生API
 
-                    var packContent = html;
+var packContent = html;
 
-                }
+}
 
 
 
-                var bobyPreview = titleContent + packContent;
+var bobyPreview = titleContent + packContent;
 
  
 
-                $('#activity_html_').val(packContent);
+$('#activity_html_').val(packContent);
 
 
-                $('#activity_title').val(titleContent);
+$('#activity_title').val(titleContent);
 
 
 
-                $('.modal-body').html(bobyPreview);
+$('.modal-body').html(bobyPreview);
 
-                $('.modal-body').find('.closeSpan').remove();
+$('.modal-body').find('.closeSpan').remove();
 
-                $('.modal-body').find("[contenteditable = 'true']").attr('contenteditable', 'false');
+$('.modal-body').find("[contenteditable = 'true']").attr('contenteditable', 'false');
 
-                $('.modal-body .upload').remove();
+$('.modal-body .upload').remove();
 
 
-                $('#activity_html').val($('.modal-body').html());
-            }
+$('#activity_html').val($('.modal-body').html());
+}
 
         </script>
 
