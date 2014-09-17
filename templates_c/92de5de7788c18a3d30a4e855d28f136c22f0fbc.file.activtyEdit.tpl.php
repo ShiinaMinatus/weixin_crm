@@ -1,16 +1,16 @@
-<?php /* Smarty version Smarty-3.0-RC2, created on 2014-07-04 16:25:19
+<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-17 17:18:10
          compiled from "/web/www/weixin_crm//templates/yajie/activty/activtyEdit.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:67318018353b664efb58a24-73676280%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:992574349541951d25282c1-39978054%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '92de5de7788c18a3d30a4e855d28f136c22f0fbc' => 
     array (
       0 => '/web/www/weixin_crm//templates/yajie/activty/activtyEdit.tpl',
-      1 => 1404443590,
+      1 => 1410945478,
     ),
   ),
-  'nocache_hash' => '67318018353b664efb58a24-73676280',
+  'nocache_hash' => '992574349541951d25282c1-39978054',
   'function' => 
   array (
   ),
@@ -39,35 +39,32 @@ $_smarty_tpl->decodeProperties(array (
 /css/crm_table_style_<?php echo $_smarty_tpl->getVariable('source')->value;?>
 .css" rel="stylesheet">
 
-        <script>
            
+    <link rel="stylesheet" href="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
+/kindeditor/themes/example1/example1.css" />
 
-             $(function() {
+    <script charset="utf-8" src="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
+/kindeditor/kindeditor.js"></script>
 
-                             editor = new Simditor({
-                                textarea: $('#activity_html'),
-                                pasteImage: true,
-                                toolbar: [
-                                    'title',
-                                    'bold',
-                                    'italic',
-                                    'underline',
-                                    'strikethrough',
-                                    'ol',
-                                    'ul',
-                                    'blockquote',
-                                    'code',
-                                    'table',
-                                    'link',
-                                    'image',
-                                    'hr',
-                                    'indent',
-                                    'outdent',
-                                ],
-                            });
 
-                        })
+        <script charset="utf-8" src="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
+/kindeditor/lang/zh_CN.js"></script> 
+        <script>
+            var editor;
+            KindEditor.ready(function(K) {
+                editor = K.create('#activity_html', {
+                        themeType : 'example1',
+                        items:[
+
+                            'justifyleft','justifycenter','justifyright','indent','outdent'
+
+                            ,'fontsize','forecolor','bold','italic','link','unlink','image','source'
+         
+                        ]
+                });
+            });
         </script>
+
 
         <style>
         .labelWidth{
@@ -133,7 +130,7 @@ $_smarty_tpl->decodeProperties(array (
 
                   <div class="col-sm-2" style='width:800px;height:auto'>
 
-                                            <textarea id="activity_html" name="activity_html" style=""><?php echo $_smarty_tpl->getVariable('info')->value['activity_html'];?>
+                                            <textarea id="activity_html" name="activity_html" style="height: 600px;"><?php echo $_smarty_tpl->getVariable('info')->value['activity_html'];?>
 </textarea>
 
                      </div>
@@ -185,13 +182,13 @@ $("#addButton").click(function(){
 
     var alertFlag=false;
 
-    var  html = document.getElementById('activity_html').value; // 原生API
+    //var  html = document.getElementById('activity_html').value; // 原生API
   
     //html = editor.html();
 
-    var a  = editor.getValue();
+    var html  = editor.html();
 
-    html = document.getElementById('activity_html').value; // 原生API
+    
 
     if($("#activity_name").val()==""){
         errorMessage+="活动名称不能为空 <br>";

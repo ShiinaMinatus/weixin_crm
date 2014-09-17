@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-17 11:54:28
+<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-17 17:07:08
          compiled from "/web/www/weixin_crm//templates/yajie/company/addGroupMessageList.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:797759951541905f4b3d302-01368833%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:90101626054194f3c2c0a69-90761440%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -10,7 +10,7 @@ $_smarty_tpl->decodeProperties(array (
       1 => 1410919849,
     ),
   ),
-  'nocache_hash' => '797759951541905f4b3d302-01368833',
+  'nocache_hash' => '90101626054194f3c2c0a69-90761440',
   'function' => 
   array (
   ),

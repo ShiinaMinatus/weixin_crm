@@ -85,6 +85,7 @@ class companyController {
                 $textCache = $companyInfo->vars;
                 $text = stripslashes($textCache["companyText"]);
             }
+            
             $_ENV['smarty']->assign('text', $text);
 
             $_ENV['smarty']->assign('info', $textCache);

@@ -1,16 +1,16 @@
-<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-12 17:38:33
+<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-17 17:14:44
          compiled from "/web/www/weixin_crm//templates/yajie/activty/activty.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:6357645785412bf199dada3-76981245%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:12102009554195104c222d7-67796217%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '9f05ee4e78b1f18a43adee4ae236bbb188e2c9bb' => 
     array (
       0 => '/web/www/weixin_crm//templates/yajie/activty/activty.tpl',
-      1 => 1410514542,
+      1 => 1410944968,
     ),
   ),
-  'nocache_hash' => '6357645785412bf199dada3-76981245',
+  'nocache_hash' => '12102009554195104c222d7-67796217',
   'function' => 
   array (
   ),
@@ -43,7 +43,7 @@ $_smarty_tpl->decodeProperties(array (
         text-align: left;
         width: 60%;
         min-width: 500px;
-        margin: 0 auto;
+        
         height: 190px;
     }
     .sortBar{
@@ -64,8 +64,13 @@ $_smarty_tpl->decodeProperties(array (
 </style>
 
 
+        <div style='height: 10px;'>&nbsp;</div>
 
-<div style="height: 50px;"></div>
+        <div class="alert alert-info" role="alert" style='font-size: 14px;'>
+
+            <div style='height: 30px;'>活动:用户可以设置自己的活动 并在微信公众平台中的微活动中查看</div>
+        </div>
+
 
 <div class="dataArea">
 

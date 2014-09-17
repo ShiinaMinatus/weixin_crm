@@ -21,7 +21,7 @@
         text-align: left;
         width: 60%;
         min-width: 500px;
-        margin: 0 auto;
+        
         height: 190px;
     }
     .sortBar{
@@ -42,8 +42,13 @@
 </style>
 
 
+        <div style='height: 10px;'>&nbsp;</div>
 
-<div style="height: 50px;"></div>
+        <div class="alert alert-info" role="alert" style='font-size: 14px;'>
+
+            <div style='height: 30px;'>活动:用户可以设置自己的活动 并在微信公众平台中的微活动中查看</div>
+        </div>
+
 
 <div class="dataArea">
 

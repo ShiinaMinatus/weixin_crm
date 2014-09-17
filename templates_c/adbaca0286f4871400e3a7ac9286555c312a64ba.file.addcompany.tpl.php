@@ -1,16 +1,16 @@
-<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-17 13:28:05
+<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-17 17:06:53
          compiled from "/web/www/weixin_crm//templates/yajie/company/addcompany.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:68319445754191be5e989d8-42582401%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:141446236654194f2d28d9d0-15798289%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'adbaca0286f4871400e3a7ac9286555c312a64ba' => 
     array (
       0 => '/web/www/weixin_crm//templates/yajie/company/addcompany.tpl',
-      1 => 1410931631,
+      1 => 1410944712,
     ),
   ),
-  'nocache_hash' => '68319445754191be5e989d8-42582401',
+  'nocache_hash' => '141446236654194f2d28d9d0-15798289',
   'function' => 
   array (
   ),
@@ -49,11 +49,25 @@ $_smarty_tpl->decodeProperties(array (
 
         <style>
 
-
             .init_class{
 
                 width: 900px;  height: 1200px;
             }
+
+              .doc-title{
+
+            border: 0 none; display: block;
+            font-size: 22px;
+            font-weight: bold;
+            line-height: 43px;
+            min-height: 22px;
+            overflow: hidden;
+            resize: none;
+            text-align: center;
+           
+
+        }
+
 
         </style>
 
@@ -227,9 +241,14 @@ $_smarty_tpl->decodeProperties(array (
 
                                     $('#visual_id').show();
 
+
                                     if (companyContent_ != '') {
 
-                                        $('#edit').html(companyContent);
+                                          
+
+                                        $('#edit').html(companyContent_);
+
+
 
                                         $('#titleArea1').html(companyTitle)
 
@@ -298,8 +317,6 @@ $_smarty_tpl->decodeProperties(array (
                                 var type = $('#type').val();
 
 
-
-
                                 if (type == 0) {
 
 
@@ -311,18 +328,12 @@ $_smarty_tpl->decodeProperties(array (
 
                                     var titleContent = $('#titleArea1').html();
 
-                                    var html = document.getElementById('edit').value; // 原生API
+                                    var html134 = editor.html();    
 
-                                    html = editor.html();
 
-                                    editor.sync();
-
-                                    html = document.getElementById('edit').value; // 原生API
-
-                                    var packContent = html;
+                                    var packContent = '<div>'+html134+'</div>';
 
                                 }
-
 
 
                                 var bobyPreview = titleContent + packContent;

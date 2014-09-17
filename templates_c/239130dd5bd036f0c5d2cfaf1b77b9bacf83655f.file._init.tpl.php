@@ -1,16 +1,16 @@
-<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-17 11:58:51
+<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-17 17:06:53
          compiled from "/web/www/weixin_crm//templates/yajie/company/../_init.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:1917751840541906fbbb1ca1-69556266%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:19996254754194f2da85612-22955097%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '239130dd5bd036f0c5d2cfaf1b77b9bacf83655f' => 
     array (
       0 => '/web/www/weixin_crm//templates/yajie/company/../_init.tpl',
-      1 => 1410926327,
+      1 => 1410944716,
     ),
   ),
-  'nocache_hash' => '1917751840541906fbbb1ca1-69556266',
+  'nocache_hash' => '19996254754194f2da85612-22955097',
   'function' => 
   array (
   ),
@@ -76,7 +76,7 @@ $_smarty_tpl->decodeProperties(array (
 
                 .textHeight{
 
-                    min-height: 80px;
+                    min-height: 40px;
                 }
                 
                 .smamllImageHeight{
@@ -136,7 +136,7 @@ $_smarty_tpl->decodeProperties(array (
 
                 <div id='testDiv' style='height: 100%; background-color: #f5f5f5; '>
 
-                    <div accept='title' id='titleArea' style=' height: 50px; '>&nbsp;</div>
+                    <div accept='title' id='titleArea' style=' height: 50px; position: relative;'>&nbsp;</div>
 
 
                     <div style=' height: 900px;overflow: auto;' belog='divPack' id='divPack' class='divPack'></div>
@@ -193,7 +193,6 @@ $_smarty_tpl->decodeProperties(array (
     var package = new packAgeList(listArray, listType);
 
     package.init();
-    
     
     function preview(){
         

@@ -1,16 +1,16 @@
-<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-17 09:59:55
+<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-17 17:13:44
          compiled from "/web/www/weixin_crm//templates/yajie/company/groupMessageList.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:19114515135418eb1b107a81-60463658%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:445639111541950c8032414-25236238%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'f97b45d40c89b529cf304ea31d56e27a5c035fbf' => 
     array (
       0 => '/web/www/weixin_crm//templates/yajie/company/groupMessageList.tpl',
-      1 => 1410918978,
+      1 => 1410945220,
     ),
   ),
-  'nocache_hash' => '19114515135418eb1b107a81-60463658',
+  'nocache_hash' => '445639111541950c8032414-25236238',
   'function' => 
   array (
   ),
@@ -32,7 +32,7 @@ $_smarty_tpl->decodeProperties(array (
         color: rgb(91,91,91);
         font-size: 2.5em;
         margin-top: 15px;
-        text-align: center;
+       
     }
     .selectBar{
 
@@ -43,7 +43,7 @@ $_smarty_tpl->decodeProperties(array (
         text-align: left;
         width: 60%;
         min-width: 500px;
-        margin: 0 auto;
+       
         height: 190px;
     }
     .sortBar{
@@ -64,17 +64,16 @@ $_smarty_tpl->decodeProperties(array (
 </style>
 
 <div class="userMangerTitle">消息群发</div>
-<div class="alert alert-info" role="alert" style='font-size: 14px;width: 600px;margin: 0 auto;'>
+<div class="alert alert-info" role="alert" style='font-size: 14px;width: 650px;'>
 
     <div style='height: 30px;'>添加群发消息:可以用来添加一组群发消息</div>
 
 
-    <div style='height: 30px;'>详细编辑群发消息:点击标题列下的超链接进入相应的群发消息组</div>
+    <div style='height: 30px;'>详细编辑群发消息:点击标题列下的超链接或者点击群发列下对应的进入按钮进入相应的群发消息组</div>
     <div style='height: 30px;'>删除群发消息:直接删除该组下所有群发消息</div>
     <div> 您当月还可发送<span style="color:red;"><?php echo $_smarty_tpl->getVariable('sendCount')->value;?>
 </span>条群发消息</div>
 </div>
-<div style="height: 50px;"></div>
 <?php if ($_smarty_tpl->getVariable('printMessage')->value!=''){?>
     <div class="sortBar alert alert-warning" style="text-align: center"><label for="inputPassword3" class="control-label"><?php echo $_smarty_tpl->getVariable('printMessage')->value;?>
 </label></div>
@@ -89,7 +88,7 @@ $_smarty_tpl->decodeProperties(array (
 
 
     <table class="table crmTable table-bordered">
-        <tr><th>封面</th><th>标题</th><th>创建时间</th><th>是否发送</th><th>删除</th></tr>
+        <tr><th>封面</th><th>标题</th><th>创建时间</th><th>是否发送</th><th>删除</th><th>群发</th></tr>
         <?php  $_smarty_tpl->tpl_vars['activtyAlls'] = new Smarty_Variable;
  $_smarty_tpl->tpl_vars['key'] = new Smarty_Variable;
  $_from = $_smarty_tpl->getVariable('info')->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
@@ -103,7 +102,7 @@ if (count($_from) > 0){
                 <td class="shopName"><a href="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
 /pageredirst.php?action=company&functionname=singleMessageList&messageId=<?php echo $_smarty_tpl->tpl_vars['activtyAlls']->value['message_id'];?>
 "><?php echo $_smarty_tpl->tpl_vars['activtyAlls']->value['message_title'];?>
-</a></td>
+</td>
                 <td><?php echo smarty_modifier_date_format($_smarty_tpl->tpl_vars['activtyAlls']->value['create_time'],"%Y-%m-%d");?>
 </td>
                 <?php if ($_smarty_tpl->tpl_vars['activtyAlls']->value['send_type']==1){?>
@@ -113,6 +112,9 @@ if (count($_from) > 0){
                 <?php }?>
                 <td><button data-toggle="modal" data-target="#myModal"  type="button" class="btn btn-primary delLink">删除<span style="display: none" class="shopId" ><?php echo $_smarty_tpl->tpl_vars['activtyAlls']->value['id'];?>
 </span></button></td>
+                <td><a href="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
+/pageredirst.php?action=company&functionname=singleMessageList&messageId=<?php echo $_smarty_tpl->tpl_vars['activtyAlls']->value['message_id'];?>
+"><button type="button" class="btn btn-primary delLink">进入</button></a></td>
             </tr>
         <?php }} ?>
     </table>

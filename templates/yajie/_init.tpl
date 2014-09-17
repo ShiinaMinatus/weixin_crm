@@ -54,7 +54,7 @@
 
                 .textHeight{
 
-                    min-height: 80px;
+                    min-height: 40px;
                 }
                 
                 .smamllImageHeight{
@@ -114,7 +114,7 @@
 
                 <div id='testDiv' style='height: 100%; background-color: #f5f5f5; '>
 
-                    <div accept='title' id='titleArea' style=' height: 50px; '>&nbsp;</div>
+                    <div accept='title' id='titleArea' style=' height: 50px; position: relative;'>&nbsp;</div>
 
 
                     <div style=' height: 900px;overflow: auto;' belog='divPack' id='divPack' class='divPack'></div>
@@ -168,7 +168,6 @@
     var package = new packAgeList(listArray, listType);
 
     package.init();
-    
     
     function preview(){
         

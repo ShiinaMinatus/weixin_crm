@@ -41,6 +41,12 @@ $Canvas.ondragover = function(ev) {
     var $currentOjectClassName = $currentobject.className;
 
     var $currentObjectBelong = $currentobject.getAttribute('belog');
+
+
+    //alert($currentObjectId);
+
+
+    //$('#record').html($currentObjectId);
     
     
     var $varTest = $('#'+$currentObjectId+'>.smallImage').length;
@@ -348,6 +354,29 @@ $Canvas.ondragleave = function(ev) {
 
     var $currentObjectId = $currentobject.id;
 
+   
+
+    $('#divPack > div').each(function(){
+
+         var ids = $(this).attr('id');
+
+         
+        var htmls = $('#'+ids).html();
+
+        if(htmls == ' '){
+
+            //$('#record').html('ids '+ids)
+            
+        }
+
+        //
+
+    })
+
+
+  
+    //$('.white').remove();
+
 
     //$('#record').html($currentObjectId);
 
@@ -404,7 +433,7 @@ $titleCanvas.ondrop = function(ev) {
 
     if (eleT == 'title') {
 
-        var textAreaHtml = '<div placeholder="文档标题"contenteditable="true"  class="doc-title" name="doc_title" style="width:90%;overflow: hidden; word-wrap: break-word; resize: none; height: 48px;margin:0 auto;" id="aaaaa">文档标题</div><span  class="closeSpan" style=" outline: none;cursor: pointer;position: absolute;" onclick="$(this).parent().parent().remove()">X</span>';
+        var textAreaHtml = '<span contenteditable="true"  class="doc-title" name="doc_title" style="width:90%;overflow: hidden; word-wrap: break-word; resize: none; height: 48px;margin:0 auto; text-align:center" id="aaaaa">文档标题</span><span  class="closeSpan" style=" outline: none;cursor: pointer;position: absolute;top:0px; right:1%;" onclick="$(this).parent().empty()">X</span>';
 
         $titleCanvas.innerHTML = textAreaHtml;
 

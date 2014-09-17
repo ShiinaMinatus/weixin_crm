@@ -27,6 +27,8 @@
             .form-edit-doc .form-item .form-field {
                 margin: 0;
             }
+
+            
         </style>
     </head>
     <body>
@@ -36,12 +38,13 @@
 
 
         <div class="form-field">
-            <textarea  class="doc-title " name="doc_title" style="overflow: hidden; word-wrap: break-word; resize: none; height: 48px;" id='titleArea1'></textarea>
+          
+            <div id='titleArea1' style='outline:none; height: 48px;' contenteditable="true"  class="init_class doc-title" name="doc_title"><div  style="width:90%;overflow: hidden; word-wrap: break-word; resize: none; height: 48px;margin:0 auto; text-align:center;outline: none;" id="aaaaa">文档标题</div></div>
         </div>
 
         <div style='height: 10px;'>&nbsp;</div>
-        <div class="registerWarp init_class"  >
-            <textarea id="edit" placeholder="这里输入内容" style='width: 100%; height: 100%;' ></textarea>
+        <div class="registerWarp init_class doc_title"  >
+            <textarea id="edit" placeholder="这里输入内容" style='width: 100%; height: 300px' ></textarea>
         </div>
 
 

@@ -27,11 +27,25 @@
 
         <style>
 
-
             .init_class{
 
                 width: 900px;  height: 1200px;
             }
+
+              .doc-title{
+
+            border: 0 none; display: block;
+            font-size: 22px;
+            font-weight: bold;
+            line-height: 43px;
+            min-height: 22px;
+            overflow: hidden;
+            resize: none;
+            text-align: center;
+           
+
+        }
+
 
         </style>
 
@@ -197,9 +211,14 @@
 
                                     $('#visual_id').show();
 
+
                                     if (companyContent_ != '') {
 
-                                        $('#edit').html(companyContent);
+                                          
+
+                                        $('#edit').html(companyContent_);
+
+
 
                                         $('#titleArea1').html(companyTitle)
 
@@ -268,8 +287,6 @@
                                 var type = $('#type').val();
 
 
-
-
                                 if (type == 0) {
 
 
@@ -281,18 +298,12 @@
 
                                     var titleContent = $('#titleArea1').html();
 
-                                    var html = document.getElementById('edit').value; // 原生API
+                                    var html134 = editor.html();    
 
-                                    html = editor.html();
 
-                                    editor.sync();
-
-                                    html = document.getElementById('edit').value; // 原生API
-
-                                    var packContent = html;
+                                    var packContent = '<div>'+html134+'</div>';
 
                                 }
-
 
 
                                 var bobyPreview = titleContent + packContent;
