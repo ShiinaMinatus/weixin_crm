@@ -1,16 +1,16 @@
-<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-17 17:06:53
+<?php /* Smarty version Smarty-3.0-RC2, created on 2014-09-17 17:43:57
          compiled from "/web/www/weixin_crm//templates/yajie/company/addcompany.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:141446236654194f2d28d9d0-15798289%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:1102114582541957dd56ec58-90858918%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'adbaca0286f4871400e3a7ac9286555c312a64ba' => 
     array (
       0 => '/web/www/weixin_crm//templates/yajie/company/addcompany.tpl',
-      1 => 1410944712,
+      1 => 1410947012,
     ),
   ),
-  'nocache_hash' => '141446236654194f2d28d9d0-15798289',
+  'nocache_hash' => '1102114582541957dd56ec58-90858918',
   'function' => 
   array (
   ),
@@ -122,8 +122,10 @@ $_smarty_tpl->decodeProperties(array (
                 <form class="form-horizontal" action="<?php echo $_smarty_tpl->getVariable('WebSiteUrl')->value;?>
 /pageredirst.php?action=company&amp;functionname=companyEdit" method="post" id='form1' name='form1'>
 
-                    <input type='hidden' name='activity_html' id='activity_html' value='<?php echo $_smarty_tpl->getVariable('info')->value['companyContent'];?>
-'>
+                    <div style='display: none;' id='activity_html_content'><?php echo $_smarty_tpl->getVariable('info')->value['companyContent'];?>
+</div>
+
+                    <input type='hidden' name='activity_html' id='activity_html' value=>
 
                     <input type='hidden' name='activity_html_' id='activity_html_' value='<?php echo $_smarty_tpl->getVariable('info')->value['companyTextOriginal'];?>
 '>
@@ -316,6 +318,8 @@ $_smarty_tpl->decodeProperties(array (
 
                                 var type = $('#type').val();
 
+                                $('.uploadify-queue').remove();
+
 
                                 if (type == 0) {
 
@@ -353,6 +357,8 @@ $_smarty_tpl->decodeProperties(array (
                                 $('.modal-body').find('.closeSpan').remove();
 
                                 $('.modal-body').find("[contenteditable = 'true']").attr('contenteditable', 'false');
+
+                                $('.modal-body').find('.uploadify').html();
 
                                 $('.modal-body .upload').remove();
 

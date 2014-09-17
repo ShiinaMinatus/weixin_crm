@@ -99,7 +99,9 @@
             <div >
                 <form class="form-horizontal" action="{$WebSiteUrl}/pageredirst.php?action=company&amp;functionname=companyEdit" method="post" id='form1' name='form1'>
 
-                    <input type='hidden' name='activity_html' id='activity_html' value='{$info.companyContent}'>
+                    <div style='display: none;' id='activity_html_content'>{$info.companyContent}</div>
+
+                    <input type='hidden' name='activity_html' id='activity_html' value=>
 
                     <input type='hidden' name='activity_html_' id='activity_html_' value='{$info.companyTextOriginal}'>
 
@@ -286,6 +288,8 @@
 
                                 var type = $('#type').val();
 
+                                $('.uploadify-queue').remove();
+
 
                                 if (type == 0) {
 
@@ -323,6 +327,8 @@
                                 $('.modal-body').find('.closeSpan').remove();
 
                                 $('.modal-body').find("[contenteditable = 'true']").attr('contenteditable', 'false');
+
+                                $('.modal-body').find('.uploadify').html();
 
                                 $('.modal-body .upload').remove();
 
