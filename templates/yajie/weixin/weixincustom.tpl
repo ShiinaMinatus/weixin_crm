@@ -25,11 +25,21 @@
         display: none;
     }
 </style>
-   {if $printMessage neq ""}
-        <div class="sortBar alert alert-warning"><label for="inputPassword3" class="control-label">{$printMessage}</label></div>
-    {/if}
-  
-<div id="errorMessage" class="alert alert-danger errorMessage"></div>
+<div class="userMangerTitle">微信内容配置</div>
+<div class="alert alert-info" role="alert" style='font-size: 14px;width: 600px;margin: 0 auto;line-height: 30px;'>
+
+    <div style='line-height: 30px'>微信内容:编辑会员成功消费后发送至微信客户端的消息，消费的金额请使用「&lt;money>」替代，系统将会自动将其转换为对应的消费金额</div>
+
+
+    <div style=''>积分奖励:积分将以消费金额1：N的形式转换、n请填写正整数，例如：填写5即每消费1元获得5积分</div>
+
+</div>
+<div style="height: 25px;"></div>
+{if $printMessage neq ""}
+    <div class="sortBar alert alert-warning" style="width: 600px;text-align: center"><label for="inputPassword3" class="control-label">{$printMessage}</label></div>
+{/if}
+
+<div id="errorMessage" class="alert alert-danger errorMessage" style="width: 600px;text-align: center"></div>
 <div style="margin-left:15px;margin-top:15px;">
     <div style="width: 370px; ">
         <form class="form-horizontal" action="{$WebSiteUrl}/pageredirst.php?action=weixin&functionname=weixinSend" method="post" id='form1'>
@@ -52,7 +62,7 @@
 
             <p style="text-align: center;"><button id="addButton" type="button" class="btn btn-info">确认</button></p>
 
-            
+
         </form>
 
     </div>
@@ -60,10 +70,10 @@
 
 <script>
 
-  var reg = /^\d*$/
+    var reg = /^\d*$/
 
 
-  $('#addButton').click(function(){
+    $('#addButton').click(function(){
 
     var errorMessage = '';
 
@@ -74,37 +84,37 @@
 
     if(content == ''){
 
-        errorMessage += '微信内容不能为空<br />';
+    errorMessage += '微信内容不能为空<br />';
 
-    }
+}
 
-    if(val == ''){
+if(val == ''){
 
-        errorMessage += '积分不能为空\n';
+errorMessage += '积分不能为空\n';
 
-    }
-
-
-     if( !reg.test(val)){
+}
 
 
-         errorMessage += '只能输入数字！\n';
-     }
+if( !reg.test(val)){
 
 
-     if(errorMessage != ''){
+errorMessage += '只能输入数字！\n';
+}
 
-          $("#errorMessage").show();
+
+if(errorMessage != ''){
+
+$("#errorMessage").show();
 
           
-         $('#errorMessage').html(errorMessage);
+$('#errorMessage').html(errorMessage);
 
-     } else{
+} else{
 
-        $('#form1').submit();
+$('#form1').submit();
 
-     }
+}
 
 
-  })
+})
 </script>
