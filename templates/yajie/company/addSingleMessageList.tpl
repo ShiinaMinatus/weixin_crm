@@ -52,7 +52,6 @@
                 background-color: #FFF;
             }
             .frm_input {
-                height: 22px;
                 margin: 4px 0px;
             }
             .frm_input, .frm_textarea {
