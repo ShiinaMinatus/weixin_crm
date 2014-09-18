@@ -110,7 +110,7 @@
 
                                             <div class='left-a' >
 
-                                                <a  style='' href="{$WebSiteUrl}/pageredirst.php?action=user&functionname=pointAndMoneyManage" target="mainFrame" class="left-fontSmall" >消费积分管理</a>
+                                                <a  style='' href="{$WebSiteUrl}/pageredirst.php?action=user&functionname=pointAndMoneyManage" target="mainFrame" class="left-fontSmall" >积分消费</a>
 
                                             </div>
 

@@ -26,5 +26,13 @@ function getTelRegex(data){
     var regex = /\d{3}-\d{8}|\d{4}-\d{7}/;
     return regex.test(data);
 }
+function cardRegex(data){
+    var regex = /([a]|[A])\d{5}$/;
+    return regex.test(data);
+} 
+function realNumberWithPonitTwo(data){
+    var regex = /^[0-9]+(.[0-9]{1,2})?$/;
+    return regex.test(data);
+}
 
-
+ 

@@ -32,7 +32,7 @@ class userController implements User {
         $_ENV['smarty']->assign('pages', $page);
         $_ENV['smarty']->assign('errorMessage', $this->errorMessage);
 
-        
+
 
         $_ENV['smarty']->display('userList');
     }
@@ -437,7 +437,6 @@ class userController implements User {
                 $user_pointer_record = new userPointerRecordModel();
 
                 $user_pointer_record->addRecord($user_id, 1, (int) $integration, 'crm');
-
             }
         }
     }
@@ -656,16 +655,14 @@ class userController implements User {
                 $userId = $userMessage["user_id"];
                 $userOpenId = $userMessage["user_open_id"]; //open id
                 if (is_numeric($moneyNum)) {
-                    $reductionReturn = $this->reductionMoney($userId, $moneyNum,"消费扣款");
-                    if (!$reductionReturn) {
-                        //再次添加发送微信消息
-
-                        sendWeixinCustom($moneyNum,$userOpenId,$userId);
-
-                        $printMessage = "扣款成功";
-                    } else {
-                        $printMessage = "用户余额不足";
-                    }
+                    sendWeixinCustom($moneyNum, $userOpenId, $userId);
+                    $printMessage = "操作成功";
+//                    $reductionReturn = $this->reductionMoney($userId, $moneyNum, "消费扣款");
+//                    if (!$reductionReturn) {
+//                        //再次添加发送微信消息
+//                    } else {
+//                        $printMessage = "用户余额不足";
+//                    }
                 } else {
                     $printMessage = "输入金额有误请重试";
                 }
