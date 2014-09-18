@@ -85,7 +85,7 @@ class companyController {
                 $textCache = $companyInfo->vars;
                 $text = stripslashes($textCache["companyText"]);
             }
-            
+
             $_ENV['smarty']->assign('text', $text);
 
             $_ENV['smarty']->assign('info', $textCache);
@@ -438,7 +438,7 @@ class companyController {
 
                 $messageItemarray['author'] = urlencode('');
 
-                $messageItemarray['content_source_url'] = urlencode(WebSiteUrl.'?g='.$_SESSION['weixin_crm_source'].'&a=company&v=groups&id='.$messageItem['id']);
+                $messageItemarray['content_source_url'] = urlencode(WebSiteUrl . '?g=' . $_SESSION['weixin_crm_source'] . '&a=company&v=groups&id=' . $messageItem['id']);
 
 
                 $messageItemarray['digest'] = urlencode('aaaaa');
@@ -523,6 +523,23 @@ class companyController {
                 // }
             }
         }
+    }
+
+    public function addPageFoot() {
+        $message = "";
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $companyInfo = new companyInfoModel();
+            $companyInfo->initialize();
+            $data['companyPageFoot'] = $_POST['activity_html'];
+            $companyInfo->update($data);
+            $message = "微信消息页脚修改成功";
+        }
+        $companyInfo = new companyInfoModel();
+        $companyInfo->initialize();
+        $footText = $companyInfo->vars;
+        $_ENV['smarty']->assign('printMessage', $message);
+        $_ENV['smarty']->assign('companyPageFoot', $footText['companyPageFoot']);
+        $_ENV['smarty']->display('addPageFoot');
     }
 
 }

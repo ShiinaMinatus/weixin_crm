@@ -584,6 +584,18 @@
 
                                         </td>
                                     </tr>
+                                    <tr>
+
+                                        <td width="100%">
+
+                                            <div class='left-a' >
+
+                                                <a  style='' href="{$WebSiteUrl}/pageredirst.php?action=company&functionname=addPageFoot" target="mainFrame" class="left-fontSmall" >微信页脚设置</a>
+
+                                            </div>
+
+                                        </td>
+                                    </tr>
 
 
 
