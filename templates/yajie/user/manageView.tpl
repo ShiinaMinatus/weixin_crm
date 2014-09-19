@@ -201,20 +201,24 @@ $("#anotherHint").hide();
 var cardId=$("#userCard").val().toUpperCase();
 var moneyNumber=$("#userMoney").val();
 if(cardId==""||moneyNumber==""){
+alert("a");
 $("#jsError").html("卡号与金额都不能为空");
 $("#jsErrorMessage").css("display","block");    
 return false;
 }
 else if(!getIntRegex($("#userMoney").val())){
+alert("b");
 $("#jsError").html("金额必须为数字");
 $("#jsErrorMessage").css("display","block");   
 return false;
-}else if(!cardRegex($(this).val())){
-//$("#jsError").html("请填写正确的卡号例如A00000");
-//$("#jsErrorMessage").css("display","block");   
+}else if(!cardRegex($("#userCard").val())){
+$("#jsError").html("请填写正确的卡号例如A00000");
+$("#jsErrorMessage").css("display","block");   
+
 return false;
 }  
 else{
+
 $("#cardId").html(cardId);
 $("#moneyNumber").html(moneyNumber);
 var checkLink= $("#checkTrue").attr("href");

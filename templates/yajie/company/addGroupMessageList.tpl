@@ -89,17 +89,11 @@
 
         <div id="errorMessageDiv" class="sortBar alert alert-warning" style="text-align: center;display: none"><label id="errorMessage" for="inputPassword3" class="control-label"></label></div>
 
-        <div style="margin-left: 25px;margin-right: 25px;">
-            <input type="radio" id='1' name="iCheck" value='0' {if $info.companyType == 0}  checked {/if}>智能模版&nbsp;&nbsp;&nbsp;
-
-            <input type="radio" id='2' name="iCheck" value='1' {if $info.companyType == 1}  checked {/if}>自定义模版&nbsp;&nbsp;&nbsp;
-
+        <div style="margin-right: 25px;margin-left: 25px;">
             <button   id='saveButton' class='btn  btn-primary' type='button'>保存</button>
-
-
-
         </div>
 
+        <div style="height: 25px;"></div>
 
         <div style="margin-left: 25px;margin-right: 25px;">
 
@@ -138,7 +132,12 @@
                             <div style="height: 25px;"></div>
                             <div class="appmsg_edit_item">
                                 <label for="" class="frm_label">正文</label>                          
-                                <button    id='previewButton' class='btn btn-primary' type='button'>预览</button>
+                                <div style="margin-right: 25px;">
+                                    <input type="radio" id='1' name="iCheck" value='0' {if $info.companyType == 0}  checked {/if}>智能模版&nbsp;&nbsp;&nbsp;
+
+                                    <input type="radio" id='2' name="iCheck" value='1' {if $info.companyType == 1}  checked {/if}>自定义模版
+                                    <button style="margin-left: 25px;"    id='previewButton' class='btn btn-primary' type='button'>预览</button>
+                                </div>
                                 <div style="height: 25px;"></div>
                                 <div>
 
