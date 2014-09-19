@@ -275,16 +275,17 @@ class companyController {
         $_ENV['smarty']->display('addGroupMessageList');
     }
 
-    public function saveGropuMessageTitle() {
+    public function saveGropuMessage1() {
         $errorMessage = '';
         $groupMessage = new groupMessageModel();
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $data['message_title'] = $_POST['title'];
             $data['message_text'] = $_POST['activity_html'];
-            $data['message_type'] = 1; //为第一条
+
             $data['MEDIA_ID'] = $_POST['meida_id'];
             $data['message_pic'] = $_POST['uploadUrl'];
             $data['create_time'] = time();
+            $data['message_type'] = 1; //为第一条
             $returnId = $groupMessage->insert($data);
             $dataId['message_id'] = $returnId;
             $groupMessage->initialize("id = '" . $returnId . "'");
@@ -292,6 +293,38 @@ class companyController {
             $errorMessage = "添加群发消息组成功";
             $_ENV['smarty']->assign('printMessage', $errorMessage);
             $this->groupMessage();
+        }
+    }
+
+    public function saveGropuMessage() {
+        $errorMessage = '';
+        $groupMessage = new groupMessageModel();
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $data['message_title'] = $_POST['title'];
+            $data['message_text'] = $_POST['activity_html'];
+            $data['create_time'] = time();
+            $data['message_profile'] = $_POST['profile'];
+            $data['MEDIA_ID'] = $_POST['meida_id'];
+            $data['message_pic'] = $_POST['uploadUrl'];
+            if (isset($_GET["messageId"])) {
+                $data['message_type'] = 2; //为子条目
+                $data['message_id'] = $_GET["messageId"];
+                $returnId = $groupMessage->insert($data);
+                $errorMessage = '添加消息成功！';
+                $_ENV['smarty']->assign('printMessage', $errorMessage);
+                $this->singleMessageList();
+            } else {
+                $data['message_type'] = 1; //为第一条
+                $returnId = $groupMessage->insert($data);
+                $dataId['message_id'] = $returnId;
+                $groupMessage->initialize("id = '" . $returnId . "'");
+                $groupMessage->update($dataId);
+                $errorMessage = "添加消息成功";
+                $_ENV['smarty']->assign('printMessage', $errorMessage);
+                $this->groupMessage();
+            }
+        } else {
+            $this->singleMessageList();
         }
     }
 
@@ -358,33 +391,6 @@ class companyController {
         }
     }
 
-    public function saveSingleMessageList() {
-        $errorMessage = '';
-        $groupMessage = new groupMessageModel();
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            if (isset($_GET["messageId"])) {
-                $data['message_title'] = $_POST['title'];
-                $data['message_text'] = $_POST['activity_html'];
-                $data['message_type'] = 2; //为子条目
-                $data['create_time'] = time();
-
-                $data['MEDIA_ID'] = $_POST['meida_id'];
-
-                $data['message_pic'] = $_POST['uploadUrl'];
-
-                $data['message_id'] = $_GET["messageId"];
-                $returnId = $groupMessage->insert($data);
-                $errorMessage = '添加消息成功！';
-            } else {
-                $errorMessage = '参数获取发生了错误，请重试';
-            }
-            $_ENV['smarty']->assign('printMessage', $errorMessage);
-            $this->singleMessageList();
-        } else {
-            $this->singleMessageList();
-        }
-    }
-
     public function delMessageGroup() {
         if (isset($_GET["messageId"])) {
             $groupMessage = new groupMessageModel();
@@ -420,8 +426,11 @@ class companyController {
         if (isset($_GET['messageId'])) {
             $groupMessage = new groupMessageModel();
 
-
-            $groupMessage->initialize("message_id='" . $_GET["messageId"] . "'");
+            if (isset($_GET['singleMessage'])) {
+                $groupMessage->initialize("message_id = '" . $_GET["messageId"] . "' and message_type='1'");
+            } else {
+                $groupMessage->initialize("message_id='" . $_GET["messageId"] . "'");
+            }
             $messageArray = $groupMessage->vars_all;
 
             $postMessageArray = array();

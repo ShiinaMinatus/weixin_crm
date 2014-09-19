@@ -76,6 +76,7 @@
 
             <div style='height: 30px;'>标题:群发消息标题不能为空</div>
             <div style='height: 30px;'>封面:封面图片为jpg或者jpeg格式，文件容量小于<span style="color: red">64KB</span></div>
+            <div style='height: 30px;'>文章简介:为文章添加一些介绍类的文字</div>
             <div style='height: 30px;'>智能模版:用户使用我们定制的插件</div>
 
             <div>自定义模版:可以让用户快速的制作模版</div>
@@ -91,15 +92,13 @@
 
             <button   id='saveButton' class='btn  btn-primary' type='button'>保存</button>
 
-
-            <button    id='previewButton' class='btn btn-primary' type='button'>预览</button>&nbsp;&nbsp;&nbsp;&nbsp;
         </div>
 
 
         <div style="margin-left: 25px;margin-right: 25px;">
 
             <div >
-                <form class="form-horizontal" action="{$WebSiteUrl}/pageredirst.php?action=company&functionname=saveSingleMessageList&messageId={$messageId}" method="post" id='form1' name='form1'>
+                <form class="form-horizontal" action="{$WebSiteUrl}/pageredirst.php?action=company&functionname=saveGropuMessage&messageId={$messageId}" method="post" id='form1' name='form1'>
                     <div id="messageEditArea">
                         <div id="editArea1" class="editArea">
                             <div class="appmsg_edit_item">
@@ -125,7 +124,15 @@
                                 </div>
                             </div>
                             <div class="appmsg_edit_item">
+                                <label for="" class="frm_label">文章简介</label>
+                                <span class="frm_input_box"><textarea id="profile" name="profile" class="frm_input js_title" ></textarea>
+
+                            </div>
+                            <div style="height: 25px;"></div>
+                            <div class="appmsg_edit_item">
                                 <label for="" class="frm_label">正文</label>
+                                <button    id='previewButton' class='btn btn-primary' type='button'>预览</button>
+                                <div style="height: 25px;"></div>
                                 <div>
 
                                     <div>
@@ -201,7 +208,6 @@
 },
 'onUploadSuccess': function(file, data, response) {
                                         
-alert(data);
                                        
 $("#errorMessageDiv").hide();
 if (data == "code2") {
@@ -209,7 +215,7 @@ $("#errorMessageDiv").show();
 $("#errorMessage").html("上传图片失败，图片格式必须为jpg或者jpge格式");
 } else if (data == "code1") {
 $("#errorMessageDiv").show();
-$("#errorMessage").html("上传图片失败，由于微信限制图片大小必须小于1M");
+$("#errorMessage").html("上传图片失败，由于微信限制图片大小必须小于64k");
 } else {
 var json = eval("(" + data + ")");
 $('#uploadUrl').val(json['path']);
@@ -324,6 +330,18 @@ if ($("#title1").val() == "" || $("#title1").val() == " ") {
 $("#errorMessageDiv").show();
 $("#errorMessage").html("标题名称不能为空");
 return false
+}
+else if($("#profile").val()==""|| $("#profile").val() == " "){
+
+$("#errorMessageDiv").show();
+$("#errorMessage").html("请填写微信文章简介");
+return false;
+}
+else if($("#meida_id").val()==""){
+
+$("#errorMessageDiv").show();
+$("#errorMessage").html("请上传一张微信消息图片");
+return false;
 }
 else {
 

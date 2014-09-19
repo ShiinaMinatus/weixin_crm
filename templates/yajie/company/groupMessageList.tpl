@@ -47,8 +47,9 @@
     <div >添加群发消息:可以用来添加一组群发消息</div>
 
 
-    <div >详细编辑群发消息:点击标题列的超链接或者点击群发列下对应的进入按钮进入相应的群发消息组</div>
+    <div >转为多图文:点击转为多图文列下对应的进入按钮 进入多图文群发消息页面</div>
     <div >删除群发消息:直接删除该组下所有群发消息</div>
+    <div >群发:点击发送按钮直接群发所点选行的单图文消息</div>
     <div> 您当月还可发送<span style="color:red;">{$sendCount}</span>条群发消息</div>
 </div>
 <div style="height: 50px;"></div>
@@ -58,25 +59,22 @@
 {/if}
 <div class="dataArea">
 
-    <button  class="btn btn-primary" style="color:white;border-radius:0px;height: 32px; text-align: center; margin-top: -3px;" type="button" onclick="window.location.href='{$WebSiteUrl}/pageredirst.php?action=company&functionname=addGroupMessageList'">添加群发消息</button>
+    <button  class="btn btn-primary" style="color:white;border-radius:0px;height: 32px; text-align: center; margin-top: -3px;" type="button" onclick="window.location.href='{$WebSiteUrl}/pageredirst.php?action=company&functionname=addGroupMessageList'">创建群发消息</button>
 
     <div style=' height: 10px;'>&nbsp;</div>
 
 
     <table class="table crmTable table-bordered">
-        <tr><th>封面</th><th>标题</th><th>创建时间</th><th>是否发送</th><th>删除</th><th>群发</th></tr>
+        <tr><th>封面</th><th>标题</th><th>创建时间</th><th>删除</th><th>转为多图文</th><th>群发</th></tr>
         {foreach from=$info item=activtyAlls key=key}
             <tr>
                 <td ><img src="{$activtyAlls.message_pic}" style="width: 50px;height: 50px"></td>
                 <td class="shopName"><a href="{$WebSiteUrl}/pageredirst.php?action=company&functionname=singleMessageList&messageId={$activtyAlls.message_id}">{$activtyAlls.message_title}</td>
                 <td>{$activtyAlls.create_time|date_format:"%Y-%m-%d"}</td>
-                {if $activtyAlls.send_type eq 1}
-                    <td>是</td>
-                {else}
-                    <td>否</td>
-                {/if}
                 <td><button data-toggle="modal" data-target="#myModal"  type="button" class="btn btn-primary delLink">删除<span style="display: none" class="shopId" >{$activtyAlls.id}</span></button></td>
                 <td><a href="{$WebSiteUrl}/pageredirst.php?action=company&functionname=singleMessageList&messageId={$activtyAlls.message_id}"><button type="button" class="btn btn-primary delLink">进入</button></a></td>
+
+                <td><a href="{$WebSiteUrl}/pageredirst.php?action=company&functionname=sendGroupMessage&messageId={$activtyAlls.message_id}&singleMessage=1"><button type="button" class="btn btn-primary delLink">发送</button></a></td>
             </tr>
         {/foreach}
     </table>
