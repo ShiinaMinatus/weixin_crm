@@ -73,6 +73,12 @@
     </head>
     <body>
         <div class="userMangerTitle">微信页脚设置</div>
+        <div class="alert alert-info" role="alert" style='font-size: 14px;margin-left: 25px;margin-right: 25px; '>
+
+            <div style='height: 30px;'>用户可以在此处自定义微信内容页脚，保存后将会自动添加至所有微信群发消息正文尾部。
+                如不需要页脚，保存为空即可。</div>
+
+        </div>
         {if $printMessage neq ""}
             <div id="Message" class="sortBar alert alert-warning" style="display: block;text-align: center">{$printMessage}</div>
         {/if}
